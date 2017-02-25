@@ -1,8 +1,6 @@
 $(document).ready(function(){
     var loaded = false;
-
-
-
+//abel test
 // Add Page
     $("#p1").on( "swiperight", function( event ) {
         // alert("swiperight");
