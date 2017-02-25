@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "UTF-8"/>
+	<meta name="description" content=" "/> <!-- max = 200 -->
+	<meta name="keywords" content="search, ethical, etc."/> <!-- max=a thousand -->
+	<meta name="robots" content="index,follow"/><!-- How search engines should index my content -->
+	<!-- <base href="http://localhost/html/"> --> <!-- Default location of all your links -->
+	<link rel="icon" href="bluehex.png"><!-- 16by 16 icon that appear on your tab -->
+	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
+<!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
+	 
+	 <!-- JQuery Mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+
+	<script src="jquery_mobile.js"></script>
+
+
+
+	<title>Every Body Knows</title>
+
+</head>
+<body>
+	<!-- Start of first page -->
+	<div data-role="page" id="p1">
+
+		<div data-role="header" >
+			<h1>EBK's</h1>
+
+			<!-- <a href="#p3" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a> -->
+			<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>
+		
+		<div data-role="popup" id="popupBasic">
+			<p>This is a completely basic popup, no options set.</p>
+		</div>
+
+
+		</div><!-- /header -->
+		
+
+		<div role="main" class="ui-content" >
+			<form id="searchForm" method="GET" action="engine.php" class="ajax">
+				<!-- <button data-role="none" style="width:30%">Button</button> -->
+				<div class="ui-grid-b ui-responsive">
+					<div class="ui-block-a"></div>
+					<div class="ui-block-b">
+						<input type="submit" value="Search"> 
+					</div>
+					<div class="ui-block-c"></div>
+				</div>
+
+				<input type="search" name="query" id="search" placeholder="Search..." required>
+				<input type="range" name="slider-fill" id="slider-fill" value="0" min="0" max="5" step=".5" data-highlight="true"
+				 data-theme="b" data-track-theme="b">
+			</form>
+
+<!-- 			<a href="http://www.google.com/" onclick="window.open(this.href,'_system'); return false;">Google</a> -->
+
+
+		</div><!-- /content -->
+
+		<div data-role="footer" data-position="fixed">
+			<h4>Page Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Start of second page -->
+	<div data-role="page" id="pResults">
+
+		<div data-role="header">
+			<h1>Bar P2</h1>
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content">
+			<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+			<p><a href="#foo">Back to foo</a></p>
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>Page Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+
+	<!-- Start of second page -->
+	<div data-role="page" id="pAdd">
+
+		<div data-role="header">
+			<h1>Add to EBK</h1>
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content">
+
+			<form id="addForm" method="POST" action="add.php" class="ajax">
+				
+				<div class="ui-field-contain">
+				    <label for="title">Title:</label>
+				    <input type="text" name="title" id="title" data-clear-btn="true">
+
+				    <label for="keywords">Keywords:</label>
+				    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
+
+				    <label for="url">Url:</label>
+				    <input type="text" name="url" id="url" data-clear-btn="true">
+
+				    <label for="slider-rating">Rating:</label>
+				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step=".5" data-highlight="true"
+				 	data-theme="b" data-track-theme="b">
+
+				    <label for="textarea">Description:</label>
+					<textarea cols="40" rows="8" name="textarea" id="textarea" ></textarea>
+
+				   <input type="submit" data-inline="true" value="Add" data-icon="plus">
+				   <input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
+			  	</div>
+
+			</form>
+
+		</div><!-- /content -->
+
+		<div data-role="footer" data-position="fixed">
+			<h4>Page Footer</h4>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+
+
+
+
+
+
+
+
+		<!-- Start of second page -->
+	<div data-role="popup" id="p4">
+
+		<div role="main" class="ui-content">
+			<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+			<p><a href="#foo">Back to foo</a></p>
+		</div><!-- /content -->
+	</div><!-- /page -->
+
+
+	
+</body>
+</html>
