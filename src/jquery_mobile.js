@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var loaded = false;
+    var state = "add";
 //abel test
 // Add Page
     $("#p1").on( "swiperight", function( event ) {
@@ -53,6 +54,13 @@ $(document).ready(function(){
         var url = $(this).attr('action'),
             type = $(this).attr('method'),
             data = {};
+        if(url == "add.php"){
+        	state = "add";
+        }
+        else{//searching
+        	state = "search"
+        }
+         console.log("State: " + state);
 
         $(this).find('[name]').each(function (index, value) {
             var name = $(this).attr('name'),
@@ -67,7 +75,16 @@ $(document).ready(function(){
             type:type,
             data: data,
             success: function  (response) {
-                loaded = true;
+            	if(state == "add"){//adding
+            		console.log("Successfull add");
+            		$('#addForm').trigger("reset");
+
+            	}
+            	else{//searching
+            		console.log("Successfull Search");
+            		loaded = true;
+            	}
+
                 // body...
             }
         });
