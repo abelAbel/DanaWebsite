@@ -68,7 +68,8 @@ $(document).ready(function(){
                 data[name] = value;
 
         });
-        console.log(data);
+
+        console.log("Data Array:" );
 
         $.ajax({
             url:url,
@@ -83,6 +84,7 @@ $(document).ready(function(){
             	else{//searching
             		console.log("Successfull Search");
             		loaded = true;
+            		//$("#pResults>.ui-content").html(response);
             	}
 
                 // body...

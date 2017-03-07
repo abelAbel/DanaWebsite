@@ -23,7 +23,12 @@
 					':description'=>$_POST['textarea'],':url_hash'=>md5($_POST['url']));
 
 	if($rows > 0)
-	{}
+	{
+		//update
+		$result = $pdo->prepare("UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash WHERE url_hash=:url_hash");
+		$result = $result->execute($params);
+
+	}
 	else{
 		$result = $pdo->prepare("INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash)");
 		$result = $result->execute($params);
