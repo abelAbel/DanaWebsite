@@ -95,14 +95,14 @@ $(document).ready(function(){
             		//$("#pResults>.ui-content").html(d['0']['title']);
                     console.log(d);
 
+                    $('#p1').css({"background-color": "clear"});
+
                     if(d['total'] == 0)
                     {
                     	finalResult = "0 result found... <hr/>";
-                    	$('#p1').css({"background-color": "clear"});
                     }
-
                     else
-                    { 
+                    {
                     	finalResult = d['total'] + " Result Found <hr/>";
 	                    $.each( d['contents'], function( i, l ){
 				         finalResult+= 
@@ -127,9 +127,9 @@ $(document).ready(function(){
                     	}
 
                     }
-	                    
-	                    console.log(wAvgr);
-	                    $("#pResults>.ui-content").html(finalResult);
+	                
+	                console.log(wAvgr);
+	                $("#pResults>.ui-content").html(finalResult);
 			    }
 
 
