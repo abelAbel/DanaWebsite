@@ -10,6 +10,10 @@
 	$searchInput = $_GET['query'];
 	$searchE = explode(" ",$searchInput);
 	//print_r($searchE);
+	if(count($searchE) == 1)
+	{
+		$searchE = str_split($searchE[0],2);
+	}
 	$params = array();
 	$x = 0;
 	$construct = "";

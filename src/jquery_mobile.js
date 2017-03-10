@@ -85,7 +85,11 @@ $(document).ready(function(){
             	}
             	else
             	{//searching
+            		var wAvgr = 0;
                     var finalResult = "";
+                    var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
+                    var sum = 0;
+
             		console.log("Successfull Search");
             		loaded = true;
             		//$("#pResults>.ui-content").html(d['0']['title']);
@@ -94,10 +98,11 @@ $(document).ready(function(){
                     if(d['total'] == 0)
                     {
                     	finalResult = "0 result found... <hr/>";
+                    	$('#p1').css({"background-color": "clear"});
                     }
 
                     else
-                    {
+                    { 
                     	finalResult = d['total'] + " Result Found <hr/>";
 	                    $.each( d['contents'], function( i, l ){
 				         finalResult+= 
@@ -111,12 +116,20 @@ $(document).ready(function(){
 				                      'Keywords: '+ l['keywords'] + '<br>'+
 				                      'Description: '+ l['description'] + '<br>'+
 				          '</div>';
+				          wAverage[l['rating']]+=1;
 				        });
+				        console.log(wAverage);
+
+				        sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
+                    	if(sum > 0){
+                    		wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
+                    		$('#p1').css({"background-color": "hsl("+hsl_rating(wAvgr)+", 100%, 50%)"});	
+                    	}
 
                     }
-
+	                    
+	                    console.log(wAvgr);
 	                    $("#pResults>.ui-content").html(finalResult);
-	            	    $('#p1').css({"background-color": "hsl("+hsl_rating(d['average'])+", 100%, 50%)"});
 			    }
 
 
