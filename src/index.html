@@ -34,10 +34,10 @@
 
 		<div data-role="header" >
 			<h1>EBK's</h1>
-		
-		<div data-role="popup" id="popupBasic">
-			<p>This is a completely basic popup, no options set.</p>
-		</div>
+<!-- 			        <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
+ -->
+
+			<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-icon-plus ui-btn-icon-notext ui-btn-b ui-mini">icon only button</a> -->
 
 
 		</div><!-- /header -->
@@ -47,7 +47,16 @@
 			<form id="searchForm" method="GET" action="engine.php" class="ajax">
 				<!-- <button data-role="none" style="width:30%">Button</button> -->
 				<div class="ui-grid-b ui-responsive">
-					<div class="ui-block-a"></div>
+					<div class="ui-block-a">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="b">
+				        <select  name="order-choice" id="order-choice" data-mini="true" data-inline="true">
+				            <option value="ASC">Order</option>
+							<option value="DESC">Good to Bad</option>
+				            <option value="ASC">Bad to Good</option>
+				        </select>
+					</fieldset>
+
+					</div>
 					<div class="ui-block-b">
 						<input type="submit" value="Search"> 
 					</div>
@@ -115,7 +124,7 @@
 				    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
 
 				    <label for="url">Url:</label>
-				    <input type="text" name="url" id="url" data-clear-btn="true">
+				    <input type="url" name="url" id="url" data-clear-btn="true">
 
 				    <label for="slider-rating">Rating:</label>
 				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step="1" data-highlight="true"
