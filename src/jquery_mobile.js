@@ -261,7 +261,7 @@ function ajaxResponse(d)
         $("#pResults>.ui-content").html(finalResult);
     }
 
-    // if (state === "add")
+    // if (state === "add") 
     // {
     //     console.log(addStatusText);
     //     $("#popup-area").html(
