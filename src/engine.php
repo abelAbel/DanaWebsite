@@ -55,7 +55,7 @@
 			// }
 
 		    $finalResult['contents'] = $results->fetchAll();
-			$finalResult['average'] = 5;
+			// $finalResult['average'] = 5;
 			$finalResult['total'] = $results->rowCount();
 			//echo $finalResult["contents"];
 			echo json_encode($finalResult);
