@@ -57,8 +57,6 @@ $(document).ready(function(){
             data = {};
         if(url == "add.php"){
           //Ask if they are sure they want to add
-          // addStatusText = "Error occured, please try again later"; //Default to error
-          // theme = 'c'; //Default to error theme
         	state = "add";
 
         }
@@ -81,96 +79,17 @@ $(document).ready(function(){
             type:type,
             data: data,
             dataType:"json",
-            success:function (datas,textStatus,jqXHR) {
-                ajaxResponse(datas);
-       //          var d = datas;
+            success: function (datas,textStatus,jqXHR) {
+                      ajaxResponseProccess(datas);
 
-       //      	if(state == "add"){//adding
-       //      		console.log("Successfull add");
-       //      		//$('#addForm').trigger("reset");
-       //              theme = 'd';
-       //              addStatusText = "Add request successfully sent.....";
-       //              console.log("zzzz: " + addStatusText);
-
-       //      	}
-       //      	else
-       //      	{//searching
-       //      		var wAvgr = 0;
-       //              var finalResult = "";
-       //              var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
-       //              var sum = 0;
-
-       //      		console.log("Successfull Search");
-       //      		loaded = true;
-       //      		//$("#pResults>.ui-content").html(d['0']['title']);
-       //              console.log(d);
-
-       //              $('#p1').css({"background-color": "clear"}); //Clear Background of main page
-
-       //              if(d['total'] <= 0)
-       //              {
-       //              	finalResult = "0 Result Found... <hr/>";
-       //              }
-       //              else
-       //              {
-       //              	finalResult = d['total'] + " Result Found <hr/>";
-	      //               $.each( d['contents'], function( i, l ){
-				   //       finalResult+= 
-				   //       '<div style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
-				   //                    background-color: lightgrey;\
-				   //                    margin-bottom: 10px;\
-				   //                    box-shadow: 5px 5px 5px #888888;">'+
-				   //                    'Title: '+ l['title'] + '<br>'+
-				   //                    'Rating: '+ l['rating'] + '<br>'+
-				   //                    'URL: <a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> <br>'+
-				   //                    'Keywords: '+ l['keywords'] + '<br>'+
-				   //                    'Description: '+ l['description'] + '<br>'+
-				   //        '</div>';
-				   //        wAverage[l['rating']]+=1;
-				   //      });
-				   //      console.log(wAverage);
-
-       //                  //Calulate average
-				   //      sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
-       //              	if(sum > 0){
-       //              		wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
-       //              		$('#p1').css({"background-color": "hsl("+hsl_rating(wAvgr)+", 100%, 50%)"});	
-       //              	}
-
-       //              }
-	                
-	      //           console.log(wAvgr);
-	      //           $("#pResults>.ui-content").html(finalResult);
-			    // }
-
-
-            }, 
+                    }, 
             error: function (jqXHR, exception) {
-                          console.log("Error");
-                          addPopUp("Error occured, please try again later",'c');
+                      console.log("Error");
+                      addPopUp("Error occured, please try again later",'c');
                           // Your error handling logic here..
                     }
 
         });
-
-        // if (state === "add")
-        // {
-        //     console.log(addStatusText);
-        //     $("#popup-area").html(
-        //         '<div data-role="popup" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
-        //             // '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
-        //             '<p><b>'+ addStatusText +'</b></p>\
-        //         </div>'
-        //         ).trigger('create');
-
-        //     $( "#addPopupDiv" ).popup({ 
-        //         afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
-        //             $( "#addPopupDiv" ).popup( "destroy" );
-        //             $( "#popup-area" ).empty();
-        //         }
-        //     });
-        //     $( "#addPopupDiv" ).popup( "open" ); //Show pop up
-        // }
 
         return false;
     });
@@ -198,16 +117,13 @@ function addPopUp(addStatusText,theme)
 
 }
 
-function ajaxResponse(d)
+function ajaxResponseProccess(d)
 {
 
     if(state == "add")
     {//adding
         console.log("Successfull add");
         //$('#addForm').trigger("reset");
-        // theme = 'd';
-        // addStatusText = "Add request successfully sent.....";
-        // console.log("zzzz: " + addStatusText);
         addPopUp("Add request successfully sent.....", 'd');
     }
     else
@@ -221,8 +137,6 @@ function ajaxResponse(d)
         loaded = true;
         //$("#pResults>.ui-content").html(d['0']['title']);
         console.log(d);
-
-        // $('#p1').css({"background-color": "clear"}); //Clear Background of main page
 
         if(d['total'] <= 0)
         {
@@ -260,25 +174,6 @@ function ajaxResponse(d)
         console.log(wAvgr);
         $("#pResults>.ui-content").html(finalResult);
     }
-
-    // if (state === "add") 
-    // {
-    //     console.log(addStatusText);
-    //     $("#popup-area").html(
-    //         '<div data-role="popup" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
-    //             // '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
-    //             '<p><b>'+ addStatusText +'</b></p>\
-    //         </div>'
-    //         ).trigger('create');
-
-    //     $( "#addPopupDiv" ).popup({ 
-    //         afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
-    //             $( "#addPopupDiv" ).popup( "destroy" );
-    //             $( "#popup-area" ).empty();
-    //         }
-    //     });
-    //     $( "#addPopupDiv" ).popup( "open" ); //Show pop up
-    // }
 
 }
 
