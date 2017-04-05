@@ -50,7 +50,7 @@
 					<div class="ui-block-a">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="b">
 				        <select  name="order-choice" id="order-choice" data-mini="true" data-inline="true">
-				            <option value="ASC">Order</option>
+				            <option value="DESC">Order</option>
 							<option value="DESC">Good to Bad</option>
 				            <option value="ASC">Bad to Good</option>
 				        </select>
@@ -123,8 +123,11 @@
 				    <label for="keywords">Keywords:</label>
 				    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
 
-				    <label for="url">Url:</label>
-				    <input type="url" name="url" id="url" data-clear-btn="true">
+				    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
+				     <input  name="url" id="url" data-clear-btn="true">
+				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="https?://.+"> -->
+				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="^(https?://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"> -->
+
 
 				    <label for="slider-rating">Rating:</label>
 				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step="1" data-highlight="true"

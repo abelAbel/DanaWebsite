@@ -124,7 +124,9 @@ function ajaxResponseProccess(d)
     {//adding
         console.log("Successfull add");
         //$('#addForm').trigger("reset");
-        addPopUp("Add request successfully sent.....", 'd');
+        
+        $("#urlErr").text(d['urlErr']);
+        // addPopUp("Add request successfully sent.....", 'd');
     }
     else
     {//searching

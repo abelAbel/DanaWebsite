@@ -1,10 +1,12 @@
 
 <?php 
-	$host = '127.0.0.1'; //127.0.0.1 
-	$db = 'ebk'; //Data base name
-	$userName ='root';
-	$psw = ''; //password
-	$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
+
+// ===============Begin good
+	// $host = '127.0.0.1'; //127.0.0.1 
+	// $db = 'ebk'; //Data base name
+	// $userName ='root';
+	// $psw = ''; //password
+	// $pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 // name="textarea" name="slider-rating" name="url" name="title" name="keywords"
 	// $_POST['title'] = "https://www.google.com";
 	// $_POST['textarea'] = "https://www.google.com";
@@ -12,30 +14,36 @@
 	// $_POST['url'] = "https://www.google.com/#q=shrimp&*";
 	// $_POST['slider-rating'] = "3.5";
 
+// 	$finalResult = array();
+// 	 $finalResult['titleError'] = "";
 
-	$rows = $pdo->query("SELECT * FROM `index` WHERE url_hash='".md5($_POST['url'])."'");
-	//echo "MD5: ".md5($_POST['url']);
-	$rows = $rows->fetchColumn();
-	//echo "Row fetch column: ".$rows;
+// 	 $finalResult['titleError'] = "Invalid";
 
-	$params = array(':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
-					':url'=>$_POST['url'],':slider_rating'=>$_POST['slider-rating'],
-					':description'=>$_POST['textarea'],':url_hash'=>md5($_POST['url']));
+// 	$rows = $pdo->query("SELECT * FROM `index` WHERE url_hash='".md5($_POST['url'])."'");
+// 	//echo "MD5: ".md5($_POST['url']);
+// 	$rows = $rows->fetchColumn();
+// 	//echo "Row fetch column: ".$rows;
 
-	if($rows > 0)
-	{
-		//update
-		$result = $pdo->prepare("UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash WHERE url_hash=:url_hash");
-		$result = $result->execute($params);
+// 	$params = array(':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
+// 					':url'=>$_POST['url'],':slider_rating'=>$_POST['slider-rating'],
+// 					':description'=>$_POST['textarea'],':url_hash'=>md5($_POST['url']));
 
-	}
-	else{
-		$result = $pdo->prepare("INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash)");
-		$result = $result->execute($params);
-	}
+// 	if($rows > 0)
+// 	{
+// 		//update
+// 		$result = $pdo->prepare("UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash WHERE url_hash=:url_hash");
+// 		$result = $result->execute($params);
 
-	echo json_encode("Successfull Add/update");
+// 	}
+// 	else{
+// 		$result = $pdo->prepare("INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash)");
+// 		$result = $result->execute($params);
+// 	}
 
+// 	// echo json_encode("Successfull Add/update");
+// 	echo json_encode($finalResult);
+
+// ===============End good
 
 
 
@@ -67,4 +75,76 @@
 		// ";
 
 		//$pdo -> query("SELECT * FROM index");
+
+
+	require_once('PHPMailer-master/PHPMailerAutoload.php');
+	$mail = new PHPMailer();
+	$mail->isSMTP();
+	$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
+	$mail->SMTPSecure = 'ssl'; //With gmail we need to use SSL else gmail wont send any messages
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = '465'; //465 or 587 or other
+	$mail->isHTML();
+	$mail->Username = 'rapeurabel@gmail.com';
+	$mail->Password = '1FranceAfrica';
+	$mail->SetFrom('NO-REPLY');
+	$mail->Subject = 'Hello world';
+	$mail->Body = 'testing email body';
+	$mail->AddAddress('aamadou194@gmail.com');
+
+	$mail->Send();//send the mail (Limited to 99 messages a day)
+
+
+	function test_input($data)
+	{
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+
+	function add_main()
+	{
+		// define variables and set to empty values
+		// $titleErr = $keywordsErr = $urlErr = $descriptionErr = "Invalid *";
+		$finalResult = array();
+		$finalResult['urlErr'] = "blanker";
+
+		$title = $keywords = $url = $description = "";
+
+		$title = test_input($_POST['title']);
+		$keywords = test_input($_POST['keywords']);
+		$url = test_input($_POST['url']);
+
+		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) 
+		{
+			$finalResult['urlErr'] = "Invalid *";
+			return  json_encode($finalResult);
+			//return;
+		}
+
+		if(!empty($finalResult['urlErr']))
+		{
+				$finalResult['urlErr'] = $url;
+		}
+	   		
+		$description = test_input($_POST['textarea']);
+
+		return json_encode($finalResult);
+		
+	
+
+
+	}
+
+	function validate_form()
+	{
+
+
+
+	}
+
+
+
+		echo add_main();
 ?>
