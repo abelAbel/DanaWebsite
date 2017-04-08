@@ -76,23 +76,60 @@
 
 		//$pdo -> query("SELECT * FROM index");
 
+	if(!isset($_GET['validate'])){
+		require_once('PHPMailer-master/PHPMailerAutoload.php');
+		$mail = new PHPMailer();
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
+		$mail->SMTPSecure = 'ssl'; //With gmail we need to use SSL else gmail wont send any messages
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = '465'; //465 or 587 or other
+		$mail->isHTML();
+		$mail->Username = 'rapeurabel@gmail.com';
+		$mail->Password = '1FranceAfrica';
+		$mail->SetFrom('NO-REPLY');
+		$mail->Subject = 'Testing';
+		// $mail->Body = 'testing email body: <a href="http://localhost/add.php?validate=true">https://wwww.everybodyknows.world/add.php?validate=true</a>';
 
-	require_once('PHPMailer-master/PHPMailerAutoload.php');
-	$mail = new PHPMailer();
-	$mail->isSMTP();
-	$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
-	$mail->SMTPSecure = 'ssl'; //With gmail we need to use SSL else gmail wont send any messages
-	$mail->Host = 'smtp.gmail.com';
-	$mail->Port = '465'; //465 or 587 or other
-	$mail->isHTML();
-	$mail->Username = 'rapeurabel@gmail.com';
-	$mail->Password = '1FranceAfrica';
-	$mail->SetFrom('NO-REPLY');
-	$mail->Subject = 'Hello world';
-	$mail->Body = 'testing email body';
-	$mail->AddAddress('aamadou194@gmail.com');
+	// $_POST['title'] = "https://www.google.com";
+	// $_POST['textarea'] = "https://www.google.com";
+	// $_POST['keywords'] = "https://www.google.com";
+	// $_POST['url'] = "https://www.google.com/#q=shrimp&*";
+	// $_POST['slider-rating'] = "3.5";
+	
+	$mail->Body ='<form method="POST" action="http://localhost/add.php?validate=true" >
+				    Title:<br>
+				    <input type="text" name="title" value="'.$_POST['title'].'" readonly><br>
+				    Keywords:<br>
+				    <input type="text" name="keywords" value="'.$_POST['keywords'].'" readonly><br>
+				    Url:<br>
+				    <input  name="url" value="'.$_POST['url'].'" readonly> <br>
+				    Rating:<br>
+				    <input type="text" name="slider-rating" value="'.$_POST['slider-rating'].'" readonly><br>
+				    Description:<br>
+					<textarea name="textarea" rows="10" cols="90" readonly>'.$_POST['textarea'].'</textarea><br>
+				   <input type="submit" value="Add">
+			    </form>';
+		$mail->AddAddress('aamadou194@gmail.com');
 
-	$mail->Send();//send the mail (Limited to 99 messages a day)
+		$mail->Send();//send the mail (Limited to 99 messages a day)
+
+		echo add_main();
+
+	}
+	else 
+	{
+		echo "Validate = " . $_GET['validate'];
+		echo "<br>Successfully added <br>";
+		echo print_r($_POST);
+		echo $_POST['title'];
+		echo $_POST['textarea'];
+		echo $_POST['keywords'];
+		echo $_POST['url'];
+		echo $_POST['slider-rating'];
+	}
+
+
 
 
 	function test_input($data)
@@ -103,11 +140,19 @@
 	  return $data;
 	}
 
+	function verify()
+	{
+
+	}
 	function add_main()
 	{
 		// define variables and set to empty values
 		// $titleErr = $keywordsErr = $urlErr = $descriptionErr = "Invalid *";
 		$finalResult = array();
+
+
+
+
 		$finalResult['urlErr'] = "blanker";
 
 		$title = $keywords = $url = $description = "";
@@ -125,26 +170,16 @@
 
 		if(!empty($finalResult['urlErr']))
 		{
-				$finalResult['urlErr'] = $url;
+				$finalResult['urlErr'] = "hahahah";
 		}
 	   		
 		$description = test_input($_POST['textarea']);
 
 		return json_encode($finalResult);
+
+
+	}
+
+
 		
-	
-
-
-	}
-
-	function validate_form()
-	{
-
-
-
-	}
-
-
-
-		echo add_main();
 ?>
