@@ -33,7 +33,8 @@
 	<div data-role="page" id="p1">
 
 		<div data-role="header" >
-			<h1>EBK's 2</h1>
+		<button id = "info" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-info ui-btn-icon-notext">Info</button>
+			<h1>EBK's</h1>
 <!-- 			        <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
  -->
 
@@ -64,7 +65,7 @@
 				</div>
 
 				<input type="search" name="query" id="search" placeholder="Search..." required>
-				<input type="range" name="slider-fill" id="slider-fill" value="0" min="0" max="5" step="1" data-highlight="true"
+				<input id = "mPresult-slider"  type="range" disabled="disabled" name="slider-fill" value="" min="0" max="5" step="1" data-highlight="true"
 				 data-theme="b" data-track-theme="b">
 			</form>
 
@@ -91,11 +92,12 @@
 	<!-- Start of second page -->
 	<div data-role="page" id="pResults">
 
-		<div data-role="header">
+		<div id = "rH" data-role="header"  data-position="fixed">
 			<h1>Result Page</h1>
+			<button id = "toTop" onclick="$.mobile.silentScroll(0)" class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-carat-u ui-btn-icon-notext">Top</button>
 		</div><!-- /header -->
 
-		<div role="main" class="ui-content">
+		<div id = "rMainTop" role="main" class="ui-content">
 
 		</div><!-- /content -->
 
@@ -116,33 +118,44 @@
 
 			<form id="addForm" method="POST" action="add.php" class="ajax">
 				
+				<!-- <div class="ui-field-contain"> -->
 				<div class="ui-field-contain">
 				    <label for="title">Title:</label>
-				    <input type="text" name="title" id="title" data-clear-btn="true">
+				    <input type="text" name="title" id="title" data-clear-btn="true" required>
+				</div>
 
+				<div class="ui-field-contain">
 				    <label for="keywords">Keywords:</label>
 				    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
+				</div>
 
+				<div class="ui-field-contain">
 				    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
-				     <input  name="url" id="url" data-clear-btn="true">
+				     <input  name="url" id="url" data-clear-btn="true" required>
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="https?://.+"> -->
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="^(https?://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"> -->
+				</div>
 
-
+				<div class="ui-field-contain">
 				    <label for="slider-rating">Rating:</label>
-				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step="1" data-highlight="true"
-				 	data-theme="b" data-track-theme="b">
+					<select name="slider-rating" id="slider-rating" data-role="slider">
+						 <option value="0">Bad</option>
+					    <option value="5">Good</option>
+					</select>
+<!-- 				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step="1" data-highlight="true"
+				 	data-theme="b" data-track-theme="b"> -->
+				</div>
 
+				<div class="ui-field-contain">
 				    <label for="textarea">Description:</label>
 					<textarea cols="40" rows="8" name="textarea" id="textarea"  ></textarea>
+				</div>
 
-				   <input type="submit" data-inline="true" value="Add" data-icon="plus">
-				   <input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
-			  	</div>
-
+				<input type="submit" data-inline="true" value="Request Add" data-icon="plus">
+				<input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
 			</form>
-			<div id ="popup-area"> </div>
 
+			<div id ="popup-area"> </div> <!-- for good or bad responce for add -->
 <!-- 			<div data-role="popup" id="addPopupDiv" class="ui-content" data-theme="c" >
 				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
 				<p id = "addStatus"></p>

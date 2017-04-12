@@ -6,7 +6,6 @@ var state = "add";
 
 $(document).ready(function(){
 
-
 // Add Page
     $("#p1").on( "swiperight", function( event ) {
         // alert("swiperight");
@@ -55,12 +54,12 @@ $(document).ready(function(){
         var url = $(this).attr('action'),
             type = $(this).attr('method'),
             data = {};
-        if(url == "add.php"){
-          //Ask if they are sure they want to add
+        if(url == "add.php")
+        {//Ask if they are sure they want to add
         	state = "add";
-
         }
-        else{//searching
+        else
+        {//searching
         	state = "search"
         }
          console.log("State new: " + state);
@@ -81,18 +80,39 @@ $(document).ready(function(){
             dataType:"json",
             success: function (datas,textStatus,jqXHR) {
                       ajaxResponseProccess(datas);
-
                     }, 
             error: function (jqXHR, exception) {
                       console.log("Error");
                       addPopUp("Error occured, please try again later",'c');
-                          // Your error handling logic here..
+                      // Your error handling logic here..
                     }
 
         });
 
         return false;
     });
+
+
+    // $(window).scroll(function() {
+    //     if($(this).scrollTop() != 0) {
+    //         $('#toTop').fadeIn();   
+    //         console.log("Fade in"); 
+    //     } else {
+    //         $('#toTop').fadeOut();
+    //         console.log("Fade out"); 
+    //     }
+    // });
+
+    // $('#toTop').click(function() {
+    //     $('body,html').animate({scrollTop:0},800);
+    // }); 
+
+    //  $(document).on("scrollstop",function(){
+    //     // alert("Stopped scrolling!");
+    //      $('#toTop').fadeIn();
+
+    // });         
+
 
 });
 
@@ -122,30 +142,47 @@ function ajaxResponseProccess(d)
 
     if(state == "add")
     {//adding
-        console.log("Successfull add");
-        //$('#addForm').trigger("reset");
-        
-        $("#urlErr").text(d['urlErr']);
-        // addPopUp("Add request successfully sent.....", 'd');
+      console.log("d['urlErr'] -> " + d['urlErr']);
+      console.log("d['email_sent'] -> " +d['email_sent']);
+        if(d['urlErr'] == true)
+        {
+          console.log("Invalid URL");
+          $("#urlErr").text("Invalid *");
+          addPopUp("Invalid URL enterered please try again", 'c');
+        }
+        else if (d['email_sent'] == true)
+        {
+          console.log("Successfull email for add sent");
+          //$('#addForm').trigger("reset");
+          $("#urlErr").text(""); //Clear invalid message
+          addPopUp("Add request successfully sent.....", 'd');
+        }
+        else
+        {
+           addPopUp("!!SYSTEM ERROR PLEASE TRY AGAIN LATTER!!", 'c');
+        }
+
     }
     else
     {//searching
         var wAvgr = 0;
         var finalResult = "";
-        var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
+        // var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
+        var wAverage = {'0':0,'5':0};
         var sum = 0;
 
         console.log("Successfull Search");
         loaded = true;
         //$("#pResults>.ui-content").html(d['0']['title']);
         console.log(d);
+        // $('#toTop').hide(); 
 
-        if(d['total'] <= 0)
-        {
-            finalResult = "0 Result Found... <hr/>";
-            $('#p1').css({"background-color": "#f9f9f9"});
-        }
-        else
+        //Default the values
+        finalResult = "0 Result Found... <hr/>";
+        $('#p1').css({"background-color": "#f9f9f9"});
+        $('#mPresult-slider').val("");
+
+        if( d['total'] > 0)
         {
             finalResult = d['total'] + " Result Found <hr/>";
             $.each( d['contents'], function( i, l ){
@@ -165,15 +202,19 @@ function ajaxResponseProccess(d)
             console.log(wAverage);
 
             //Calulate average
-            sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
+            // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
+            sum = (wAverage['0'] + wAverage['5']); 
             if(sum > 0){
-                wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
-                $('#p1').css({"background-color": "hsl("+hsl_rating(wAvgr)+", 100%, 50%)"});    
+                // wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
+                wAvgr = (wAverage['5']*5)/sum;
+                $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr))+", 100%, 50%)"});    
+                console.log("Sum: " + sum);
+                $('#mPresult-slider').val(Math.round(wAvgr));
             }
 
         }
         
-        console.log(wAvgr);
+        console.log("wAvgr = " + wAvgr);
         $("#pResults>.ui-content").html(finalResult);
     }
 

@@ -37,7 +37,7 @@
 	$results = $pdo->prepare("SELECT * FROM `index` WHERE $construct ORDER BY rating ". $_GET['order-choice']); //ASC|DESC
 	$results->execute($params);
 	//echo "<pre>";
-	//print_r($results->fetchAll());
+	// print_r($results->fetchAll());
 	$finalResult = array();
 	//$finalResult['contents'] = "";
 
