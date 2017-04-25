@@ -148,6 +148,7 @@
 		$finalResult['email_sent'] = false;
 
 		$url = test_input($_POST['url']);
+		// filter_var($url, FILTER_SANITIZE_URL);
 		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) 
 		{
 			$finalResult['urlErr'] = true;
@@ -203,7 +204,7 @@
 		$mail->Port = '465'; //465 or 587 or other
 		$mail->isHTML();
 		$mail->Username = 'rapeurabel@gmail.com';
-		$mail->Password = '1FranceAfrica';
+		$mail->Password = '6FranceAfrica';
 		$mail->SetFrom('rapeurabel@gmail.com');
 		$mail->Subject = 'EBK new add request';
 		$mail->Body = $body;

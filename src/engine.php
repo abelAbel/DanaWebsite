@@ -1,13 +1,40 @@
 
 <?php 
 
+
+function test_input($data) {
+  // echo "Original: " . $data . "<br>";
+  $data = trim($data);
+  // echo "trim: " . $data . "<br>";
+  $data = stripslashes($data);
+  // echo "stripslashes: " . $data . "<br>";
+  $data = htmlspecialchars($data);
+  // echo " htmlspecialchars: " . $data . "<br>";
+  return $data;
+}
+
+function engine()
+{
+	$searchInput = test_input($_GET['query']);
+	if(empty($searchInput))
+	{
+		    // $finalResult['contents'] = "";
+			$finalResult['total'] = 0;
+			return json_encode($finalResult);	
+	}
+
 	$host = '127.0.0.1'; //127.0.0.1 
 	$db = 'ebk'; //Data base name
 	$userName ='root';
 	$psw = ''; //password
 	$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 // name="textarea" name="slider-rating" name="url" name="title" 
-	$searchInput = $_GET['query'];
+	// if(empty(trim($_GET['query'])))
+	// {
+	// 	echo "!!It is not set <br>";
+	// }
+
+	// echo "searchInput = " . $searchInput . "<br>";
 	$searchE = explode(" ",$searchInput);
 	//print_r($searchE);
 	if(count($searchE) == 1)
@@ -63,9 +90,13 @@
 			// $finalResult['average'] = 5;
 			$finalResult['total'] = $results->rowCount();
 			//echo $finalResult["contents"];
-			echo json_encode($finalResult);
+			return json_encode($finalResult);
 			//No result foud
 		//}
+
+}
+
+echo engine();
 
 
 ?>

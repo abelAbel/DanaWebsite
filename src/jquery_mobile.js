@@ -5,7 +5,60 @@ var state = "add";
 // var theme = '';
 
 $(document).ready(function(){
+//Info button
+  $("#info").on("click",function (event) {
+//     addPopUp(
+//       '<h2> Welcome to EBK</h1> <hr>\
+//       <div class="ui-field-contain">\
+//         <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">\
+//             <h3>To request add</h3>\
+//             <img src="img/one-finger-swipe-right.png" alt="swipe right">\
+//             <h3>To see search result(s)</h3>\
+//            <img id = "swipe-left-icon" src="img/one-finger-swipe-left.png" alt="swipe left">\
+//         </fieldset>\
+//       </div>'
+//       , "b");
 
+    addPopUp(
+      '<div class="ui-grid-a ui-responsive">\
+      <h2> Welcome to EBK</h1> <hr>\
+          <div class="ui-block-a">\
+            <h3>To request add</h3>\
+            <img src="img/one-finger-swipe-right.png" alt="swipe right">\
+          </div>\
+          <div class="ui-block-b ">\
+            <h3>To see search result(s)</h3>\
+           <img src="img/one-finger-swipe-left.png" alt="swipe left">\
+          </div>\
+        </div>'
+      , "b");
+
+
+//           <div class="ui-grid-b ui-responsive">
+//           <div class="ui-block-a">
+//           <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">\
+//             <h3>To request add</h3>\
+//             <img src="img/one-finger-swipe-right.png" alt="swipe right">\
+//         </fieldset>\
+//           </div>
+//           <div class="ui-block-b ">
+//           <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">\
+//             <h3>To see search result(s)</h3>\
+//            <img id = "swipe-left-icon" src="img/one-finger-swipe-left.png" alt="swipe left">\
+//         </fieldset>\
+//           </div>
+//           <div class="ui-block-c"></div>
+//         </div>
+
+      //     <h1> Welcome to EBK</h1>\
+      // <hr> \
+      // <h3>TO REQUEST ADD </h3>\
+      // <img src="img/one-finger-swipe-right.png" alt="swipe right">\
+      // <h3>SEE SEACHED RESULT(S)</h3>\
+      // <img src="img/one-finger-swipe-left.png" alt="swipe left">'
+      
+
+  });
 // Add Page
     $("#p1").on( "swiperight", function( event ) {
         // alert("swiperight");
@@ -121,8 +174,8 @@ function addPopUp(addStatusText,theme)
 
   console.log(addStatusText);
   $("#popup-area").html(
-      '<div data-role="popup" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
-          // '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
+      '<div data-role="popup"  data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
+          '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
           '<p><b>'+ addStatusText +'</b></p>\
       </div>'
       ).trigger('create');
@@ -180,7 +233,7 @@ function ajaxResponseProccess(d)
         //Default the values
         finalResult = "0 Result Found... <hr/>";
         $('#p1').css({"background-color": "#f9f9f9"});
-        $('#mPresult-slider').val("");
+        $('#mPresult-slider').val("").slider("refresh");
 
         if( d['total'] > 0)
         {
@@ -209,12 +262,13 @@ function ajaxResponseProccess(d)
                 wAvgr = (wAverage['5']*5)/sum;
                 $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr))+", 100%, 50%)"});    
                 console.log("Sum: " + sum);
-                $('#mPresult-slider').val(Math.round(wAvgr));
+                $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
             }
 
         }
         
         console.log("wAvgr = " + wAvgr);
+        console.log("Math.round(wAvgr) = " + Math.round(wAvgr));
         $("#pResults>.ui-content").html(finalResult);
     }
 
