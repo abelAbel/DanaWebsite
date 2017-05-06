@@ -22,11 +22,11 @@ $(document).ready(function(){
     addPopUp(
       '<div class="ui-grid-a ui-responsive">\
       <h2> Welcome to EBK</h1> <hr>\
-          <div class="ui-block-a">\
+          <div class="ui-block-a photopopup">\
             <h3>To request add</h3>\
             <img src="img/one-finger-swipe-right.png" alt="swipe right">\
           </div>\
-          <div class="ui-block-b ">\
+          <div class="ui-block-b photopopup">\
             <h3>To see search result(s)</h3>\
            <img src="img/one-finger-swipe-left.png" alt="swipe left">\
           </div>\
@@ -164,10 +164,21 @@ $(document).ready(function(){
     //     // alert("Stopped scrolling!");
     //      $('#toTop').fadeIn();
 
-    // });         
+    // });   
+          
+// $( document ).on( "pagecreate", function() {
+//     $( ".photopopup" ).on({
+//         popupbeforeposition: function() {
+//             var maxHeight = $( window ).height() - 60 + "px";
+//             $( ".photopopup img" ).css( "max-height", maxHeight );
+//         }
+//     });
+// });
 
 
 });
+
+
 
 function addPopUp(addStatusText,theme)
 {
@@ -230,10 +241,6 @@ function ajaxResponseProccess(d)
         console.log(d);
         // $('#toTop').hide(); 
 
-        //Default the values
-        finalResult = "0 Result Found... <hr/>";
-        $('#p1').css({"background-color": "#f9f9f9"});
-        $('#mPresult-slider').val("").slider("refresh");
 
         if( d['total'] > 0)
         {
@@ -265,10 +272,19 @@ function ajaxResponseProccess(d)
                 $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
             }
 
+            console.log("wAvgr = " + wAvgr);
+            console.log("Math.round(wAvgr) = " + Math.round(wAvgr));
+
+        }
+        else
+        {
+          //Clear the values to default
+          finalResult = "0 Result Found... <hr/>";
+          $('#p1').css({"background-color": "#f9f9f9"});
+          $('#mPresult-slider').val("").slider("refresh").val("");
         }
         
-        console.log("wAvgr = " + wAvgr);
-        console.log("Math.round(wAvgr) = " + Math.round(wAvgr));
+
         $("#pResults>.ui-content").html(finalResult);
     }
 
