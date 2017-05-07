@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "UTF-8"/>
+	<meta name="description" content=" "/> <!-- max = 200 -->
+	<meta name="keywords" content="search, ethical, etc."/> <!-- max=a thousand -->
+	<meta name="robots" content="index,follow"/><!-- How search engines should index my content -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- <base href="http://localhost/html/"> --> <!-- Default location of all your links -->
+	<link rel="icon" href="bluehex.png"><!-- 16by 16 icon that appear on your tab -->
+	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
+<!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
+	<!-- <script src="swipe.js"></script>-->
+	<title>Every Body Knows</title>
+	<!-- JQUERY MOBILE -->
+	<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<script src="jquery_mobile.js"></script>
+
+</head>
+<body>
+
+<div data-role="page" id="page1" class="swipeleft">
+
+	<div data-role="header">
+		<h1>EBK <br> [EVERY BODY KNOWS] <br> - LOGO</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<!-- <a href="#page2" class="ui-btn ui-shadow ui-corner-all">Page2</a> -->
+			<form method="GET" action="engine.php" class="ajax">
+			<!-- <form method="GET" > -->
+      
+
+				<input id="searchButton" type="submit" value="GO" data-theme="b" data-iconshadow="true" /> <!-- data-inline="true" -->
+        		<!-- <input id="searchButton" type="submit" name="submit" value="GO" data-inline="true" data-theme="b" data-iconshadow="true"> -->
+        		<!-- <a id="searchButton" href="#" class="ui-btn ui-corner-all ui-btn-inline">GO</a> -->
+				<input id="searchInp" type="search" name="searchInput" placeholder="Search" required> 
+
+				<div data-role="fieldcontain">
+					<input max="5" type="range" step=".1" name="rating" id="rating" value="0" min="0">
+					<!-- <input max="255" type="range" name="rating" id="rating" value="0" min="0" > -->
+				</div>
+
+			</form>
+			<button>Send an HTTP POST request to a page and get the result back</button>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+		<h4>!Copyright abelamadou 2016!</h4>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+<div data-role="page" id="page3" class="swiperight">
+
+	<div data-role="header">
+		<h1>EBK [EVERY BODY KNOWS] - LOGO 2</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.2</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>!Copyright abelamadou 2016!</h4>
+	</div><!-- /footer -->
+	
+</div><!-- /page -->
+
+</body>
+</html>

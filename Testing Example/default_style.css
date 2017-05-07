@@ -1,0 +1,101 @@
+/**{
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/
+
+/*#wrapper{
+	background-color: green;
+}*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header, nav, section, article, hgroup, aside, footer{
+ /*makes all of these tags block level elements*/
+    display:block;
+}
+body{
+    /*in some older browser you need to insure website is centered*/
+    text-align: center;/*if don't have, everything will be shifted to the left*/
+    background:gold;
+}
+#wrapper{
+    /*height: 00px;*/
+    /*position: relative;*/
+}
+
+#logo{
+    background: black;
+    color: white;
+    padding:50px 0px 50px 50px;
+    /*text-align: center;*/
+}
+
+#searchForm{
+  /*background: pink;*/
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+form #ebk_field{
+    background: black;
+    height: 200px;
+    color: white;
+    font-weight:bolder; 
+    border-style: dotted;
+    border-color: purple;
+    
+
+}
+
+
+
+#searchButton{
+    margin-top: 10px;
+    font-size: 20px;
+    font-style: oblique;
+}
+
+#searchInp{
+    width: 90%;
+    height: 100%;
+    height: 30px;
+    margin-top: 2%;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: double;
+    margin-bottom: 20px;
+
+
+}
+
+#the_footer{
+    width: 100%;
+    height: 25px;
+    background: purple;
+    position: absolute;
+    bottom: 0px;
+}
+
+/*low resolution, 480px and bellow */
+@media only screen and (max-width: 480px) {
+    body{background: red;}
+    #searchInp{
+        font-size: 15px;
+    }
+}
+/*medium resolution, 481px to 1023px */
+@media only screen and (min-width: 481px) {
+    body{background: green;}
+}
+/*high resolution, 1024px and above*/
+@media only screen and (min-width: 1024px) {
+    body{background: blue;}
+}
