@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="Make sure heroku working&#10;Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search">
+    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="jquery_mobile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="280" column="38" lean-forward="true" selection-start-line="280" selection-start-column="38" selection-end-line="280" selection-end-column="38" />
+            <state relative-caret-position="220">
+              <caret line="292" column="27" lean-forward="false" selection-start-line="292" selection-start-column="27" selection-end-line="292" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -517,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494196183867</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Make sure heroku working&#10;Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search">
+      <created>1494196468446</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1494196468446</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -943,7 +950,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-594">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -951,8 +958,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="280" column="38" lean-forward="true" selection-start-line="280" selection-start-column="38" selection-end-line="280" selection-end-column="38" />
+        <state relative-caret-position="220">
+          <caret line="292" column="27" lean-forward="false" selection-start-line="292" selection-start-column="27" selection-end-line="292" selection-end-column="27" />
           <folding />
         </state>
       </provider>
