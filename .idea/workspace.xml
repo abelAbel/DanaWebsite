@@ -113,6 +113,11 @@
       <pane id="Scratches" />
     </panes>
   </component>
+  <component name="Push.Settings">
+    <excluded-roots>
+      <path value="$PROJECT_DIR$/src" />
+    </excluded-roots>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -505,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494111896766</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search">
+      <created>1494196183867</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1494196183867</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
