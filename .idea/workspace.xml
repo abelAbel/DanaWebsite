@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -550,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494196767335</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Make sure heroku working&#10;Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search">
+      <created>1494196835071</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1494196835071</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
