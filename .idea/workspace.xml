@@ -2,7 +2,334 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/LICENSE" afterPath="$PROJECT_DIR$/PHPMailer-master/LICENSE" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/PHPMailerAutoload.php" afterPath="$PROJECT_DIR$/PHPMailer-master/PHPMailerAutoload.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/VERSION" afterPath="$PROJECT_DIR$/PHPMailer-master/VERSION" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php" afterPath="$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/class.phpmaileroauth.php" afterPath="$PROJECT_DIR$/PHPMailer-master/class.phpmaileroauth.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/class.phpmaileroauthgoogle.php" afterPath="$PROJECT_DIR$/PHPMailer-master/class.phpmaileroauthgoogle.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/class.pop3.php" afterPath="$PROJECT_DIR$/PHPMailer-master/class.pop3.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/class.smtp.php" afterPath="$PROJECT_DIR$/PHPMailer-master/class.smtp.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/composer.json" afterPath="$PROJECT_DIR$/PHPMailer-master/composer.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/composer.lock" afterPath="$PROJECT_DIR$/PHPMailer-master/composer.lock" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/DKIM.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/DKIM.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/code_generator.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/code_generator.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/contactform.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/contactform.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/contents.html" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/contents.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/contentsutf8.html" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/contentsutf8.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/exceptions.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/exceptions.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/gmail.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/gmail.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/gmail_xoauth.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/gmail_xoauth.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/images/phpmailer.png" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/images/phpmailer.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/images/phpmailer_mini.png" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/images/phpmailer_mini.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/index.html" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/mail.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/mail.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/mailing_list.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/mailing_list.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/pop_before_smtp.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/pop_before_smtp.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/scripts/XRegExp.js" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/scripts/XRegExp.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/scripts/shAutoloader.js" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/scripts/shAutoloader.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/scripts/shBrushPhp.js" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/scripts/shBrushPhp.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/scripts/shCore.js" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/scripts/shCore.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/scripts/shLegacy.js" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/scripts/shLegacy.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/send_file_upload.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/send_file_upload.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/send_multiple_file_upload.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/send_multiple_file_upload.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/sendmail.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/sendmail.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/signed-mail.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/signed-mail.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/smtp.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/smtp.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/smtp_check.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/smtp_check.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/smtp_no_auth.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/smtp_no_auth.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/ssl_options.phps" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/ssl_options.phps" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCore.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCore.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreDefault.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreDefault.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreDjango.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreDjango.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreEclipse.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreEclipse.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreEmacs.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreEmacs.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreFadeToGrey.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreFadeToGrey.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreMDUltra.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreMDUltra.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreMidnight.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreMidnight.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shCoreRDark.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shCoreRDark.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeAppleScript.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeAppleScript.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeDefault.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeDefault.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeDjango.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeDjango.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeEclipse.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeEclipse.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeEmacs.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeEmacs.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeFadeToGrey.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeFadeToGrey.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeMDUltra.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeMDUltra.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeMidnight.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeMidnight.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeRDark.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeRDark.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/shThemeVisualStudio.css" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/shThemeVisualStudio.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/examples/styles/wrapping.png" afterPath="$PROJECT_DIR$/PHPMailer-master/examples/styles/wrapping.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/extras/EasyPeasyICS.php" afterPath="$PROJECT_DIR$/PHPMailer-master/extras/EasyPeasyICS.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/extras/README.md" afterPath="$PROJECT_DIR$/PHPMailer-master/extras/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/extras/htmlfilter.php" afterPath="$PROJECT_DIR$/PHPMailer-master/extras/htmlfilter.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/extras/ntlm_sasl_client.php" afterPath="$PROJECT_DIR$/PHPMailer-master/extras/ntlm_sasl_client.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/get_oauth_token.php" afterPath="$PROJECT_DIR$/PHPMailer-master/get_oauth_token.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-am.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-am.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ar.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ar.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-az.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-az.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-be.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-be.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-bg.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-bg.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ca.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ca.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ch.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ch.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-cs.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-cs.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-da.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-da.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-de.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-de.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-el.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-el.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-eo.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-eo.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-es.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-es.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-et.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-et.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-fa.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-fa.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-fi.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-fi.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-fo.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-fo.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-fr.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-fr.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-gl.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-gl.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-he.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-he.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-hr.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-hr.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-hu.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-hu.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-id.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-id.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-it.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-it.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ja.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ja.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ka.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ka.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ko.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ko.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-lt.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-lt.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-lv.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-lv.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ms.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ms.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-nb.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-nb.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-nl.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-nl.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-pl.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-pl.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-pt.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-pt.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-pt_br.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-pt_br.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ro.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ro.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-ru.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-ru.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-sk.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-sk.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-sl.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-sl.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-sr.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-sr.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-sv.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-sv.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-tr.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-tr.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-uk.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-uk.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-vi.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-vi.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-zh.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-zh.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PHPMailer-master/language/phpmailer.lang-zh_cn.php" afterPath="$PROJECT_DIR$/PHPMailer-master/language/phpmailer.lang-zh_cn.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/bluehex.png" afterPath="$PROJECT_DIR$/bluehex.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/default_style.css" afterPath="$PROJECT_DIR$/default_style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/engine.php" afterPath="$PROJECT_DIR$/Testing Example/engine.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/googlelogo.png" afterPath="$PROJECT_DIR$/googlelogo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/index.html" afterPath="$PROJECT_DIR$/Testing Example/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/index_mobile.html" afterPath="$PROJECT_DIR$/Testing Example/index_mobile.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/jquery_mobile.js" afterPath="$PROJECT_DIR$/Testing Example/jquery_mobile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Testing Example/mobile_style.css" afterPath="$PROJECT_DIR$/mobile_style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/add.php" afterPath="$PROJECT_DIR$/add.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/bluehex.png" afterPath="$PROJECT_DIR$/Testing Example/bluehex.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/db_export/index.json" afterPath="$PROJECT_DIR$/db_export/index.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/default_style.css" afterPath="$PROJECT_DIR$/Testing Example/default_style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/engine.php" afterPath="$PROJECT_DIR$/engine.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/googlelogo.png" afterPath="$PROJECT_DIR$/Testing Example/googlelogo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/img/one-finger-swipe-left.png" afterPath="$PROJECT_DIR$/img/one-finger-swipe-left.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/img/one-finger-swipe-right.png" afterPath="$PROJECT_DIR$/img/one-finger-swipe-right.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/index_desktop.html" afterPath="$PROJECT_DIR$/index_desktop.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/jquery_mobile.js" afterPath="$PROJECT_DIR$/jquery_mobile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/mobile_style.css" afterPath="$PROJECT_DIR$/Testing Example/mobile_style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/google.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/google.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/index.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/images/treeview-default-line.gif" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/images/treeview-default-line.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/images/treeview-default.gif" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/images/treeview-default.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/jquery.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/jquery.treeview.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.treeview.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/jquery.treeview.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.treeview.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/app/js/screen.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/screen.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/change_log.txt" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/change_log.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/example_advanced_selector.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_advanced_selector.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/example_basic_selector.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_basic_selector.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/example_callback.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_callback.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/example_extract_html.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_extract_html.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/example_modify_contents.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_modify_contents.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/scraping/example_scraping_digg.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_digg.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/scraping/example_scraping_imdb.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_imdb.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/scraping/example_scraping_slashdot.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_slashdot.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/example/simple_html_dom_utility.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/simple_html_dom_utility.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/css/default.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/css/default.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/css/ui.tabs.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/css/ui.tabs.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/img/tab.png" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/img/tab.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/js/jquery-1.2.3.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/js/jquery-1.2.3.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/js/ui.tabs.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/js/ui.tabs.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/manual.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/manual_api.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual_api.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/manual/manual_faq.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual_faq.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/simple_html_dom.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/simple_html_dom.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/all_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/all_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/callback_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/callback_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/dom_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/dom_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/element_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/element_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/invalid_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/invalid_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/jquery-1.2.3.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/jquery-1.2.3.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/mass_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/mass_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/memory_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/memory_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/misc_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/misc_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/performance_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/performance_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/reader/all_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/all_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/reader/element_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/element_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/reader/memory_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/memory_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/reader/performance_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/performance_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/reader/selector_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/selector_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/selector_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/selector_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/slick_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/slick_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/slickspeed.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/slickspeed.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/std_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/std_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5 2/testcase/strip_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/strip_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/google.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/google.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/index.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/images/treeview-default-line.gif" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/images/treeview-default-line.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/images/treeview-default.gif" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/images/treeview-default.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/jquery.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/jquery.treeview.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.treeview.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/jquery.treeview.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.treeview.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/app/js/screen.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/screen.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/change_log.txt" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/change_log.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/example_advanced_selector.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_advanced_selector.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/example_basic_selector.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_basic_selector.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/example_callback.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_callback.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/example_extract_html.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_extract_html.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/example_modify_contents.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_modify_contents.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/scraping/example_scraping_digg.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_digg.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/scraping/example_scraping_imdb.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_imdb.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/scraping/example_scraping_slashdot.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_slashdot.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/example/simple_html_dom_utility.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/example/simple_html_dom_utility.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/css/default.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/manual/css/default.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/css/ui.tabs.css" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/css/ui.tabs.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/img/tab.png" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/img/tab.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/js/jquery-1.2.3.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/js/jquery-1.2.3.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/js/ui.tabs.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/js/ui.tabs.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/manual.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/manual_api.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual_api.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/manual/manual_faq.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual_faq.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/simple_html_dom.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/simple_html_dom.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/all_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/all_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/callback_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/callback_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/dom_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/dom_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/element_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/element_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/invalid_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/invalid_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/jquery-1.2.3.pack.js" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/jquery-1.2.3.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/mass_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/mass_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/memory_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/memory_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/misc_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/misc_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/performance_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/performance_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/reader/all_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/all_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/reader/element_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/element_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/reader/memory_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/memory_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/reader/performance_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/performance_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/reader/selector_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/selector_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/selector_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/selector_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/slick_test.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/slick_test.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/slickspeed.htm" afterPath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/slickspeed.htm" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/std_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/std_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/simplehtmldom_1_5/testcase/strip_testcase.php" afterPath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/strip_testcase.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/custom_c_d.css" afterPath="$PROJECT_DIR$/themes/custom_c_d.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/custom_c_d.min.css" afterPath="$PROJECT_DIR$/themes/custom_c_d.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/themes/images/ajax-loader.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/action-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/action-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/action-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/action-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/alert-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/alert-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/alert-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/alert-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-l-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-l-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-l-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-l-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-r-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-r-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-r-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-r-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-d-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-d-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-l-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-l-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-l-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-l-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-r-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-r-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-r-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-r-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-l-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-l-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-l-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-l-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-r-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-r-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-r-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-r-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/arrow-u-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/arrow-u-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/audio-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/audio-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/audio-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/audio-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/back-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/back-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/back-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/back-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/bars-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/bars-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/bars-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/bars-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/bullets-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/bullets-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/bullets-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/bullets-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/calendar-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/calendar-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/calendar-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/calendar-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/camera-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/camera-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/camera-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/camera-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-d-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-d-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-d-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-d-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-l-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-l-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-l-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-l-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-r-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-r-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-r-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-r-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-u-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-u-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/carat-u-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/carat-u-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/check-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/check-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/check-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/check-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/clock-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/clock-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/clock-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/clock-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/cloud-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/cloud-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/cloud-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/cloud-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/comment-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/comment-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/comment-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/comment-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/delete-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/delete-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/delete-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/delete-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/edit-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/edit-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/edit-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/edit-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/eye-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/eye-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/eye-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/eye-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/forbidden-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/forbidden-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/forbidden-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/forbidden-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/forward-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/forward-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/forward-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/forward-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/gear-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/gear-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/gear-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/gear-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/grid-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/grid-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/grid-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/grid-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/heart-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/heart-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/heart-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/heart-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/home-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/home-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/home-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/home-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/info-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/info-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/info-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/info-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/location-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/location-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/location-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/location-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/lock-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/lock-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/lock-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/lock-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/mail-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/mail-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/mail-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/mail-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/minus-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/minus-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/minus-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/minus-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/navigation-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/navigation-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/navigation-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/navigation-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/phone-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/phone-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/phone-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/phone-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/plus-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/plus-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/plus-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/plus-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/power-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/power-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/power-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/power-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/recycle-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/recycle-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/recycle-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/recycle-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/refresh-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/refresh-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/refresh-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/refresh-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/search-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/search-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/search-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/search-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/shop-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/shop-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/shop-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/shop-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/star-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/star-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/star-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/star-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/tag-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/tag-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/tag-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/tag-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/user-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/user-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/user-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/user-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/video-black.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/video-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/images/icons-png/video-white.png" afterPath="$PROJECT_DIR$/themes/images/icons-png/video-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/themes/jquery.mobile.icons.min.css" afterPath="$PROJECT_DIR$/themes/jquery.mobile.icons.min.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +346,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="jquery_mobile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+        <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="297" column="10" lean-forward="false" selection-start-line="297" selection-start-column="10" selection-end-line="297" selection-end-column="10" />
@@ -29,7 +356,7 @@
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
               <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
@@ -104,6 +431,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aamad\IdeaProjects\DanaWebsite" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -611,7 +943,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920536" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920536" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3137255" sideWeight="0.498" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -619,7 +951,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -664,7 +996,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5764">
           <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
@@ -672,7 +1004,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81818">
           <caret line="3719" column="36" lean-forward="true" selection-start-line="3719" selection-start-column="36" selection-end-line="3719" selection-end-column="36" />
@@ -688,7 +1020,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5852">
           <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
@@ -696,7 +1028,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -704,7 +1036,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
@@ -720,7 +1052,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5632">
           <caret line="256" column="30" lean-forward="false" selection-start-line="256" selection-start-column="30" selection-end-line="256" selection-end-column="30" />
@@ -728,7 +1060,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -736,7 +1068,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
@@ -752,7 +1084,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3451">
           <caret line="203" column="30" lean-forward="false" selection-start-line="203" selection-start-column="30" selection-end-line="203" selection-end-column="30" />
@@ -760,7 +1092,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62968">
           <caret line="3704" column="8" lean-forward="false" selection-start-line="3704" selection-start-column="8" selection-end-line="3704" selection-end-column="8" />
@@ -768,7 +1100,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -784,7 +1116,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2839">
           <caret line="167" column="33" lean-forward="false" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
@@ -792,7 +1124,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -800,7 +1132,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2346">
           <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
@@ -816,7 +1148,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2839">
           <caret line="167" column="33" lean-forward="false" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
@@ -824,7 +1156,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -832,7 +1164,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2210">
           <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
@@ -848,7 +1180,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -856,7 +1188,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2176">
           <caret line="128" column="31" lean-forward="false" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
@@ -872,7 +1204,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2431">
           <caret line="143" column="10" lean-forward="false" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="10" />
@@ -880,7 +1212,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -896,7 +1228,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3102">
           <caret line="141" column="10" lean-forward="false" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
@@ -904,7 +1236,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -920,7 +1252,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -936,7 +1268,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -944,7 +1276,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -952,35 +1284,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine.php">
+    <entry file="file://$PROJECT_DIR$/engine.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/add.php">
+    <entry file="file://$PROJECT_DIR$/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobile_style.css">
+    <entry file="file://$PROJECT_DIR$/mobile_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index_desktop.html">
+    <entry file="file://$PROJECT_DIR$/index_desktop.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
@@ -988,7 +1320,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
@@ -996,7 +1328,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PHPMailer-master/class.phpmailer.php">
+    <entry file="file://$PROJECT_DIR$/PHPMailer-master/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="3707" column="6" lean-forward="false" selection-start-line="3707" selection-start-column="6" selection-end-line="3707" selection-end-column="6" />
@@ -1004,7 +1336,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jquery_mobile.js">
+    <entry file="file://$PROJECT_DIR$/jquery_mobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="297" column="10" lean-forward="false" selection-start-line="297" selection-start-column="10" selection-end-line="297" selection-end-column="10" />
@@ -1044,7 +1376,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
