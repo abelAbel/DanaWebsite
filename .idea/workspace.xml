@@ -2,341 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DanaWebsite.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/info" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/PHPMailerAutoload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/VERSION" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/class.phpmailer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/class.phpmaileroauth.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/class.phpmaileroauthgoogle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/class.pop3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/class.smtp.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/composer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/composer.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/DKIM.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/code_generator.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/contactform.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/contents.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/contentsutf8.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/exceptions.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/gmail.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/gmail_xoauth.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/images/phpmailer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/images/phpmailer_mini.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/mail.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/mailing_list.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/pop_before_smtp.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/scripts/XRegExp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/scripts/shAutoloader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/scripts/shBrushPhp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/scripts/shCore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/scripts/shLegacy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/send_file_upload.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/send_multiple_file_upload.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/sendmail.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/signed-mail.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/smtp.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/smtp_check.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/smtp_no_auth.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/ssl_options.phps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCore.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreDefault.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreDjango.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreEclipse.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreEmacs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreFadeToGrey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreMDUltra.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreMidnight.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shCoreRDark.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeAppleScript.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeDefault.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeDjango.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeEclipse.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeEmacs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeFadeToGrey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeMDUltra.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeMidnight.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeRDark.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/shThemeVisualStudio.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/examples/styles/wrapping.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/extras/EasyPeasyICS.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/extras/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/extras/htmlfilter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/extras/ntlm_sasl_client.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/get_oauth_token.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-am.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-az.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-be.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-bg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ca.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ch.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-cs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-da.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-de.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-el.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-eo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-es.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-et.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-fa.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-fi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-fo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-fr.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-gl.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-he.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-hr.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-hu.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-id.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-it.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ja.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ka.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ko.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-lt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-lv.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ms.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-nb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-nl.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-pl.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-pt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-pt_br.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ro.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-ru.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-sk.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-sl.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-sr.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-sv.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-tr.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-uk.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-vi.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-zh.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/PHPMailer-master/language/phpmailer.lang-zh_cn.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/bluehex.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/default_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/engine.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/googlelogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/index_mobile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/jquery_mobile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/Testing Example/mobile_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/add.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/bluehex.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/composer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/db_export/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/default_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/engine.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/googlelogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/img/one-finger-swipe-left.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/img/one-finger-swipe-right.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/index_desktop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/info" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/jquery_mobile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/mobile_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/google.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/images/treeview-default-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/images/treeview-default.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/jquery.treeview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/jquery.treeview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/app/js/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/change_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/example_advanced_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/example_basic_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/example_callback.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/example_extract_html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/example_modify_contents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/scraping/example_scraping_digg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/scraping/example_scraping_imdb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/scraping/example_scraping_slashdot.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/example/simple_html_dom_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/css/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/css/ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/img/tab.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/js/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/js/ui.tabs.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/manual.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/manual_api.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/manual/manual_faq.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/simple_html_dom.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/callback_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/dom_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/invalid_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/mass_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/misc_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/reader/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/reader/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/reader/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/reader/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/reader/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/slick_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/slickspeed.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/std_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5 2/testcase/strip_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/google.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/images/treeview-default-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/images/treeview-default.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/jquery.treeview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/jquery.treeview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/app/js/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/change_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/example_advanced_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/example_basic_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/example_callback.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/example_extract_html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/example_modify_contents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/scraping/example_scraping_digg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/scraping/example_scraping_imdb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/scraping/example_scraping_slashdot.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/example/simple_html_dom_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/css/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/css/ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/img/tab.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/js/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/js/ui.tabs.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/manual.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/manual_api.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/manual/manual_faq.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/simple_html_dom.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/callback_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/dom_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/invalid_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/mass_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/misc_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/reader/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/reader/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/reader/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/reader/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/reader/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/slick_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/slickspeed.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/std_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/simplehtmldom_1_5/testcase/strip_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/custom_c_d.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/custom_c_d.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/ajax-loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/action-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/action-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/alert-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/alert-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-d-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/arrow-u-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/audio-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/audio-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/back-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/back-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/bars-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/bars-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/bullets-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/bullets-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/calendar-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/calendar-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/camera-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/camera-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-d-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-d-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-u-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/carat-u-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/check-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/check-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/clock-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/clock-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/cloud-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/cloud-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/comment-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/comment-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/delete-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/delete-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/edit-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/edit-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/eye-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/eye-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/forbidden-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/forbidden-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/forward-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/forward-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/gear-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/gear-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/grid-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/grid-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/heart-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/heart-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/home-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/home-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/info-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/info-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/location-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/location-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/lock-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/lock-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/mail-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/mail-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/minus-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/minus-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/navigation-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/navigation-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/phone-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/phone-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/plus-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/plus-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/power-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/power-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/recycle-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/recycle-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/refresh-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/refresh-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/search-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/search-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/shop-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/shop-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/star-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/star-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/tag-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/tag-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/user-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/user-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/video-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/images/icons-png/video-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/src/themes/jquery.mobile.icons.min.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -916,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494198599121</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Make sure heroku working&#10;Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search">
+      <created>1494198922595</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1494198922595</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -939,7 +611,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920536" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920536" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3137255" sideWeight="0.498" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -947,7 +619,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
