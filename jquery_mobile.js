@@ -24,7 +24,7 @@ $(document).ready(function(){
       <h2> Welcome to EBK</h1> <hr>\
           <div class="ui-block-a photopopup">\
             <h3>To request add</h3>\
-            <img class ="photo" src="img/one-finger-swipe-right.png" alt="swipe right">\
+            <img src="img/one-finger-swipe-right.png" alt="swipe right">\
           </div>\
           <div class="ui-block-b photopopup">\
             <h3>To see search result(s)</h3>\
@@ -213,7 +213,7 @@ function addPopUp(addStatusText,theme)
   //     }
   // });
 
-  if($(".pop-img-load" + name).length != 0) 
+  if($(".pop-img-load").length != 0) 
   {
     console.log("Fired the Load event");
       // Wait with opening the popup until the popup image has been loaded in the DOM.
