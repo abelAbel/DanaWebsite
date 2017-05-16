@@ -20,15 +20,15 @@ $(document).ready(function(){
 //       , "b");
 
     addPopUp(
-      '<div class="ui-grid-a ui-responsive">\
+      '<div class="ui-grid-a ui-responsive pop-img-load">\
       <h2> Welcome to EBK</h1> <hr>\
           <div class="ui-block-a photopopup">\
             <h3>To request add</h3>\
-            <img src="img/one-finger-swipe-right.png" alt="swipe right">\
+            <img class ="photo" src="img/one-finger-swipe-right.png" alt="swipe right">\
           </div>\
           <div class="ui-block-b photopopup">\
             <h3>To see search result(s)</h3>\
-           <img src="img/one-finger-swipe-left.png" alt="swipe left">\
+           <img class ="photo" src="img/one-finger-swipe-left.png" alt="swipe left">\
           </div>\
         </div>'
       , "b");
@@ -107,13 +107,17 @@ $(document).ready(function(){
         var url = $(this).attr('action'),
             type = $(this).attr('method'),
             data = {};
+        var erroMessage = "";
         if(url == "add.php")
         {//Ask if they are sure they want to add
         	state = "add";
+          erroMessage  = "Error occured while adding, try again later";
         }
         else
         {//searching
-        	state = "search"
+        	state = "search";
+          erroMessage = "Error occured while searching, try again later";
+
         }
          console.log("State new: " + state);
 
@@ -136,7 +140,7 @@ $(document).ready(function(){
                     }, 
             error: function (jqXHR, exception) {
                       console.log("Error");
-                      addPopUp("Error occured, please try again later",'c');
+                      addPopUp(erroMessage,'c');
                       // Your error handling logic here..
                     }
 
@@ -176,14 +180,25 @@ $(document).ready(function(){
 // });
 
 
-});
+//     // Remove the popup after it has been closed to manage DOM size
+    $( document ).on( "popupafterclose", ".ui-popup", function() {
+        $( this ).remove();
+          $( "#popup-area" ).empty();
+    });
 
+    /* Instantiate the popup on DOMReady, and enhance its contents */
+    $( "#popup-area" ).enhanceWithin().popup();
+
+
+
+}); //End of DOM ready function
 
 
 function addPopUp(addStatusText,theme)
 {
 
   console.log(addStatusText);
+
   $("#popup-area").html(
       '<div data-role="popup"  data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
           '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
@@ -191,15 +206,87 @@ function addPopUp(addStatusText,theme)
       </div>'
       ).trigger('create');
 
-  $( "#addPopupDiv" ).popup({ 
-      afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
-          $( "#addPopupDiv" ).popup( "destroy" );
-          $( "#popup-area" ).empty();
-      }
-  });
-  $( "#addPopupDiv" ).popup( "open" ); //Show pop up
+  // $( "#addPopupDiv" ).popup({ 
+  //     afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
+  //         $( "#addPopupDiv" ).popup( "destroy" );
+  //         $( "#popup-area" ).empty();
+  //     }
+  // });
+
+  if($(".pop-img-load" + name).length != 0) 
+  {
+    console.log("Fired the Load event");
+      // Wait with opening the popup until the popup image has been loaded in the DOM.
+      // This ensures the popup gets the correct size and position  
+      $( ".photo", "#addPopupDiv").load(function() {
+            // Open the popup
+            $( "#addPopupDiv" ).popup( "open" );
+            // Clear the fallback
+            clearTimeout( fallback );
+        });
+      // Fallback in case the browser doesn't fire a load event
+        var fallback = setTimeout(function() {
+            $( "#addPopupDiv" ).popup( "open" );
+        }, 2000);
+  }
+  else
+    $( "#addPopupDiv" ).popup( "open" ); //Show pop up
 
 }
+
+// function addPopUp(addStatusText,theme)
+// {
+
+//  var target = $( this ),
+//             brand = "Brand",
+//             model = "Model",
+// //             short = target.attr( "id" ),
+//             short = "one-finger-swipe-left",
+//             closebtn = '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>',
+//             header = '<div data-role="header"><h2>' + brand + ' ' + model + '</h2></div>',
+//             img = '<img src="img/' + short + '.png" alt="' + brand + '" class="photo">',
+//             popup = '<div data-role="popup" id="popup-' + short + '" data-short="' + short +'" data-theme="none" data-overlay-theme="a" data-corners="false" data-tolerance="15"></div>';
+//         // Create the popup.
+//         $( header )
+//             .appendTo( $( popup )
+//                 .appendTo( $.mobile.activePage )
+//                 .popup() )
+//             .toolbar()
+//             .before( closebtn )
+//             .after( img );
+//         // Wait with opening the popup until the popup image has been loaded in the DOM.
+//         // This ensures the popup gets the correct size and position
+//         $( ".photo", "#popup-" + short ).load(function() {
+//             // Open the popup
+//             $( "#popup-" + short ).popup( "open" );
+//             // Clear the fallback
+//             clearTimeout( fallback );
+//         });
+//         // Fallback in case the browser doesn't fire a load event
+//         var fallback = setTimeout(function() {
+//             $( "#popup-" + short ).popup( "open" );
+//         }, 2000);
+
+// }
+
+
+//     // Set a max-height to make large images shrink to fit the screen.
+//     $( document ).on( "popupbeforeposition", ".ui-popup", function() {
+//         var image = $( this ).children( "img" ),
+//             height = image.height(),
+//             width = image.width();
+//         // Set height and width attribute of the image
+//         $( this ).attr({ "height": height, "width": width });
+//         // 68px: 2 * 15px for top/bottom tolerance, 38px for the header.
+//         var maxHeight = $( window ).height() - 68 + "px";
+//         $( "img.photo", this ).css( "max-height", maxHeight );
+//     });
+//     // Remove the popup after it has been closed to manage DOM size
+//     $( document ).on( "popupafterclose", ".ui-popup", function() {
+//         $( this ).remove();
+//     });
+
+// ===========================================================
 
 function ajaxResponseProccess(d)
 {
