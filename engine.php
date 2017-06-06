@@ -15,6 +15,12 @@ function test_input($data) {
 
 function engine()
 {
+	$my_env_var = getenv('MY_NAME');
+	$finalResult['contents'] = "Variable -> " . $my_env_var;
+	$finalResult['total'] = 0;	
+	return json_encode($finalResult);
+//===========================================
+
 	$searchInput = test_input($_GET['query']);
 	if(empty($searchInput))
 	{
