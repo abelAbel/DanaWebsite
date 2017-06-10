@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/connect-mysql.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add.php" afterPath="$PROJECT_DIR$/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/engine.php" afterPath="$PROJECT_DIR$/engine.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jquery_mobile.js" afterPath="$PROJECT_DIR$/jquery_mobile.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -590,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494973528992</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Successfully connected to Heroku clearDB and added and queried">
+      <created>1497133865030</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1497133865030</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView">
@@ -656,7 +658,8 @@
     <MESSAGE value="Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search" />
     <MESSAGE value="Make sure heroku working&#10;Finished:&#10; Validate search input&#10; Add info on main page (ish)&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search" />
     <MESSAGE value="Fix popup for info img on main page&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix popup for info img on main page&#10; &#10; Need:&#10; Clean up code&#10; Make it Desktop Friendly&#10;Add auto complete on search" />
+    <MESSAGE value="Successfully connected to Heroku clearDB and added and queried" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully connected to Heroku clearDB and added and queried" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
