@@ -76,6 +76,7 @@
 
 		//$pdo -> query("SELECT * FROM index");
 	
+
 	addPHP();
 
 	function addPHP()
@@ -109,12 +110,13 @@
 		// echo "textarea: ". $_POST['textarea'] . "<br>";
 
 		// ===============Begin good
-		$host = '127.0.0.1'; //127.0.0.1 
-		$db = 'ebk'; //Data base name
-		$userName ='root';
-		$psw = ''; //password
-		$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
+		// $host = '127.0.0.1'; //127.0.0.1 
+		// $db = 'ebk'; //Data base name
+		// $userName ='root';
+		// $psw = ''; //password
+		// $pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 
+		require('connect-mysql.php');
 		$rows = $pdo->query("SELECT * FROM `index` WHERE url_hash='".md5($_POST['url'])."'");
 	// 	//echo "MD5: ".md5($_POST['url']);
 		$rows = $rows->fetchColumn();
@@ -196,6 +198,7 @@
 	function send_email($body)
 	{
 		require_once('PHPMailer-master/PHPMailerAutoload.php');
+		include('..\env.php');
 		$mail = new PHPMailer();
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
@@ -203,12 +206,12 @@
 		$mail->Host = 'smtp.gmail.com';
 		$mail->Port = '465'; //465 or 587 or other
 		$mail->isHTML();
-		$mail->Username = 'rapeurabel@gmail.com';
-		$mail->Password = '6FranceAfrica';
-		$mail->SetFrom('rapeurabel@gmail.com');
+		$mail->Username = getenv('EMAIL_USERNAME');
+		$mail->Password = getenv('EMAIL_PSW');
+		$mail->SetFrom(getenv('EMAIL_USERNAME'));
 		$mail->Subject = 'EBK new add request';
 		$mail->Body = $body;
-		$mail->AddAddress('aamadou194@gmail.com');
+		$mail->AddAddress(getenv('EMAIL_TO'));
 
 		$mail->Send();//send the mail (Limited to 99 messages a day)
 

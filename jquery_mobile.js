@@ -5,6 +5,10 @@ var state = "add";
 // var theme = '';
 
 $(document).ready(function(){
+
+  /* Instantiate the popup on DOMReady, and enhance its contents */
+  $( "#popup-area" ).enhanceWithin().popup();
+
 //Info button
   $("#info").on("click",function (event) {
 //     addPopUp(
@@ -185,9 +189,6 @@ $(document).ready(function(){
         $( this ).remove();
           $( "#popup-area" ).empty();
     });
-
-    /* Instantiate the popup on DOMReady, and enhance its contents */
-    $( "#popup-area" ).enhanceWithin().popup();
 
 
 
@@ -373,6 +374,7 @@ function ajaxResponseProccess(d)
         
 
         $("#pResults>.ui-content").html(finalResult);
+        alert(d['total'] + " Result Found");
     }
 
 }

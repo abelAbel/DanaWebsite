@@ -1,7 +1,6 @@
 
 <?php 
 
-
 function test_input($data) {
   // echo "Original: " . $data . "<br>";
   $data = trim($data);
@@ -15,10 +14,11 @@ function test_input($data) {
 
 function engine()
 {
-	$my_env_var = getenv('MY_NAME');
-	$finalResult['contents'] = "Variable -> " . $my_env_var;
-	$finalResult['total'] = 0;	
-	return json_encode($finalResult);
+	// ===========Testing environment variable from heroku====================
+	// $my_env_var = getenv('MY_NAME');
+	// $finalResult['contents'] = "Variable -> " . $my_env_var;
+	// $finalResult['total'] = 0;	
+	// return json_encode($finalResult);
 //===========================================
 
 	$searchInput = test_input($_GET['query']);
@@ -29,11 +29,13 @@ function engine()
 			return json_encode($finalResult);	
 	}
 
-	$host = '127.0.0.1'; //127.0.0.1 
-	$db = 'ebk'; //Data base name
-	$userName ='root';
-	$psw = ''; //password
-	$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
+	// $host = '127.0.0.1'; //127.0.0.1 
+	// $db = 'ebk'; //Data base name
+	// $userName ='root';
+	// $psw = ''; //password
+	// $pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
+	require('connect-mysql.php');
+
 // name="textarea" name="slider-rating" name="url" name="title" 
 	// if(empty(trim($_GET['query'])))
 	// {
@@ -43,10 +45,10 @@ function engine()
 	// echo "searchInput = " . $searchInput . "<br>";
 	$searchE = explode(" ",$searchInput);
 	//print_r($searchE);
-	if(count($searchE) == 1)
-	{
-		$searchE = str_split($searchE[0],2);
-	}
+	// if(count($searchE) == 1)
+	// {
+	// 	$searchE = str_split($searchE[0],2);
+	// }
 	$params = array();
 	$x = 0;
 	$construct = "";
@@ -54,11 +56,11 @@ function engine()
 		$x++;
 		if($x == 1){
 			// $construct.="title LIKE '%$term%' OR description LIKE '%$term%' OR keywords LIKE '%$term%'";
-			// $construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
-			$construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
+			$construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
+			// $construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
 		}else{
-			// $construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
-			$construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
+			$construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
+			// $construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
 
 		}
 		$params[":search".$x] = $term ;
@@ -69,7 +71,7 @@ function engine()
 	// $results = $pdo->prepare("SELECT * FROM `index` WHERE $construct");
 	$results = $pdo->prepare("SELECT * FROM `index` WHERE $construct ORDER BY rating ". $_GET['order-choice']); //ASC|DESC
 	$results->execute($params);
-	//echo "<pre>";
+	// echo "<pre>";
 	// print_r($results->fetchAll());
 	$finalResult = array();
 	//$finalResult['contents'] = "";
@@ -95,7 +97,9 @@ function engine()
 		    $finalResult['contents'] = $results->fetchAll();
 			// $finalResult['average'] = 5;
 			$finalResult['total'] = $results->rowCount();
-			//echo $finalResult["contents"];
+			// echo $finalResult["contents"];
+				// echo "<pre>";
+				// print_r($finalResult);
 			return json_encode($finalResult);
 			//No result foud
 		//}
