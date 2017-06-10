@@ -171,7 +171,8 @@
 		$description = test_input($_POST['textarea']);
 
 		return (
-				'<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
+				// '<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
+				'<form method="POST" action="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'" >
 				    Title:<br>
 				    <input type="text" name="title" value="'.$title.'" ><br>
 				    Keywords:<br>
@@ -183,7 +184,10 @@
 				    Description:<br>
 					<textarea name="textarea" rows="10" cols="90" >'.$description.'</textarea><br>
 				    <input type="submit" value="Final Add" style = "padding: 25px 50px">
-			    </form>'
+				    <a href="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'"> Hyper link <a/>
+				    <a href="#" onclick="parentNode.submit();return false;">Submit</a>
+			    </form>
+			    '
 			    );
 	}
 
