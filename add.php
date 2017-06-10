@@ -173,15 +173,15 @@
 		return (
 				'<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
 				    Title:<br>
-				    <input type="text" name="title" value="'.$title.'" readonly><br>
+				    <input type="text" name="title" value="'.$title.'" ><br>
 				    Keywords:<br>
-				    <input type="text" name="keywords" value="'.$keywords.'" readonly><br>
+				    <input type="text" name="keywords" value="'.$keywords.'"><br>
 				    Url:<br>
-				    <input  name="url" value="'.$url.'" readonly> <br>
+				    <input  name="url" value="'.$url.'" > <br>
 				    Rating: (Bad = 0 / Good = 5 )<br>
-				    <input type="text" name="slider-rating" value="'.$_POST['slider-rating'].'" readonly><br>
+				    <input type="text" name="slider-rating" value="'.$_POST['slider-rating'].'" ><br>
 				    Description:<br>
-					<textarea name="textarea" rows="10" cols="90" readonly>'.$description.'</textarea><br>
+					<textarea name="textarea" rows="10" cols="90" >'.$description.'</textarea><br>
 				    <input type="submit" value="Final Add" style = "padding: 25px 50px">
 			    </form>'
 			    );
@@ -213,7 +213,17 @@
 		$mail->Body = $body;
 		$mail->AddAddress(getenv('EMAIL_TO'));
 
-		$mail->Send();//send the mail (Limited to 99 messages a day)
+		// $mail->Send();//send the mail (Limited to 99 messages a day)
+		if(!$mail->Send())
+		{
+		   echo "Error sending: " . $mail->ErrorInfo;
+		   exit("Error occured when trying to email!!");
+		}
+		else
+		{
+		   // echo "E-mail sent";
+			return;
+		}
 
 	}
 
