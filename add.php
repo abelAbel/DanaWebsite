@@ -186,6 +186,8 @@
 				    <input type="submit" value="Final Add" style = "padding: 25px 50px">
 				    <a href="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'"> Hyper link <a/>
 				    <a href="#" onclick="parentNode.submit();return false;">Submit</a>
+				    <a href="javascript:frmSubmit();">Submit 2</a>
+				    <a href="#" onClick="this.form.submit()">Submit 3</a>
 			    </form>
 			    '
 			    );
