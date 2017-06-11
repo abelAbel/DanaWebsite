@@ -76,12 +76,14 @@
 
 		//$pdo -> query("SELECT * FROM index");
 	
+	include('..\env.php');
 
 	addPHP();
 
 	function addPHP()
 	{
-		$token = "ebka10ff2d89fd375a7b8f49ea59cbe32407bf880777a6ff8ed783f9699b3c6315146f5da08cad3caa1755469f648eed4b1183720daf3293f44fc9f6d885efdee72ebk";
+		$token = getenv('ADD_TOKEN');
+		// echo $token . '<br>';
 
 		if(!isset($_GET['validate']))
 		{
@@ -99,6 +101,7 @@
 
 	function add_to_ebk()
 	{
+
 		// echo "Validate = " . $_GET['validate'] . "<br>";
 		// echo "Successfully added <br>";
 		// echo print_r($_POST)  . "<br>";
@@ -169,6 +172,7 @@
 		$title = test_input($_POST['title']);
 		$keywords = test_input($_POST['keywords']);
 		$description = test_input($_POST['textarea']);
+		// echo 'Second -> '. $token . '<br>';
 
 		return (
 				// '<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
@@ -184,13 +188,22 @@
 				    Description:<br>
 					<textarea name="textarea" rows="10" cols="90" >'.$description.'</textarea><br>
 				    <input type="submit" value="Final Add" style = "padding: 25px 50px">
-				    <a href="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'"> Hyper link <a/>
-				    <a href="#" onclick="parentNode.submit();return false;">Submit</a>
-				    <a href="javascript:frmSubmit();">Submit 2</a>
-				    <a href="#" onClick="this.form.submit()">Submit 3</a>
 			    </form>
 			    '
 			    );
+
+				// return (
+										// <a href="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'"> Hyper link <a/>
+				// '	<a href="https://everybodyknows.herokuapp.com/confirm_add.php?
+
+					// '	<a href="http://localhost/confirm_add.php?
+				 //    title='.$title.
+				 //    '&keywords='.$keywords.
+				 //    '&url='.$url.
+				 //    '&slider-rating='.$_POST['slider-rating'].
+				 //    '&textarea='.$description.'"> Confirm Add Page</a>'
+			    // );
+
 	}
 
 	function test_input($data)
@@ -204,7 +217,7 @@
 	function send_email($body)
 	{
 		require_once('PHPMailer-master/PHPMailerAutoload.php');
-		include('..\env.php');
+		// include('..\env.php');
 		$mail = new PHPMailer();
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
