@@ -107,7 +107,7 @@ $(document).ready(function(){
 
     $("form.ajax").on("submit",function (event) 
     {
-
+       $.mobile.loading( "show");
         var url = $(this).attr('action'),
             type = $(this).attr('method'),
             data = {};
@@ -141,8 +141,10 @@ $(document).ready(function(){
             dataType:"json",
             success: function (datas,textStatus,jqXHR) {
                       ajaxResponseProccess(datas);
+                      $.mobile.loading( "hide");
                     }, 
             error: function (jqXHR, exception) {
+                      $.mobile.loading( "hide");
                       console.log("Error");
                       addPopUp(erroMessage,'c');
                       // Your error handling logic here..

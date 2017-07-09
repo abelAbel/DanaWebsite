@@ -84,18 +84,21 @@
 	{
 		$token = getenv('ADD_TOKEN');
 		// echo $token . '<br>';
-
-		if(!isset($_GET['validate']))
+		if(isset($_POST['ADD']))
 		{
 			echo add_main($token);
 		}
-		elseif ($_GET['validate'] == $token)
+		elseif(isset($_POST['validation']))
 		{
-			add_to_ebk();
+			if ($_POST['validation'] == $token)
+			{
+				add_to_ebk();
+			}
+			else echo "!!!!!INVALID TOKEN!!!!!";
 		}
 		else
 		{
-			echo "Don't know you...Goodbye";
+			echo "E.K.W Don't know you...Goodbye";
 		}
 	}
 
@@ -140,7 +143,7 @@
 		{ //Add
 			$result = $pdo->prepare("INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash)");
 			$result = $result->execute($params);
-			echo "Successfull Add to EBK";
+			echo "Successfull Add to E.K.W";
 		}
 
 	}
@@ -175,8 +178,8 @@
 		// echo 'Second -> '. $token . '<br>';
 
 		return (
-				// '<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
-				'<form method="POST" action="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'" >
+				// '<form method="POST" action="http://localhost/add.php" >
+				'<form method="POST" action="http://www.everybodyknows.world/add.php" >
 				    Title:<br>
 				    <input type="text" name="title" value="'.$title.'" ><br>
 				    Keywords:<br>
@@ -188,6 +191,7 @@
 				    Description:<br>
 					<textarea name="textarea" rows="10" cols="90" >'.$description.'</textarea><br>
 				    <input type="submit" value="Final Add" style = "padding: 25px 50px">
+				    <input type="hidden" name="validation" value='.$token.'>
 			    </form>
 			    '
 			    );
