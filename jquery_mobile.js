@@ -350,6 +350,7 @@ function ajaxResponseProccess(d)
               wAverage[l['rating']]+=1;
             });
             console.log(wAverage);
+            console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
 
             //Calulate average
             // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
