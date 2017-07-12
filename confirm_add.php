@@ -12,8 +12,8 @@ E-mail: <input type="text" name="email"><br>
 <?php 
 		$token = getenv('ADD_TOKEN');
 			echo 
-				// '<form method="POST" action="https://everybodyknows.herokuapp.com/add.php?validate='.$token.'" >
-				'<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
+				// '<form method="POST" action="http://localhost/add.php?validate='.$token.'" >
+				'<form method="POST" action="http://everybodyknows.world/add.php?validate='.$token.'" >
 				    Title:<br>
 				    <input type="text" name="title" value="'.$_POST['title'].'" ><br>
 				    Keywords:<br>

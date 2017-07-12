@@ -235,6 +235,7 @@
 		$mail->Subject = 'EBK new add request';
 		$mail->Body = $body;
 		$mail->AddAddress(getenv('EMAIL_TO'));
+		$mail->AddCC(getenv('EMAIL_TO2'));
 
 		// $mail->Send();//send the mail (Limited to 99 messages a day)
 		if(!$mail->Send())
