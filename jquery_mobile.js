@@ -4,8 +4,8 @@ var state = "add";
 // var addStatusText = "";
 // var theme = '';
 
-$(document).ready(function(){
-
+// $(document).ready(function(){
+$(document).bind('pageinit',function(){
   /* Instantiate the popup on DOMReady, and enhance its contents */
   $( "#popup-area" ).enhanceWithin().popup();
 
@@ -100,10 +100,10 @@ $(document).ready(function(){
         $( ":mobile-pagecontainer" ).pagecontainer( "change", "#p1", { transition: "slide", reverse: true} );
     });
 
-    $("#slider-fill").on("change",function (e) {
-    	console.log($(this).val());
-         $('#p1').css({"background-color": "hsl("+hsl_rating($(this).val())+", 100%, 50%)"});
-    });
+    // $("#slider-fill").on("change",function (e) {
+    // 	console.log($(this).val());
+    //      $('#p1').css({"background-color": "hsl("+hsl_rating($(this).val())+", 100%, 50%)"});
+    // });
 
     $("form.ajax").on("submit",function (event) 
     {
@@ -192,10 +192,68 @@ $(document).ready(function(){
           $( "#popup-area" ).empty();
     });
 
+   $('#slider-rating').on('change',function (e) {
+         $('#rating-star').rating('update', $(this).val());
+         console.log ($(this).val());
+    });
+
+  /*BootStrap Start-rating section*/
+   $('#mPresult-stars').rating({
+        // starCaptions: {0: 'Unacceptable', 1: 'Questionable', 2: 'Neutral', 3: 'Ok', 4: 'Good', 5: 'Great'},
+        // starCaptionClasses: {0:'label label-default', 1: 'label label-default', 2: 'label label-default', 3: 'label label-default', 4: 'label label-default', 5: 'label label-default'},
+        clearCaption: '',
+        starCaptions: function (val) {return starCaptionRange(val)},
+        starCaptionClasses: function (val) {return 'label label-default';}
+
+    });
+
+    $('#rating-star').rating({
+      // starCaptions: {0: 'Unacceptable', 1: 'Questionable', 2: 'Neutral', 3: 'Ok', 4: 'Good', 5: 'Great'},
+      // starCaptionClasses: {0:'label label-default', 1: 'label label-default', 2: 'label label-default', 3: 'label label-default', 4: 'label label-default', 5: 'label label-default'},
+      clearCaption: '0 - Unacceptable',
+      starCaptions: function (val) {return starCaptionRange(val)},
+      starCaptionClasses: function (val) {
+        if(val >= 0  && val <= 1 )
+          return 'label label-danger';
+        else if (val > 1  && val <= 2 )
+          return 'label label-warning';
+        else if (val > 2  && val <= 3 )
+          return 'label label-info';
+        else if (val > 3  && val <= 4 )
+          return 'label label-primary';
+        else return 'label label-success';
+      }
+
+    });
+
+    $('#rating-star').on('rating.change', function(event, value, caption) {
+      $('#slider-rating').val(value).slider("refresh");
+      console.log(value);
+      console.log(caption);
+
+    });
+    $('#rating-star').on('rating.clear', function(event) {
+      console.log("rating.clear");
+      $('#slider-rating').val(0).slider("refresh");
+    });
+
+
+
 
 
 }); //End of DOM ready function
 
+function starCaptionRange(val) {
+  if(val >= 0  && val <= 1 )
+    return val +' - Unacceptable';
+  else if (val > 1  && val <= 2 )
+    return val +' - Questionable';
+  else if (val > 2  && val <= 3 )
+    return val +' - Neutral';
+  else if (val > 3  && val <= 4 )
+    return val +' - Good';
+  else return val +' - Great';
+}
 
 function addPopUp(addStatusText,theme)
 {
@@ -234,6 +292,8 @@ function addPopUp(addStatusText,theme)
   }
   else
     $( "#addPopupDiv" ).popup( "open" ); //Show pop up
+
+  // $.mobile.resetActivePageHeight();
 
 }
 
@@ -322,7 +382,8 @@ function ajaxResponseProccess(d)
         var wAvgr = 0;
         var finalResult = "";
         // var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
-        var wAverage = {'0':0,'5':0};
+        // var wAverage = {'0':0,'5':0};
+        var wAverage = {};
         var sum = 0;
 
         console.log("Successfull Search");
@@ -347,20 +408,36 @@ function ajaxResponseProccess(d)
                           'Keywords: '+ l['keywords'] + '<br>'+
                           'Description: '+ l['description'] + '<br>'+
               '</div>';
-              wAverage[l['rating']]+=1;
+              // wAverage[l['rating']]+=1;
+              wAverage[l['rating']] = (isNaN(wAverage[l['rating']])) ? 1 : wAverage[l['rating']]+=1;
             });
             console.log(wAverage);
-            console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
+            // console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
 
             //Calulate average
             // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
-            sum = (wAverage['0'] + wAverage['5']); 
+            // sum = (wAverage['0'] + wAverage['5']); 
+            for (x in wAverage) {
+              sum+= wAverage[x];
+              wAvgr += x * wAverage[x];
+            }
+
+            console.log("Sum = " + sum);
+            console.log("wAvgr before divide = " + wAvgr);
+
             if(sum > 0){
                 // wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
-                wAvgr = (wAverage['5']*5)/sum;
+                // wAvgr = (wAverage['5']*5)/sum;
+                wAvgr = wAvgr/sum;
                 $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr))+", 100%, 50%)"});    
-                console.log("Sum: " + sum);
-                $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
+                // console.log("Sum: " + sum);
+                // $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
+                $('#mPresult-stars').rating('update', Math.round(wAvgr * 10)/10);
+                if (wAvgr == 0) {
+                  $('#mPresult-stars').rating('refresh', {clearCaption:'0 - Unacceptable'});
+                }
+
+                
             }
 
             console.log("wAvgr = " + wAvgr);
@@ -372,7 +449,9 @@ function ajaxResponseProccess(d)
           //Clear the values to default
           finalResult = "0 Result Found... <hr/>";
           $('#p1').css({"background-color": "#f9f9f9"});
-          $('#mPresult-slider').val("").slider("refresh").val("");
+          // $('#mPresult-slider').val("").slider("refresh").val("");
+          $('#mPresult-stars').rating('reset');
+          $('#mPresult-stars').rating('refresh', {clearCaption:''});
         }
         
 

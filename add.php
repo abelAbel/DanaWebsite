@@ -186,7 +186,12 @@
 				    <input type="text" name="keywords" value="'.$keywords.'"><br>
 				    Url:<br>
 				    <input  name="url" value="'.$url.'" > <br>
-				    Rating: (Bad = 0 / Good = 5 )<br>
+				    Rating: <br>
+				    >=0 to <= 1  - Unacceptable<br>   
+					> 1 to <= 2  - Questionable<br>
+					> 2 to <= 3  - Neutral<br>
+					> 3 to <= 4  - Good<br>
+					> 4 to <= 5  - Great<br>
 				    <input type="text" name="slider-rating" value="'.$_POST['slider-rating'].'" ><br>
 				    Description:<br>
 					<textarea name="textarea" rows="10" cols="90" >'.$description.'</textarea><br>

@@ -11,17 +11,37 @@
 <!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
 	 
 	 <!-- JQuery Mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<!-- Custom -->
-	<link rel="stylesheet" href="themes/custom_c_d.min.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<!-- 	<link rel="stylesheet" href="themes/custom_c_d.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" /> -->
 	<!-- End Custom -->
-	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<!-- 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	
 
-	<script src="jquery_mobile.js"></script>
+	<script src="jquery_mobile.js"></script> -->
+
+
+    <!-- JQuery Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom -->
+    <link rel="stylesheet" href="themes/custom_c_d.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <!-- End Custom -->
+
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="kartik-v-bootstrap-star-rating-v4.0.1-30-ga779c97/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet"/>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="kartik-v-bootstrap-star-rating-v4.0.1-30-ga779c97/js/star-rating.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    
+
+    <script src="jquery_mobile.js"></script>
 
 
 
@@ -52,8 +72,8 @@
 				<!-- <button data-role="none" style="width:30%">Button</button> -->
 				<div class="ui-grid-b ui-responsive">
 					<div class="ui-block-a">
-					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="b">
-				        <select  name="order-choice" id="order-choice" data-mini="true" data-inline="true">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
+				        <select  name="order-choice" id="order-choice" data-mini="true" data-theme="b" data-inline="true" >
 				            <option value="DESC">Order</option>
 							<option value="DESC">Good to Bad</option>
 				            <option value="ASC">Bad to Good</option>
@@ -68,7 +88,7 @@
 				</div>
 
 				<input type="search" name="query" id="search" placeholder="Search..." required>
-				<input id = "mPresult-slider"  type="range" disabled="disabled" name="slider-fill" value="" min="0" max="5" step="1" data-highlight="true" data-theme="b" data-track-theme="b">
+				<!-- <input id = "mPresult-slider"  type="range" disabled="disabled" name="slider-fill" value="" min="0" max="5" step="1" data-highlight="true" data-theme="b" data-track-theme="b"> -->
 
 								<!-- Practice with width percentage etc... -->
 <!-- 				<div class="ui-grid-a">
@@ -86,10 +106,10 @@
                   <div class="ui-block-b" style="width:20%"><input type="submit" value="Submit" data-theme="a"></div> -->
 			   <!-- </fieldset> -->
 
-
-
-
-
+			   <div class="text-center" align="center">
+			   		<input id="mPresult-stars" value=""  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md" data-show-caption="true" data-display-only="true">
+        			<div class="clearfix"></div>
+			   </div>
 			</form>
 
 <!-- 			<a href="http://www.google.com/" onclick="window.open(this.href,'_system'); return false;">Google</a> -->
@@ -160,13 +180,17 @@
 				</div>
 
 				<div class="ui-field-contain">
-				    <label for="slider-rating">Rating:</label>
-					<select name="slider-rating" id="slider-rating" data-role="slider">
+				    <!-- <label for="slider-rating">Rating:</label> -->
+<!-- 					<select name="slider-rating" id="slider-rating" data-role="slider">
 						 <option value="0">Bad</option>
 					    <option value="5">Good</option>
-					</select>
-<!-- 				    <input type="range" name="slider-rating" id="slider-rating" value="0" min="0" max="5" step="1" data-highlight="true"
-				 	data-theme="b" data-track-theme="b"> -->
+					</select> -->
+				 	<fieldset data-role="controlgroup">
+						<legend style="font-family:sans-serif;font-size: 16px;max-width:0%;">Rating:</legend>
+			   			<input id="rating-star" name="slider-rating" value="0"  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md">
+        			<!-- <div class="clearfix"></div> -->
+				    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+				    </fieldset>
 				</div>
 
 				<div class="ui-field-contain">
