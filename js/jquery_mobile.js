@@ -5,7 +5,7 @@ var state = "add";
 // var theme = '';
 
 // $(document).ready(function(){
-$(document).on('pagecreate',function(){
+$(document).one('pagecreate',function(){
   /* Instantiate the popup on DOMReady, and enhance its contents */
   $( "#popup-area" ).enhanceWithin().popup();
 
@@ -72,7 +72,7 @@ $(document).on('pagecreate',function(){
 }); //End of DOM ready function
 
           /*Search Page*/
-$(document).on('pagecreate','#p1',function(){
+$(document).one('pagecreate','#p1',function(){
     //Info button
     $("#info").on("click",function (event) {
       addPopUp(
@@ -101,7 +101,8 @@ $(document).on('pagecreate','#p1',function(){
     $("#p1").on( "swipeleft", function( event ) {
         // alert("swipeleft");
         if (loaded == false) {
-            alert("Please search for something");
+            // alert("Please search for something");
+            addPopUp("Pleace seacrch for something",'c')
         }
         else{
             // alert("Page is loaded");
@@ -124,6 +125,10 @@ $(document).on('pagecreate','#p1',function(){
           /*ResultPage*/
 $(document).on('pagecreate','#pResults',function(){
       /*Result Page - Events */
+     $("#pResults").on( "swiperight", function( event ) {
+        $( ":mobile-pagecontainer" ).pagecontainer( "change", "#p1", { transition: "slide", reverse: true} );
+    });
+
 
 });
 
@@ -146,10 +151,19 @@ $(document).on('pagecreate','#pAdd',function(){
    //       console.log ($(this).val());
    //  });
 
-   $("#slider-div").change(function() {
-      $('#rating-star').rating('update', $('#slider-rating').val());
-      console.log ($('#slider-rating').val());
-    });
+   // $("#slider-div").change(function() {
+   //    $('#rating-star').rating('update', $('#slider-rating').val());
+   //    console.log ($('#slider-rating').val());
+   //  });
+/*$( "#slider-rating" ).slider({
+  stop: function( event, ui ) { console.log("stop")},
+  start: function( event, ui ) {console.log("start")}
+});
+*/
+  $(document).on("change", "#slider-rating", function(){
+      // console.log( $(this).val());
+      $('#rating-star').rating('update', $(this).val());
+  });
 
    /*BootStrap Start-rating section*/
 

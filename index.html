@@ -6,7 +6,7 @@
 	<meta name="keywords" content="search, ethical, etc."/> <!-- max=a thousand -->
 	<meta name="robots" content="index,follow"/><!-- How search engines should index my content -->
 	<!-- <base href="http://localhost/html/"> --> <!-- Default location of all your links -->
-	<link rel="icon" href="bluehex.png"><!-- 16by 16 icon that appear on your tab -->
+	<link rel="icon" href="img/bluehex.png"><!-- 16by 16 icon that appear on your tab -->
 	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
 <!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
 	 
@@ -37,11 +37,13 @@
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="kartik-v-bootstrap-star-rating-v4.0.1-30-ga779c97/js/star-rating.js" type="text/javascript"></script>
+    <script src="js/jquery_mobile.js"></script>
+    <script src="js/shared_functions.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     
 
-    <script src="jquery_mobile.js"></script>
+<!--     <script src="jquery_mobile.js"></script> -->
 
 
 
@@ -73,7 +75,7 @@
 				<div class="ui-grid-b ui-responsive">
 					<div class="ui-block-a">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
-				        <select  name="order-choice" id="order-choice" data-mini="true" data-theme="b" data-inline="true" >
+				        <select  name="order-choice" id="order-choice" data-mini="true" data-theme="b" data-inline="true" style="color:gray">
 				            <option value="DESC">Order</option>
 							<option value="DESC">Good to Bad</option>
 				            <option value="ASC">Bad to Good</option>
@@ -189,7 +191,10 @@
 						<legend style="font-family:sans-serif;font-size: 16px;max-width:0%;">Rating:</legend>
 			   			<input id="rating-star" name="slider-rating" value="0"  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md">
         			<!-- <div class="clearfix"></div> -->
-				    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+        			<div id="slider-div">
+        								    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+        			</div>
+
 				    </fieldset>
 				</div>
 
