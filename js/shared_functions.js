@@ -184,7 +184,7 @@ function ajaxResponseProccess(d)
                 // wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
                 // wAvgr = (wAverage['5']*5)/sum;
                 wAvgr = wAvgr/sum;
-                $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr))+", 100%, 50%)"});    
+                $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr * 10)/10)+", 100%, 50%)"});    
                 // console.log("Sum: " + sum);
                 // $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
                 $('#mPresult-stars').rating('update', Math.round(wAvgr * 10)/10);

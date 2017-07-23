@@ -1,3 +1,20 @@
+<?php 
+	session_start();
+	include('..\env.php');
+	if(isset($_SESSION['admin'])) {
+		if($_SESSION['admin'] != getenv('ADD_TOKEN'))
+		{
+			// remove all session variables
+			session_unset(); 
+			// destroy the session 
+			session_destroy(); 
+			header("Location: index.php");
+		}
+	}
+	else header("Location: index.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,119 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="made email request editable and check if email was sent successfully">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/bluehex.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/default_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/engine.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/googlelogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/index_mobile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/jquery_mobile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testing Example/mobile_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bluehex.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_export/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/default_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/googlelogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index_desktop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mobile_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/google.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/images/treeview-default-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/images/treeview-default.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.treeview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/jquery.treeview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/app/js/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/change_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_advanced_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_basic_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_callback.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_extract_html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/example_modify_contents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_digg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_imdb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/scraping/example_scraping_slashdot.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/example/simple_html_dom_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/css/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/css/ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/img/tab.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/js/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/js/ui.tabs.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual_api.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/manual/manual_faq.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/simple_html_dom.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/callback_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/dom_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/invalid_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/mass_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/misc_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/reader/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/slick_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/slickspeed.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/std_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5 2/testcase/strip_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/google.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/images/treeview-default-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/images/treeview-default.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.treeview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/jquery.treeview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/app/js/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/change_log.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_advanced_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_basic_selector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_callback.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_extract_html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/example_modify_contents.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_digg.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_imdb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/scraping/example_scraping_slashdot.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/example/simple_html_dom_utility.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/css/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/css/ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/img/tab.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/js/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/js/ui.tabs.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual_api.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/manual/manual_faq.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/simple_html_dom.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/callback_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/dom_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/invalid_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/jquery-1.2.3.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/mass_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/misc_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/all_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/element_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/memory_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/performance_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/reader/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/selector_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/slick_test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/slickspeed.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/std_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simplehtmldom_1_5/testcase/strip_testcase.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/star-rating-practive.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jquery_mobile.js" afterPath="$PROJECT_DIR$/jquery_mobile.js" />
-    </list>
+    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="made email request editable and check if email was sent successfully" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -154,10 +42,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="3" />
-    <option name="width" value="1933" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -722,7 +610,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="3" width="1933" height="1048" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -731,7 +619,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3496802" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34309623" sideWeight="0.502" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3137255" sideWeight="0.498" order="7" side_tool="false" content_ui="tabs" />
@@ -739,7 +627,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25873762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
