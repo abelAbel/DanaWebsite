@@ -179,7 +179,7 @@
 
 		return (
 				// '<form method="POST" action="http://localhost/add.php" >
-				'<form method="POST" action="http://www.everybodyknows.world/add.php" >
+				'<form method="POST" action="'.getenv('DOMAIN').'/add.php" >
 				    Title:<br>
 				    <input type="text" name="title" value="'.$title.'" ><br>
 				    Keywords:<br>

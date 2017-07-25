@@ -222,6 +222,7 @@
 
 				<input name ="ADD" type="submit" data-inline="true" value="Request Add" data-icon="plus">
 				<input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
+				<input type="button" data-inline="true" value="Clear All" data-icon="delete" onclick="document.getElementById('addForm').reset();">
 			</form>
 
 			<!-- <div id ="popup-area"> </div> --> <!-- for good or bad responce for add -->

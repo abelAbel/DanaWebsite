@@ -69,7 +69,7 @@
 			
 			<a href="#popupLogin" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Sign in</a>
 			<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
-			    <form method="POST" action="#">
+			    <form method="POST" action="all_in_db.php">
 			        <div style="padding:10px 20px;">
 			            <h3>Please sign in</h3>
 			            <label for="un" class="ui-hidden-accessible">Username:</label>
