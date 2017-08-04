@@ -1,3 +1,80 @@
+<?php 
+	include('..\env.php');
+	require('connect-mysql.php');
+	
+	session_start();
+	
+	$error = "";
+	$results = "";
+
+	if(isset($_GET['method']))
+	{
+		return $_GET['method']();
+	}
+	elseif (isset($_POST['method']))
+	{
+		return $_POST['method']();
+	}
+	elseif(isset($_POST["username"]) && isset($_POST["password"]))
+	{  
+		if(($_POST["username"] == getenv('LOGIN_USERNAME') ) && ($_POST["password"] == getenv('LOGIN_PASSWORD') ) )
+		{
+			$_SESSION['loged_in'] = getenv('ADD_TOKEN');
+			// header("Location: all_in_db.php");
+
+		}else
+		{
+			$error = '<p style = "color:red">Invalid Username and/or Password</p> <hr>';
+			// remove all session variables
+			session_unset(); 
+			// destroy the session 
+			session_destroy(); 
+		}
+
+	}
+
+	function getAll()
+	{
+		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
+		{
+			$finalResult = array();
+			$res = DB::query("SELECT * FROM `index`");
+			$finalResult['contents'] = $res->fetchAll();
+			$finalResult['total'] = $res->rowCount();
+			echo json_encode($finalResult);
+		}
+		else 
+			return 0;
+	}
+
+	function updateContent()
+	{
+		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
+		{
+			$params = array(':id'=>$_POST['id'],':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
+						':url'=>$_POST['url'],':slider_rating'=>$_POST['rating'],
+						':description'=>$_POST['description'],':url_hash'=>md5($_POST['url']));
+			if(DB::update($params))
+				return getAll();
+			else return 0;
+		}
+		else 
+			return 0;
+	}
+
+	function deleteContent()
+	{
+		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
+		{
+			if(DB::delete($_GET['id']))
+				return getAll();
+			else return 0;
+		}
+		else 
+			return 0;
+	}
+	
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,47 +94,136 @@
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/shared_functions.js"></script>
+<script >
+	// $(function(){
+	// 	alert("hhh");
+	// });
+	// $(document).on("pagebeforecreate",function(){
+	// 	if($("#main_result_div").length != 0){
+	// 		alert("pagebeforecreate / Exists");
+	// 	}
+	//   // alert("pagebeforecreate event fired - the page is about to be initialized. jQuery Mobile has not begun enhancing the page");
+	// });                     
+	$(document).on("pagecreate",function(){
+		if($("#main_result_div").length != 0){
+			ajaxCustom("all_in_db.php","GET",{method:"getAll"},"json",
+			function (datas,textStatus,jqXHR) {
+				// console.log(datas);
+				$("#main_result_div").html(formatResults(datas));
+			},
+			function (jqXHR, exception) {
+				alert("error in Pagecreate");
+			}
+		);
+		}
+	  // alert("pagecreate event fired - the page has been created, but enhancement is not complete");
+	});
 
-	<script>
-		
-	</script>
+	function formatResults(results)
+	{
+		formatedResult = results['total'] + " Result Found <hr/>";
+		$.each( results['contents'], function( i, l ){
+        formatedResult+= 
+         '<div id='+l['id']+ ' style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
+                      background-color: lightgrey;\
+                      margin-bottom: 10px;\
+                      box-shadow: 5px 5px 5px #888888;">'+
+                      'Title: <span name="title">'+ l['title'] + '</span><br>'+
+                      'Rating: <span name="rating">'+ l['rating'] + '</span><br>'+
+                      'URL: <span name="url"><a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> </span><br>'+
+                      'Keywords: <span name="keywords">'+ l['keywords'] + '</span><br>'+
+                      'Description: <span name="description">'+ l['description'] + '</span><br>'+
+                      '<button class="ui-btn ui-btn-inline" onclick="deleteItem($(this).parent());">Delete</button>\
+                  	  <button class="ui-btn ui-btn-inline" onclick="setUpUpdatePopUp($(this).parent());">Update</button>'+
+          '</div>';
+        });
+		return formatedResult;
+	}
+	
+	function ajaxCustom(url,type,data,data_type,success,failure) {
+		return $.ajax({
+			url:url,
+            type:type,
+            data:data,
+            dataType:data_type,
+            success:success, 
+            error:failure
+		});
+	}
+
+	function updateItem(form) {
+		var data = {};
+		form.find('[name]').each(function (index, value) {
+            var name = $(this).attr('name'),
+                value = $(this).val();
+                data[name] = value;
+                // console.log(name+":" + value);
+
+        });
+        data['method']="updateContent";
+
+        $( "#updatePopup" ).popup( "close" );
+
+        ajaxCustom("all_in_db.php","POST",data,"json",
+			function (datas,textStatus,jqXHR) {
+				alert("sucess Update");
+				$("#main_result_div").html(formatResults(datas));
+			},
+			function (jqXHR, exception) {
+				alert("error in Update ");
+			}
+		);
+
+        return false;
+	}
+
+	function setUpUpdatePopUp(parentDiv) {
+		 parentDiv.find('span[name]').each(function (index, value) {
+                // console.log("name:"+$(this).attr('name')+" / val:"+$(this).text());
+
+                if($(this).attr('name')== "rating")
+                {
+                	$("input[name="+$(this).attr('name')+"]").val($(this).text()).slider("refresh");
+                }
+                else if($(this).attr('name')== "description")
+                {
+                	$("textarea[name="+$(this).attr('name')+"]").val($(this).text());
+                }
+                else $("input[name="+$(this).attr('name')+"]").val($(this).text());
+        });
+
+		 $("form input[name=id]").val(parentDiv[0].id); 
+		 // console.log($("form input[name=id]").val());
+
+
+		$( "#updatePopup" ).popup( "open" );
+		return false;
+	}
+
+	function deleteItem(parentDiv) {
+		// console.log(parentDiv);
+		// alert(parentDiv[0].id);
+		ajaxCustom("all_in_db.php","GET",{method:"deleteContent",id:parentDiv[0].id},"json",
+			function (datas,textStatus,jqXHR) {
+				// console.log(datas);
+				alert("successfull Delete");
+				$("#main_result_div").html(formatResults(datas));
+			},
+			function (jqXHR, exception) {
+				alert("error Deleting");
+			}
+		);
+		return false;
+	}
+
+</script>
 
 	<title>Every Body Knows See All in DB</title>
 
 </head>
 <body>
-
-	<?php
-	$finalResult = "";
-	if(isset($_POST["username"]) && isset($_POST["password"]))
-	{
-		include('..\env.php');  
-		if(($_POST["username"] == getenv('LOGIN_USERNAME') ) && ($_POST["password"] == getenv('LOGIN_PASSWORD') ) )
-		{
-			require('connect-mysql.php');
-			$results = $pdo->prepare("SELECT * FROM `index`");
-			$results->execute($params);
-
-		}else
-		{
-			$finalResult = '<hr/> <p style = "color:red">Invalid Username and/or Password</p>';
-		}
-
-	}
-	// else
-	// {
-	// 	header("Location: index.php");//Redirect to main mpage
-	// 	exit();
-	// }
-			// include('..\env.php'); 
-			// require('connect-mysql.php');
-			// $results = $pdo->prepare("SELECT * FROM `index`");
-			// $results->execute($params);
-
-
- ?>
-
-	<!-- Start of second page -->
+	<!-- Start of page -->
 	<div data-role="page" id="pAllDB">
 
 		<div id = "rH" data-role="header"  data-position="fixed">
@@ -66,63 +232,67 @@
 		</div><!-- /header -->
 
 		<div id = "rMainTop" role="main" class="ui-content">
+		<?php if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN'))) : ?>
+			<div id="main_result_div">
+
+			</div> <!-- End of #main_result_div-->
+
+    		<div id="updatePopup" data-role="popup" data-dismissible="false">
+    			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+	 			<form id="finalAddForm" method="POST" action="all_in_db.php" class="ajax" style="padding:10px 20px;" onsubmit="updateItem($(this));">
+				
+					<!-- <div class="ui-field-contain"> -->
+					<div class="ui-field-contain">
+					    <label for="title">Title:</label>
+					    <input type="text" name="title" id="title" data-clear-btn="true" required>
+					</div>
+
+					<div class="ui-field-contain">
+					    <label for="keywords">Keywords:</label>
+					    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
+					</div>
+
+					<div class="ui-field-contain">
+					    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
+					     <input  name="url" id="url" data-clear-btn="true" required>
+					</div>
+
+					<div class="ui-field-contain">
+						 <label for="rating">Rating:</label>
+	        			<input name="rating" type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+					</div>
+					<div class="ui-field-contain">
+					    <label for="description">Description:</label>
+						<textarea cols="40" rows="8" name="description" id="textarea"  ></textarea>
+					</div>
+
+					<input type="hidden" name="id" value="">
+
+					<input type="submit" data-inline="true" value="Update" data-icon="plus">
+					<input type="button" data-inline="true" value="Google" data-icon="search" onclick="window.open('http://www.google.com', '_system');">
+				</form>
+			</div> <!-- End of #updatePopup -->	
+		<?php else: ?>
+			<form method="POST" action="all_in_db.php">
+		        <div style="padding:10px 20px;">
+		            <h3>Please sign in</h3>
+					<?php echo $error ?>
+		            <label for="un" class="ui-hidden-accessible">Username:</label>
+		            <input type="text" name="username" id="un" value="" placeholder="username" data-theme="a">
+		            <label for="pw" class="ui-hidden-accessible">Password:</label>
+		            <input type="password" name="password" id="pw" value="" placeholder="password" data-theme="a">
+		            <button type="submit" name = "Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
+		        </div>
+			</form>
+		<?php endif; ?>	
+		</div> <!-- End of role=main -->
 			
-			<a href="#popupLogin" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Sign in</a>
-			<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
-			    <form method="POST" action="all_in_db.php">
-			        <div style="padding:10px 20px;">
-			            <h3>Please sign in</h3>
-			            <label for="un" class="ui-hidden-accessible">Username:</label>
-			            <input type="text" name="username" id="un" value="" placeholder="username" data-theme="a">
-			            <label for="pw" class="ui-hidden-accessible">Password:</label>
-			            <input type="password" name="password" id="pw" value="" placeholder="password" data-theme="a">
-			            <button type="submit" name = "Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
-			        </div>
-			    </form>
-			</div>
-
-			<?php 
-			if(isset($results))
-			{
-				$finalResult .= "Total result: ".$results->rowCount()."<hr/>";
-				foreach ($results->fetchAll() as $result) 
-				{
-					$finalResult.=
-					 "<div style='border-bottom: 6px solid hsl(".($result['rating'] == 0 ? '0':'99.99999999999999').", 100%, 50%);
-	    					     background-color: lightgrey;
-	    					     margin-bottom: 10px;
-	    					     box-shadow: 5px 5px 5px #888888;'
-	    			 >"."Title: ".$result['title']."<br>". 
-	    			 	"Rating: ".$result['rating']."<br>".
-	    			 	"URL: <a href='".$result['url']."'>".$result['url']."</a> <br>".
-	    			 	"Keywords: ".$result['keywords']."<br>".
-	    			 	"Description: ".$result['description']."<br>".
-	    			 "</div>";
-	    		}
-			}
-    		echo $finalResult;
-
-			// foreach ($variable as $key => $value) {
-			// 							 $finalResult.= 
-   //           '<div style='.'"border-bottom: 6px solid 0, 100%, 50%);\
-   //                        background-color: lightgrey;\
-   //                        margin-bottom: 10px;\
-   //                        box-shadow: 5px 5px 5px #888888;">'.
-   //                        'Title: '. l['title'] . '<br>'.
-   //                        'Rating: '. l['rating'] . '<br>'.
-   //                        'URL: <a target="_blank" href="'. l['url'] .'">'.l['url'].'</a> <br>'.
-   //                        'Keywords: '. l['keywords'] . '<br>'.
-   //                        'Description: '.l['description'] . '<br>'.
-   //            '</div>';
-			// }
-
-			?>
-		</div><!-- /content -->
 
 		<div data-role="footer" data-position="fixed">
 			<h4>Result Page Footer</h4>
 		</div><!-- /footer -->
-	</div><!-- /page -->
+
+	</div><!-- End of role=page -->
 	
 </body>
 </html>
