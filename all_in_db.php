@@ -107,13 +107,16 @@
 	// });                     
 	$(document).on("pagecreate",function(){
 		if($("#main_result_div").length != 0){
+			$.mobile.loading( "show");
 			ajaxCustom("all_in_db.php","GET",{method:"getAll"},"json",
 			function (datas,textStatus,jqXHR) {
 				// console.log(datas);
 				$("#main_result_div").html(formatResults(datas));
+				$.mobile.loading( "hide");
 			},
 			function (jqXHR, exception) {
 				alert("error in Pagecreate");
+				$.mobile.loading( "hide");
 			}
 		);
 		}
@@ -153,6 +156,7 @@
 	}
 
 	function updateItem(form) {
+		$.mobile.loading( "show");
 		var data = {};
 		form.find('[name]').each(function (index, value) {
             var name = $(this).attr('name'),
@@ -169,8 +173,10 @@
 			function (datas,textStatus,jqXHR) {
 				alert("sucess Update");
 				$("#main_result_div").html(formatResults(datas));
+				$.mobile.loading( "hide");
 			},
 			function (jqXHR, exception) {
+				$.mobile.loading( "hide");
 				alert("error in Update ");
 			}
 		);
@@ -202,6 +208,7 @@
 	}
 
 	function deleteItem(parentDiv) {
+		$.mobile.loading( "show");
 		// console.log(parentDiv);
 		// alert(parentDiv[0].id);
 		ajaxCustom("all_in_db.php","GET",{method:"deleteContent",id:parentDiv[0].id},"json",
@@ -209,8 +216,10 @@
 				// console.log(datas);
 				alert("successfull Delete");
 				$("#main_result_div").html(formatResults(datas));
+				$.mobile.loading( "hide");
 			},
 			function (jqXHR, exception) {
+				$.mobile.loading( "hide");
 				alert("error Deleting");
 			}
 		);
