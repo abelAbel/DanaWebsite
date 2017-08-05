@@ -38,6 +38,38 @@
 		// {
 		// 	$this->pdo = $this->connect();
 		// }
+		protected static $pdo = null;
+
+		public static function endConnection()
+		{
+			self::$pdo = null;
+		}
+
+		protected function getConnection()
+		{
+	       // initialize $pdo on first call
+	        if (self::$pdo == null) {
+	        	// echo "Establishing 1st new connection \n";
+	            self::$pdo = self::connect();
+	        }
+	        else
+	        {
+	          	// now we should have a $pdo, whether it was initialized on this call or a previous one
+	        	// but it could have experienced a disconnection
+		        try {
+		            // echo "Testing connection...\n";
+		            // $old_errlevel = error_reporting(0);
+		            self::$pdo->query("SELECT 1");
+		            // echo "Sucessfull testing...\n";
+		        } catch (PDOException $e) {
+		            echo "Connection failed, reinitializing...\n";
+		            self::$pdo = self::connect();
+		        }
+		        // error_reporting($old_errlevel);
+	        }
+
+	        return self::$pdo;
+		}
 
 		private function connect()
 		{
@@ -48,7 +80,7 @@
 				$db = getenv('DB');
 				$userName = getenv('DB_USERNAME');;
 				$psw = getenv('DB_PASSWORD');
-				$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
+				$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password) 
 				$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			} catch(PDOException $e)
@@ -60,14 +92,14 @@
 		}
 
 		public static function query($query,$param=array()){
-			$dbConnect = self::connect();
+			$dbConnect = self::getConnection();
 			$results = $dbConnect->prepare($query);
 			$results->execute($param);
 			return $results;
 		}
 
 		public static function delete($id){
-			$dbConnect = self::connect();
+			$dbConnect = self::getConnection();
 			$query = "DELETE FROM `index` WHERE id=:id";
 			$delete = $dbConnect->prepare($query);
 			$delete->bindParam(":id",$id);
@@ -76,7 +108,7 @@
 		}
 
 		public static function update($param){
-			$dbConnect = self::connect();
+			$dbConnect = self::getConnection();
 			$query = "UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash WHERE id=:id";
 			$update = $dbConnect->prepare($query);
 			$update->execute($param);
@@ -103,7 +135,13 @@
 	// print_r($dbTest->query("SELECT * FROM `index`"));
 	// echo "<br>";
 	// print_r($dbTest->results->fetchAll(PDO::FETCH_ASSOC));
-	// print_r(DB::query("SELECT * FROM `index` WHERE id=:id", array(':id' => 192))->fetchAll());
+	// echo "<pre>";
+	// print_r(DB::query("SELECT * FROM `index`")->fetchAll());
+	// echo "\nSleeping 10 seconds...\n";
+	// DB::endConnection();
+	// sleep(10); /* meanwhile I use another window to KILL the connection */
+	// echo "\n";
+	// print_r(DB::query("SELECT * FROM `index` WHERE id=:id", array(':id' => 212))->fetchAll());
 	// print_r(DB::update($params));
 	// $id = "42";
 	// print_r(DB::delete($id));
