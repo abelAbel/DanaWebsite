@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/connect-mysql.php" afterPath="$PROJECT_DIR$/connect-mysql.php" />
-    </list>
+    <list default="true" id="5fe4d10d-1a54-4e7d-83fd-07270f150100" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -619,7 +617,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="936" y="1072" width="1552" height="850" extended-state="6" />
+    <frame x="936" y="1072" width="1552" height="850" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

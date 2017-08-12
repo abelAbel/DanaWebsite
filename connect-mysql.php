@@ -31,6 +31,7 @@
 		die("<br> <b> Error Connecting to Data Base");
 	}
 
+
 	class DB
 	{//Begining of DB class
 

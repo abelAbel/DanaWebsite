@@ -248,11 +248,11 @@
 		   echo "Error sending: " . $mail->ErrorInfo;
 		   exit("Error occured when trying to email!!");
 		}
-		else
-		{
-		   // echo "E-mail sent";
-			return;
-		}
+		// else
+		// {
+		//    // echo "E-mail sent";
+		// 	return;
+		// }
 
 	}
 

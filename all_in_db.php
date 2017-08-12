@@ -5,7 +5,6 @@
 	session_start();
 	
 	$error = "";
-	$results = "";
 
 	if(isset($_GET['method']))
 	{
@@ -15,7 +14,8 @@
 	{
 		return $_POST['method']();
 	}
-	elseif(isset($_POST["username"]) && isset($_POST["password"]))
+
+	if(isset($_POST["username"]) && isset($_POST["password"]))
 	{  
 		if(($_POST["username"] == getenv('LOGIN_USERNAME') ) && ($_POST["password"] == getenv('LOGIN_PASSWORD') ) )
 		{
@@ -25,12 +25,25 @@
 		}else
 		{
 			$error = '<p style = "color:red">Invalid Username and/or Password</p> <hr>';
-			// remove all session variables
-			session_unset(); 
-			// destroy the session 
-			session_destroy(); 
+			// // remove all session variables
+			// session_unset(); 
+			// // destroy the session 
+			// session_destroy(); 
+			clearSession();
 		}
 
+	}
+	elseif( isset($_POST['redirect']))
+	{
+		return $_POST['method']();
+	}
+
+	function clearSession()
+	{
+		// remove all session variables
+		session_unset(); 
+		// destroy the session 
+		session_destroy(); 
 	}
 
 	function getAll()
@@ -116,6 +129,13 @@
 			},
 			function (jqXHR, exception) {
 				alert("error in Pagecreate");
+				ajaxCustom("all_in_db.php","POST",{method:"clearSession",redirect:"all_in_db.php"},"",
+				function(){
+					// similar behavior as an HTTP redirect
+					window.location.replace("all_in_db.php");
+					// similar behavior as clicking on a link
+					// window.location.href = "index.php";
+				},"");
 				$.mobile.loading( "hide");
 			}
 		);
@@ -144,7 +164,7 @@
 		return formatedResult;
 	}
 	
-	function ajaxCustom(url,type,data,data_type,success,failure) {
+	function ajaxCustom(url,type,data,data_type="",success="",failure="") {
 		return $.ajax({
 			url:url,
             type:type,
