@@ -1,8 +1,8 @@
 
-<?php 
+<?php
 
 // ===============Begin good
-	// $host = '127.0.0.1'; //127.0.0.1 
+	// $host = '127.0.0.1'; //127.0.0.1
 	// $db = 'ebk'; //Data base name
 	// $userName ='root';
 	// $psw = ''; //password
@@ -47,13 +47,13 @@
 
 
 
-	
+
 
 	// $title= $_POST['title'];
-	
+
 		// echo 'hello ' . $title;
 
-		// echo 
+		// echo
 		// "
 		// <div data-role='page' id='bar'>
 
@@ -75,8 +75,17 @@
 		// ";
 
 		//$pdo -> query("SELECT * FROM index");
-	
+
 	include('..\env.php');
+
+	if(isset($_GET['method']))
+	{
+		return $_GET['method']();
+	}
+	elseif (isset($_POST['method']))
+	{
+		return $_POST['method']();
+	}
 
 	addPHP();
 
@@ -112,11 +121,11 @@
 		// echo "title: ".$_POST['title'] . "<br>";
 		// echo "keywords: ".$_POST['keywords'] . "<br>";
 		// echo "url: ".$_POST['url'] . "<br>";
-		// echo "slider-rating: ".$_POST['slider-rating'] . "<br>";		
+		// echo "slider-rating: ".$_POST['slider-rating'] . "<br>";
 		// echo "textarea: ". $_POST['textarea'] . "<br>";
 
 		// ===============Begin good
-		// $host = '127.0.0.1'; //127.0.0.1 
+		// $host = '127.0.0.1'; //127.0.0.1
 		// $db = 'ebk'; //Data base name
 		// $userName ='root';
 		// $psw = ''; //password
@@ -157,7 +166,7 @@
 
 		$url = test_input($_POST['url']);
 		// filter_var($url, FILTER_SANITIZE_URL);
-		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) 
+		if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url))
 		{
 			$finalResult['urlErr'] = true;
 			return  json_encode($finalResult);
@@ -187,7 +196,7 @@
 				    Url:<br>
 				    <input  name="url" value="'.$url.'" > <br>
 				    Rating: <br>
-				    >=0 to <= 1  - Unacceptable<br>   
+				    >=0 to <= 1  - Unacceptable<br>
 					> 1 to <= 2  - Questionable<br>
 					> 2 to <= 3  - Neutral<br>
 					> 3 to <= 4  - Good<br>
@@ -257,5 +266,5 @@
 	}
 
 
-		
+
 ?>

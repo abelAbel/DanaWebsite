@@ -97,7 +97,7 @@
 	<meta name="keywords" content="search, ethical, etc."/> <!-- max=a thousand -->
 	<meta name="robots" content="index,follow"/><!-- How search engines should index my content -->
 	<!-- <base href="http://localhost/html/"> --> <!-- Default location of all your links -->
-	<link rel="icon" href="bluehex.png"><!-- 16by 16 icon that appear on your tab -->
+	<link rel="icon" href="img/bluehex.png"><!-- 16by 16 icon that appear on your tab -->
 	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
 <!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
 	 
@@ -129,7 +129,7 @@
 			},
 			function (jqXHR, exception) {
 				alert("error in Pagecreate");
-				ajaxCustom("all_in_db.php","POST",{method:"clearSession",redirect:"all_in_db.php"},"",
+				ajaxCustom("all_in_db.php","GET",{method:"clearSession",redirect:"all_in_db.php"},"",
 				function(){
 					// similar behavior as an HTTP redirect
 					window.location.replace("all_in_db.php");
