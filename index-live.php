@@ -1,13 +1,13 @@
-<?php 
+<?php
 	session_start();
 	include('..\env.php');
 	if(isset($_SESSION['admin'])) {
 		if($_SESSION['admin'] != getenv('ADD_TOKEN'))
 		{
 			// remove all session variables
-			session_unset(); 
-			// destroy the session 
-			session_destroy(); 
+			session_unset();
+			// destroy the session
+			session_destroy();
 			header("Location: index.php");
 		}
 	}
@@ -26,7 +26,7 @@
 	<link rel="icon" href="img/bluehex.png"><!-- 16by 16 icon that appear on your tab -->
 	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
 <!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
-	 
+
 	 <!-- JQuery Mobile -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<!-- Custom -->
@@ -36,7 +36,7 @@
 <!-- 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	
+
 
 	<script src="jquery_mobile.js"></script> -->
 
@@ -54,11 +54,15 @@
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="kartik-v-bootstrap-star-rating-v4.0.1-30-ga779c97/js/star-rating.js" type="text/javascript"></script>
-    <script src="js/jquery_mobile.js"></script>
-    <script src="js/shared_functions.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/shared_functions.js"></script>
+	<!-- Tag system begin -->
+	<script src="tagsystem/tags.js"></script>
+	<!-- Tag system end -->
+    <script src="js/jquery_mobile.js"></script>
 
-    
+
+
 
 <!--     <script src="jquery_mobile.js"></script> -->
 
@@ -82,12 +86,12 @@
 
 
 		</div><!-- /header -->
-		
+
 
 		<div role="main" class="ui-content" >
 			<!--     <iframe src="https://www.google.com/search?q=shrimp+slavery&oq=shrimp+slavery&aqs=chrome..69i57.3895j0j8&sourceid=chrome&ie=UTF-8" width="480" height="320" seamless=""></iframe> -->
 
-			<form id="searchForm" method="GET" action="engine.php" class="ajax">
+			<form id="searchForm" method="GET" action="engine.php" >
 				<!-- <button data-role="none" style="width:30%">Button</button> -->
 				<div class="ui-grid-b ui-responsive">
 					<div class="ui-block-a">
@@ -101,7 +105,7 @@
 
 					</div>
 					<div class="ui-block-b ">
-						<input type="submit" value="Search"> 
+						<input type="submit" value="Search">
 					</div>
 					<div class="ui-block-c"></div>
 				</div>
@@ -170,7 +174,7 @@
 
 
 	<!-- Start of add page -->
-	<div data-role="page" id="pAdd">
+	<div data-role="page" id="pAdd" >
 
 		<div data-role="header">
 			<h1>Add to E.K.W</h1>
@@ -178,24 +182,29 @@
 
 		<div role="main" class="ui-content">
 
-			<form id="addForm" method="POST" action="add.php" class="ajax">
-				
+			<form id="addForm" method="POST" action="add.php">
+      <input type="hidden" name="validation" value=<?php echo getenv('ADD_TOKEN');?>>
 				<!-- <div class="ui-field-contain"> -->
 				<div class="ui-field-contain">
 				    <label for="title">Title:</label>
 				    <input type="text" name="title" id="title" data-clear-btn="true" required>
 				</div>
 
-				<div class="ui-field-contain">
+<!-- 				<div class="ui-field-contain">
 				    <label for="keywords">Keywords:</label>
 				    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
-				</div>
+				</div> -->				
 
 				<div class="ui-field-contain">
 				    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
-				     <input  name="url" id="url" data-clear-btn="true" required>
+				     <input  type="url" name="url" id="url" data-clear-btn="true" required>
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="https?://.+"> -->
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="^(https?://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"> -->
+				</div>
+
+				<div class="ui-field-contain">
+				    <label for="tags-main-input">Who is being rated tags:</label>
+				    <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true" value="">
 				</div>
 
 				<div class="ui-field-contain">
@@ -217,12 +226,13 @@
 
 				<div class="ui-field-contain">
 				    <label for="textarea">Description:</label>
-					<textarea cols="40" rows="8" name="textarea" id="textarea"  ></textarea>
+					<textarea name="description" id="textarea"  ></textarea>
 				</div>
 
 				<input name ="ADD" type="submit" data-inline="true" value="Request Add" data-icon="plus">
 				<input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
-				<input type="button" data-inline="true" value="Clear All" data-icon="delete" onclick="document.getElementById('addForm').reset();">
+				<!-- <input type="button" data-inline="true" value="Clear All" data-icon="delete" onclick="document.getElementById('addForm').reset();">				 -->
+				<input type="reset" data-inline="true" value="Clear All" data-icon="delete" id="addClearAll"  >
 			</form>
 
 			<!-- <div id ="popup-area"> </div> --> <!-- for good or bad responce for add -->
@@ -247,6 +257,6 @@
 
 
 				<div id ="popup-area" data-rel="popup" data-position-to="window"> </div> <!-- for good or bad responce for add -->
-	
+
 </body>
 </html>

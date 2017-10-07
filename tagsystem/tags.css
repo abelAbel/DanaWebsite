@@ -1,0 +1,32 @@
+.controlgroup-textinput{
+    padding-top:.22em;
+    padding-bottom:.22em;
+}
+.close{
+    font-weight: bold;
+    /*display: inline-block;*/
+    border: 1px solid #333;
+    background:yellow;
+    margin-left: 0.75em;
+}
+.close:hover {
+    color: red;
+}
+
+.tag-input{
+	border: 1px solid #333;
+	display:inline-block;
+}
+
+.tag{
+/*	padding: 2% 2%;
+	margin: .5% .2%;*/
+	padding: .5em .75em;
+	margin: .25em .1em;
+	display:inline-block;
+	background-color: green;
+	color:white;
+}
+.tag:hover{
+	background-color: #00DB00 ;
+}

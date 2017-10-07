@@ -1,9 +1,9 @@
-<?php 
+<?php
 	include('..\env.php');
 	require('connect-mysql.php');
-	
+
 	session_start();
-	
+
 	$error = "";
 
 	if(isset($_GET['method']))
@@ -16,7 +16,7 @@
 	}
 
 	if(isset($_POST["username"]) && isset($_POST["password"]))
-	{  
+	{
 		if(($_POST["username"] == getenv('LOGIN_USERNAME') ) && ($_POST["password"] == getenv('LOGIN_PASSWORD') ) )
 		{
 			$_SESSION['loged_in'] = getenv('ADD_TOKEN');
@@ -26,9 +26,9 @@
 		{
 			$error = '<p style = "color:red">Invalid Username and/or Password</p> <hr>';
 			// // remove all session variables
-			// session_unset(); 
-			// // destroy the session 
-			// session_destroy(); 
+			// session_unset();
+			// // destroy the session
+			// session_destroy();
 			clearSession();
 		}
 
@@ -41,9 +41,9 @@
 	function clearSession()
 	{
 		// remove all session variables
-		session_unset(); 
-		// destroy the session 
-		session_destroy(); 
+		session_unset();
+		// destroy the session
+		session_destroy();
 	}
 
 	function getAll()
@@ -51,12 +51,12 @@
 		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
 		{
 			$finalResult = array();
-			$res = DB::query("SELECT * FROM `index`");
+			$res = DB::query("SELECT * FROM `index` WHERE verified=1");
 			$finalResult['contents'] = $res->fetchAll();
 			$finalResult['total'] = $res->rowCount();
 			echo json_encode($finalResult);
 		}
-		else 
+		else
 			return 0;
 	}
 
@@ -71,7 +71,7 @@
 				return getAll();
 			else return 0;
 		}
-		else 
+		else
 			return 0;
 	}
 
@@ -83,10 +83,10 @@
 				return getAll();
 			else return 0;
 		}
-		else 
+		else
 			return 0;
 	}
-	
+
  ?>
 
 <!DOCTYPE html>
@@ -100,7 +100,7 @@
 	<link rel="icon" href="img/bluehex.png"><!-- 16by 16 icon that appear on your tab -->
 	<!-- <link rel="stylesheet" type="text/css" href="default_style.css"> -->
 <!-- 	<link rel="stylesheet" type="text/css" media="only screen and (min-width:320px) and (max-width:688x)" href="mobile_style.css"> -->
-	 
+
 	 <!-- JQuery Mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Custom -->
@@ -117,7 +117,7 @@
 	// 		alert("pagebeforecreate / Exists");
 	// 	}
 	//   // alert("pagebeforecreate event fired - the page is about to be initialized. jQuery Mobile has not begun enhancing the page");
-	// });                     
+	// });
 	$(document).on("pagecreate",function(){
 		if($("#main_result_div").length != 0){
 			$.mobile.loading( "show");
@@ -147,7 +147,7 @@
 	{
 		formatedResult = results['total'] + " Result Found <hr/>";
 		$.each( results['contents'], function( i, l ){
-        formatedResult+= 
+        formatedResult+=
          '<div id='+l['id']+ ' style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
                       background-color: lightgrey;\
                       margin-bottom: 10px;\
@@ -162,17 +162,6 @@
           '</div>';
         });
 		return formatedResult;
-	}
-	
-	function ajaxCustom(url,type,data,data_type="",success="",failure="") {
-		return $.ajax({
-			url:url,
-            type:type,
-            data:data,
-            dataType:data_type,
-            success:success, 
-            error:failure
-		});
 	}
 
 	function updateItem(form) {
@@ -219,7 +208,7 @@
                 else $("input[name="+$(this).attr('name')+"]").val($(this).text());
         });
 
-		 $("form input[name=id]").val(parentDiv[0].id); 
+		 $("form input[name=id]").val(parentDiv[0].id);
 		 // console.log($("form input[name=id]").val());
 
 
@@ -268,8 +257,8 @@
 
     		<div id="updatePopup" data-role="popup" data-dismissible="false">
     			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
-	 			<form id="finalAddForm" method="POST" action="all_in_db.php" class="ajax" style="padding:10px 20px;" onsubmit="updateItem($(this));">
-				
+	 			<form method="POST" action="all_in_db.php" style="padding:10px 20px;" onsubmit="updateItem($(this));">
+
 					<!-- <div class="ui-field-contain"> -->
 					<div class="ui-field-contain">
 					    <label for="title">Title:</label>
@@ -292,7 +281,7 @@
 					</div>
 					<div class="ui-field-contain">
 					    <label for="description">Description:</label>
-						<textarea cols="40" rows="8" name="description" id="textarea"  ></textarea>
+						<textarea  name="description" id="textarea"  ></textarea>
 					</div>
 
 					<input type="hidden" name="id" value="">
@@ -300,7 +289,7 @@
 					<input type="submit" data-inline="true" value="Update" data-icon="plus">
 					<input type="button" data-inline="true" value="Google" data-icon="search" onclick="window.open('http://www.google.com', '_system');">
 				</form>
-			</div> <!-- End of #updatePopup -->	
+			</div> <!-- End of #updatePopup -->
 		<?php else: ?>
 			<form method="POST" action="all_in_db.php">
 		        <div style="padding:10px 20px;">
@@ -313,16 +302,15 @@
 		            <button type="submit" name = "Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
 		        </div>
 			</form>
-		<?php endif; ?>	
+		<?php endif; ?>
 		</div> <!-- End of role=main -->
-			
+
 
 		<div data-role="footer" data-position="fixed">
 			<h4>Result Page Footer</h4>
 		</div><!-- /footer -->
 
 	</div><!-- End of role=page -->
-	
+
 </body>
 </html>
-

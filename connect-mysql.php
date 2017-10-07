@@ -1,35 +1,22 @@
-<?php 
-	include('..\env.php');
+<?php
+	// include('..\env.php');
+	include('..\..\env.php');		
+
 	// try
 	// {
-	// 	$host = '127.0.0.1'; //127.0.0.1 
-	// 	$db = 'ebk'; //Data base name
-	// 	$userName ='root';
-	// 	$psw = ''; //password
+	// 	$host = getenv('DB_HOSTNAME');
+	// 	$db = getenv('DB');
+	// 	$userName = getenv('DB_USERNAME');;
+	// 	$psw = getenv('DB_PASSWORD');
 	// 	$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
-	// 	// echo "You have connected successfully";
+	// 	// echo "You have connected successfully to EBK";
+	// 	// echo "DB_HOSTNAME : " . getenv('DB_HOSTNAME');
 
 	// } catch(PDOException $e)
 	// {
 	// 	echo $e->getMessage();
 	// 	die("<br> <b> Error Connecting to Data Base");
 	// }
-
-	try
-	{
-		$host = getenv('DB_HOSTNAME');
-		$db = getenv('DB');
-		$userName = getenv('DB_USERNAME');;
-		$psw = getenv('DB_PASSWORD');
-		$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
-		// echo "You have connected successfully to EBK";
-		// echo "DB_HOSTNAME : " . getenv('DB_HOSTNAME');
-
-	} catch(PDOException $e)
-	{
-		echo $e->getMessage();
-		die("<br> <b> Error Connecting to Data Base");
-	}
 
 
 	class DB
@@ -81,7 +68,7 @@
 				$db = getenv('DB');
 				$userName = getenv('DB_USERNAME');;
 				$psw = getenv('DB_PASSWORD');
-				$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password) 
+				$pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 				$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			} catch(PDOException $e)
@@ -93,46 +80,83 @@
 		}
 
 		public static function query($query,$param=array()){
-			$dbConnect = self::getConnection();
-			$results = $dbConnect->prepare($query);
-			$results->execute($param);
-			return $results;
+			try 
+			{
+				$dbConnect = self::getConnection();
+				$results = $dbConnect->prepare($query);
+				$results->execute($param);
+				return $results;
+			} catch(PDOException $e){return "";}
 		}
 
 		public static function delete($id){
-			$dbConnect = self::getConnection();
-			$query = "DELETE FROM `index` WHERE id=:id";
-			$delete = $dbConnect->prepare($query);
-			$delete->bindParam(":id",$id);
-			$delete->execute();
-			return $delete->rowCount();
+			try 
+			{
+				$dbConnect = self::getConnection();
+				$query = "DELETE FROM `index` WHERE id=:id";
+				$delete = $dbConnect->prepare($query);
+				$delete->bindParam(":id",$id);
+				$delete->execute();
+				return $delete->rowCount();
+			} catch(PDOException $e){return 0;}
 		}
 
 		public static function update($param){
-			$dbConnect = self::getConnection();
-			$query = "UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash WHERE id=:id";
-			$update = $dbConnect->prepare($query);
-			$update->execute($param);
-			return $update->rowCount();
+			try 
+			{
+				$dbConnect = self::getConnection();
+				$query = "UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags=:tags WHERE id=:id";
+				$update = $dbConnect->prepare($query);
+				$update->execute($param);
+				return $update->rowCount();
+			} catch(PDOException $e){return 0;}
 		}
 
+    public static function add($param){
+      try 
+      {
+      	$dbConnect = self::getConnection();
+	      $query = "INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash,:verified,:tags)";
+	      $add = $dbConnect->prepare($query);
+	      $add->execute($param);
+	      return $add->rowCount();
+      } catch(PDOException $e)
+		  {
+		  	// echo $e->getMessage();
+				// die("<br> <b> Error Connecting to Data Base");
+				return 0;
+		  }
+
+    }
+
 	}//End of DB class
+
+			// 	try 
+			// {
+				
+			// } catch(PDOException $e){
+			// 	return 0;
+			// }
 
 	// $dbTest = new DB();
 	// echo $dbTest->delete("232");
 
-	// $_POST['title'] = "z8888";
-	// $_POST['textarea'] = "Update tester";
-	// $_POST['keywords'] = "update";
-	// $_POST['url'] = "https://www.google.com/#q=shrimp&*";
-	// $_POST['slider-rating'] = "3.5";
-
-	// $params = array(':id'=>"2s2",':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
-	// 					':url'=>$_POST['url'],':slider_rating'=>$_POST['slider-rating'],
-	// 					':description'=>$_POST['textarea'],':url_hash'=>md5($_POST['url']));
+// 	$_POST['title'] = "z8888";
+// 	$_POST['textarea'] = "Update tester";
+// 	$_POST['keywords'] = "update";
+// 	$_POST['url'] = "https://www.google.com/#q=shrimp&*";
+// 	$_POST['slider-rating'] = "3.5";
+// 	$_POST['verified'] = "0";
+// 	$_POST['tags'] = "Walmart,Google and live";
+//
+//   $params = array(':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
+//           ':url'=>$_POST['url'],':slider_rating'=>$_POST['slider-rating'],
+//           ':description'=>$_POST['textarea'],':url_hash'=>md5($_POST['url']),
+//           ':verified'=>0, ':tags'=>$_POST['tags']);
+// print_r(DB::add($params));
 	// echo $dbTest->update($params);
 	// echo "Results = " . $dbTest->results . "<br>";
-	// print_r($dbTest->query("SELECT * FROM `index` WHERE id=:id", array(':id' => 192))); 
+	// print_r($dbTest->query("SELECT * FROM `index` WHERE id=:id", array(':id' => 192)));
 	// print_r($dbTest->query("SELECT * FROM `index`"));
 	// echo "<br>";
 	// print_r($dbTest->results->fetchAll(PDO::FETCH_ASSOC));
@@ -149,4 +173,4 @@
 
  // print_r(DB::query("SELECT * FROM `index`")->fetchAll());
 
-?>	
+?>

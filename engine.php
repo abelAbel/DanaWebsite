@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 function test_input($data) {
   // echo "Original: " . $data . "<br>";
@@ -14,29 +14,22 @@ function test_input($data) {
 
 function engine()
 {
-	// ===========Testing environment variable from heroku====================
-	// $my_env_var = getenv('MY_NAME');
-	// $finalResult['contents'] = "Variable -> " . $my_env_var;
-	// $finalResult['total'] = 0;	
-	// return json_encode($finalResult);
-//===========================================
-
 	$searchInput = test_input($_GET['query']);
 	if(empty($searchInput))
 	{
 		    // $finalResult['contents'] = "";
 			$finalResult['total'] = 0;
-			return json_encode($finalResult);	
+			return json_encode($finalResult);
 	}
 
-	// $host = '127.0.0.1'; //127.0.0.1 
+	// $host = '127.0.0.1'; //127.0.0.1
 	// $db = 'ebk'; //Data base name
 	// $userName ='root';
 	// $psw = ''; //password
 	// $pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 	require('connect-mysql.php');
 
-// name="textarea" name="slider-rating" name="url" name="title" 
+// name="textarea" name="slider-rating" name="url" name="title"
 	// if(empty(trim($_GET['query'])))
 	// {
 	// 	echo "!!It is not set <br>";
@@ -69,15 +62,16 @@ function engine()
 		// $results = $pdo->query("SELECT * FROM `index` WHERE $construct");
 
 	// $results = $pdo->prepare("SELECT * FROM `index` WHERE $construct");
-	$results = $pdo->prepare("SELECT * FROM `index` WHERE $construct ORDER BY rating ". $_GET['order-choice']); //ASC|DESC
-	$results->execute($params);
+	// $results = $pdo->prepare("SELECT * FROM `index` WHERE $construct ORDER BY rating ". $_GET['order-choice']); //ASC|DESC
+	// $results->execute($params);
+  $results = DB::query("SELECT * FROM `index` WHERE verified=1 AND ($construct) ORDER BY rating ". $_GET['order-choice'], $params);
 	// echo "<pre>";
 	// print_r($results->fetchAll());
 	$finalResult = array();
 	//$finalResult['contents'] = "";
 
 		//if($results->rowCount() == 0){
-			//echo "0 result found <hr/>";	
+			//echo "0 result found <hr/>";
 		//}else{
 			//echo "Total result: ".$results->rowCount()."<hr/>";
 			// foreach ($results->fetchAll() as $result) {
@@ -86,7 +80,7 @@ function engine()
    //  					     background-color: lightgrey;
    //  					     margin-bottom: 10px;
    //  					     box-shadow: 5px 5px 5px #888888;'
-   //  			 >"."Title: ".$result['title']."<br>". 
+   //  			 >"."Title: ".$result['title']."<br>".
    //  			 	"Rating: ".$result['rating']."<br>".
    //  			 	"URL: <a href='".$result['url']."'>".$result['url']."<a/> <br>".
    //  			 	"Keywords: ".$result['keywords']."<br>".
@@ -106,13 +100,15 @@ function engine()
 
 }
 
-echo engine();
-
-
+if(isset($_GET['method']))
+{
+  echo $_GET['method']();
+}
+elseif (isset($_POST['method']))
+{
+  echo $_POST['method']();
+}
+else {
+  die("E.K.W does not know you, good bye");
+}
 ?>
-
-
-
-
-
-

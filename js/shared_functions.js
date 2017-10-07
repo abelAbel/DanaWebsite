@@ -1,13 +1,30 @@
-function starCaptionRange(val) {
-  if(val >= 0  && val <= 1 )
-    return val +' - Unacceptable';
-  else if (val > 1  && val <= 2 )
-    return val +' - Questionable';
-  else if (val > 2  && val <= 3 )
-    return val +' - Neutral';
-  else if (val > 3  && val <= 4 )
-    return val +' - Good';
-  else return val +' - Great';
+function ajaxCustom(_url,_type,_data,_data_type,_success,_failure)
+{
+  if (typeof(_data_type)==='undefined') _data_type = "";
+  if (typeof(_success)==='undefined') _success = "";
+  if (typeof(_failure)==='undefined') _failure = "";
+
+  return $.ajax({
+          url:_url,
+          type:_type,
+          data:_data,
+          dataType:_data_type,
+          success:_success,
+          error:_failure
+        });
+}
+
+function starCaptionRange(_val) {
+  if(_val >= 0  && _val <= 1 )
+    return _val +' - Unacceptable';
+  else if (_val > 1  && _val <= 2 )
+    return _val +' - Questionable';
+  else if (_val > 2  && _val <= 3 )
+    return _val +' - Neutral';
+  else if (_val > 3  && _val <= 4 )
+    return _val +' - Good';
+  else return _val +' - Great';
+  // return "0";
 }
 
 function addPopUp(addStatusText,theme)
@@ -18,22 +35,21 @@ function addPopUp(addStatusText,theme)
   $("#popup-area").html(
       '<div data-role="popup"  data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
           '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
-          '<p><b>'+ addStatusText +'</b></p>\
-      </div>'
+          '<p><b>'+ addStatusText +'</b></p></div>'
       ).trigger('create');
 
-  // $( "#addPopupDiv" ).popup({ 
+  // $( "#addPopupDiv" ).popup({
   //     afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
   //         $( "#addPopupDiv" ).popup( "destroy" );
   //         $( "#popup-area" ).empty();
   //     }
   // });
 
-  if($(".pop-img-load").length != 0) 
+  if($(".pop-img-load").length != 0)
   {
     console.log("Fired the Load event");
       // Wait with opening the popup until the popup image has been loaded in the DOM.
-      // This ensures the popup gets the correct size and position  
+      // This ensures the popup gets the correct size and position
       $( ".photo", "#addPopupDiv").load(function() {
             // Open the popup
             $( "#addPopupDiv" ).popup( "open" );
@@ -46,7 +62,9 @@ function addPopUp(addStatusText,theme)
         }, 2000);
   }
   else
+  {
     $( "#addPopupDiv" ).popup( "open" ); //Show pop up
+  }
 
   // $.mobile.resetActivePageHeight();
 
@@ -145,15 +163,15 @@ function ajaxResponseProccess(d)
         loaded = true;
         //$("#pResults>.ui-content").html(d['0']['title']);
         console.log(d);
-        // $('#toTop').hide(); 
+        // $('#toTop').hide();
 
 
         if( d['total'] > 0)
         {
             finalResult = d['total'] + " Result Found <hr/>";
             $.each( d['contents'], function( i, l ){
-             finalResult+= 
-             '<div style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
+             finalResult+=
+             '<div style='+'"border-bottom: 6px solid hsl('+ hsl_rating(l['rating']) + ', 100%, 50%);\
                           background-color: lightgrey;\
                           margin-bottom: 10px;\
                           box-shadow: 5px 5px 5px #888888;">'+
@@ -170,8 +188,8 @@ function ajaxResponseProccess(d)
             // console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
 
             //Calulate average
-            // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']); 
-            // sum = (wAverage['0'] + wAverage['5']); 
+            // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']);
+            // sum = (wAverage['0'] + wAverage['5']);
             for (x in wAverage) {
               sum+= wAverage[x];
               wAvgr += x * wAverage[x];
@@ -184,7 +202,7 @@ function ajaxResponseProccess(d)
                 // wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
                 // wAvgr = (wAverage['5']*5)/sum;
                 wAvgr = wAvgr/sum;
-                $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr * 10)/10)+", 100%, 50%)"});    
+                $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr * 10)/10)+", 100%, 50%)"});
                 // console.log("Sum: " + sum);
                 // $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
                 $('#mPresult-stars').rating('update', Math.round(wAvgr * 10)/10);
@@ -192,7 +210,7 @@ function ajaxResponseProccess(d)
                   $('#mPresult-stars').rating('refresh', {clearCaption:'0 - Unacceptable'});
                 }
 
-                
+
             }
 
             console.log("wAvgr = " + wAvgr);
@@ -208,7 +226,7 @@ function ajaxResponseProccess(d)
           $('#mPresult-stars').rating('reset');
           $('#mPresult-stars').rating('refresh', {clearCaption:''});
         }
-        
+
 
         $("#pResults>.ui-content").html(finalResult);
         alert(d['total'] + " Result Found");
@@ -230,5 +248,3 @@ function hsl_rating(rating){
 	  hue = (1 - change) *120;
 	  return(hue);
 }
-
-

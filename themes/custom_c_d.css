@@ -550,10 +550,10 @@ html head + body .ui-body-b.ui-focus {
 html .ui-bar-c .ui-bar-inherit,
 html .ui-body-c .ui-bar-inherit,
 html body .ui-group-theme-c .ui-bar-inherit {
-	background-color: #e9e9e9 /*{c-bar-background-color}*/;
-	border-color: #dddddd /*{c-bar-border}*/;
-	color: #333333 /*{c-bar-color}*/;
-	text-shadow: 0 /*{c-bar-shadow-x}*/ 1px /*{c-bar-shadow-y}*/ 0 /*{c-bar-shadow-radius}*/ #eeeeee /*{c-bar-shadow-color}*/;
+	background-color: #ed1c24 /*{c-bar-background-color}*/;
+	border-color: #ed1c24 /*{c-bar-border}*/;
+	color: #ffffff /*{c-bar-color}*/;
+	text-shadow: 0 /*{c-bar-shadow-x}*/ 1px /*{c-bar-shadow-y}*/ 0 /*{c-bar-shadow-radius}*/ #c3c1c1 /*{c-bar-shadow-color}*/;
 	font-weight: bold;
 }
 .ui-bar-c {
@@ -564,8 +564,8 @@ html body .ui-group-theme-c .ui-bar-inherit {
 .ui-overlay-c,
 .ui-page-theme-c,
 .ui-page-theme-c .ui-panel-wrapper {
-	background-color: #4d4d4d /*{c-page-background-color}*/;
-	border-color: #4d4d4d /*{c-page-border}*/;
+	background-color: #8e0b0b /*{c-page-background-color}*/;
+	border-color: #0bea27 /*{c-page-border}*/;
 	color: #ffffff /*{c-page-color}*/;
 	text-shadow: 0 /*{c-page-shadow-x}*/ 1px /*{c-page-shadow-y}*/ 0 /*{c-page-shadow-radius}*/ #444444 /*{c-page-shadow-color}*/;
 }
@@ -714,7 +714,7 @@ html head + body .ui-body-c.ui-focus {
 html .ui-bar-d .ui-bar-inherit,
 html .ui-body-d .ui-bar-inherit,
 html body .ui-group-theme-d .ui-bar-inherit {
-	background-color: #e9e9e9 /*{d-bar-background-color}*/;
+	background-color: #32ff00 /*{d-bar-background-color}*/;
 	border-color: #dddddd /*{d-bar-border}*/;
 	color: #333333 /*{d-bar-color}*/;
 	text-shadow: 0 /*{d-bar-shadow-x}*/ 1px /*{d-bar-shadow-y}*/ 0 /*{d-bar-shadow-radius}*/ #eeeeee /*{d-bar-shadow-color}*/;
@@ -728,7 +728,7 @@ html body .ui-group-theme-d .ui-bar-inherit {
 .ui-overlay-d,
 .ui-page-theme-d,
 .ui-page-theme-d .ui-panel-wrapper {
-	background-color: #f9f9f9 /*{d-page-background-color}*/;
+	background-color: #2d9513 /*{d-page-background-color}*/;
 	border-color: #bbbbbb /*{d-page-border}*/;
 	color: #333333 /*{d-page-color}*/;
 	text-shadow: 0 /*{d-page-shadow-x}*/ 1px /*{d-page-shadow-y}*/ 0 /*{d-page-shadow-radius}*/ #f3f3f3 /*{d-page-shadow-color}*/;

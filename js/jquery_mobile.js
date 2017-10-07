@@ -3,13 +3,17 @@ var loaded = false;
 var state = "add";
 // var addStatusText = "";
 // var theme = '';
+$(document).on('pagebeforecreate',function (a) {
+  // $("#search").tagSystem({maxTags:10});       
+  $("#tags").tagSystem({maxTags:10,addAutocomplete:false});       
+});
 
 // $(document).ready(function(){
 $(document).one('pagecreate',function(){
   /* Instantiate the popup on DOMReady, and enhance its contents */
   $( "#popup-area" ).enhanceWithin().popup();
 
-    $("form.ajax").on("submit",function (event) 
+    $("form.ajax").on("submit",function (event)
     {
        $.mobile.loading( "show");
         var url = $(this).attr('action'),
@@ -46,7 +50,7 @@ $(document).one('pagecreate',function(){
             success: function (datas,textStatus,jqXHR) {
                       ajaxResponseProccess(datas);
                       $.mobile.loading( "hide");
-                    }, 
+                    },
             error: function (jqXHR, exception) {
                       $.mobile.loading( "hide");
                       console.log("Error");
@@ -65,16 +69,177 @@ $(document).one('pagecreate',function(){
           $( "#popup-area" ).empty();
     });
 
+  $("#searchForm").on('submit', function(e) {
+    searchEKW($(this));
+    return false;
+  });
 
-  /*BootStrap Start-rating section*/
-  
+  $("#addForm").on('submit', function(e) {
+    if($("#tags").get(0).isTagAdded())
+      requestAddToEKW($(this));
+    else
+      addPopUp("Please input 'Who is being rated tags' field",'c');
+    return false;
+  });
+
 
 }); //End of DOM ready function
 
+function requestAddToEKW (form) {
+  $.mobile.loading( "show");
+  var url = form.attr('action'),
+      type = form.attr('method'),
+      data = {};
+  form.find('[name]').each(function (index, value) {
+    var name = $(this).attr('name'),
+        value = $(this).val();
+        data[name] = value;
+  });
+  data['method'] = 'requestAdd';
+      ajaxCustom(url,type,data,"json",
+        function (datas,textStatus,jqXHR) {
+          addResponce(datas);
+          $.mobile.loading( "hide");
+        },
+        function (jqXHR, exception) {
+          $.mobile.loading( "hide");
+          addPopUp("Error occured while adding, try again later",'c');
+        }
+      );
+}// End of requestAddToEKW()
+
+function addResponce(d) {
+  //adding
+    console.log("d['urlErr'] -> " + d['urlErr']);
+    console.log("d['email_sent'] -> " +d['email_sent']);
+      if(d['urlErr'] == true)
+      {
+        console.log("Invalid URL");
+        $("#urlErr").text("Invalid *");
+        addPopUp("Invalid URL enterered please try again", 'c');
+      }
+      else if (d['email_sent'] == true)
+      {
+        console.log("Successfull email for add sent");
+        //$('#addForm').trigger("reset");
+        $("#urlErr").text(""); //Clear invalid message
+        addPopUp("Add request successfully sent.....", 'd');
+      }
+      else
+      {
+         addPopUp("!!SYSTEM ERROR PLEASE TRY AGAIN LATTER!!", 'c');
+      }
+} // End of addResponce()
+
+function searchEKW(form) {
+  $.mobile.loading( "show");
+  var url = form.attr('action'),
+      type = form.attr('method'),
+      data = {};
+  form.find('[name]').each(function (index, value) {
+    var name = $(this).attr('name'),
+        value = $(this).val();
+        data[name] = value;
+  });
+  data['method'] = 'engine';
+      ajaxCustom(url,type,data,"json",
+        function (datas,textStatus,jqXHR) {
+          searchResponce(datas);
+          $.mobile.loading( "hide");
+        },
+        function (jqXHR, exception) {
+          $.mobile.loading( "hide");
+          addPopUp("Error occured while searching, try again later",'c');
+        }
+      );
+} // End of searchEKW()
+
+function searchResponce(d) {
+  //searching
+      var wAvgr = 0;
+      var finalResult = "";
+      // var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
+      // var wAverage = {'0':0,'5':0};
+      var wAverage = {};
+      var sum = 0;
+
+      console.log("Successfull Search");
+      loaded = true;
+      //$("#pResults>.ui-content").html(d['0']['title']);
+      console.log(d);
+      // $('#toTop').hide();
+
+
+      if( d['total'] > 0)
+      {
+          finalResult = d['total'] + " Result Found <hr/>";
+          $.each( d['contents'], function( i, l ){
+           finalResult+=
+           '<div style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
+                        background-color: lightgrey;\
+                        margin-bottom: 10px;\
+                        box-shadow: 5px 5px 5px #888888;">'+
+                        'Title: '+ l['title'] + '<br>'+
+                        'Rating: '+ l['rating'] + '<br>'+
+                        'URL: <a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> <br>'+
+                        'Keywords: '+ l['keywords'] + '<br>'+
+                        'Description: '+ l['description'] + '<br>'+
+            '</div>';
+            // wAverage[l['rating']]+=1;
+            wAverage[l['rating']] = (isNaN(wAverage[l['rating']])) ? 1 : wAverage[l['rating']]+=1;
+          });
+          console.log(wAverage);
+          // console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
+
+          //Calulate average
+          // sum = (wAverage['0'] + wAverage['1']+ wAverage['2'] + wAverage['3']+ wAverage['4'] + wAverage['5']);
+          // sum = (wAverage['0'] + wAverage['5']);
+          for (x in wAverage) {
+            sum+= wAverage[x];
+            wAvgr += x * wAverage[x];
+          }
+
+          console.log("Sum = " + sum);
+          console.log("wAvgr before divide = " + wAvgr);
+
+          if(sum > 0){
+              // wAvgr = (wAverage['0']*0 + wAverage['1']*1 + wAverage['2']*2 + wAverage['3']*3 + wAverage['4']*4 + wAverage['5']*5)/sum;
+              // wAvgr = (wAverage['5']*5)/sum;
+              wAvgr = wAvgr/sum;
+              $('#p1').css({"background-color": "hsl("+hsl_rating(Math.round(wAvgr * 10)/10)+", 100%, 50%)"});
+              // console.log("Sum: " + sum);
+              // $('#mPresult-slider').val(Math.round(wAvgr)).slider("refresh");
+              $('#mPresult-stars').rating('update', Math.round(wAvgr * 10)/10);
+              if (wAvgr == 0) {
+                $('#mPresult-stars').rating('refresh', {clearCaption:'0 - Unacceptable'});
+              }
+
+
+          }
+
+          console.log("wAvgr = " + wAvgr);
+          console.log("Math.round(wAvgr) = " + Math.round(wAvgr));
+
+      }
+      else
+      {
+        //Clear the values to default
+        finalResult = "0 Result Found... <hr/>";
+        $('#p1').css({"background-color": "#f9f9f9"});
+        // $('#mPresult-slider').val("").slider("refresh").val("");
+        $('#mPresult-stars').rating('reset');
+        $('#mPresult-stars').rating('refresh', {clearCaption:''});
+      }
+
+
+      $("#pResults>.ui-content").html(finalResult);
+      alert(d['total'] + " Result Found");
+} // End of searchResponce()
           /*Search Page*/
 $(document).one('pagecreate','#p1',function(){
+  // Search Form ajax
     //Info button
-    $("#info").on("click",function (event) {
+    $("#info").on("tap",function (event) {
       addPopUp(
         '<div class="ui-grid-a ui-responsive pop-img-load">\
         <h2> Welcome to EBK</h1> <hr>\
@@ -115,7 +280,7 @@ $(document).one('pagecreate','#p1',function(){
         // starCaptions: {0: 'Unacceptable', 1: 'Questionable', 2: 'Neutral', 3: 'Ok', 4: 'Good', 5: 'Great'},
         // starCaptionClasses: {0:'label label-default', 1: 'label label-default', 2: 'label label-default', 3: 'label label-default', 4: 'label label-default', 5: 'label label-default'},
         clearCaption: '',
-        starCaptions: function (val) {return starCaptionRange(val)},
+        starCaptions: function (val) {return starCaptionRange(val);},
         starCaptionClasses: function (val) {return 'label label-default';}
 
     });
@@ -142,10 +307,13 @@ $(document).on('pagecreate','#pAdd',function(){
         // window.open("http://www.google.com", "_system");
     });
 
-    $("#googleButton").on("click",function(){
+    $("#googleButton").on("tap",function(){
         window.open("http://www.google.com", "_system");
     });
 
+    $("#addClearAll").on("tap",function(){
+      $("#tags").get(0).clearAll();
+    });
        // $('#slider-rating').on('slidestop',function (e) {
    //       $('#rating-star').rating('update', $(this).val());
    //       console.log ($(this).val());
