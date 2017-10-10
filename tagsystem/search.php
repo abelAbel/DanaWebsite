@@ -76,6 +76,45 @@ $finalResult = array(
 // $finalResult['contents3'] = "c";
 // $finalResult['contents4'] = "abel";
 
-echo json_encode($finalResult);
-// return json_encode($finalResult);
+// echo json_encode($finalResult);
+// return json_encode($finalResult); 
+// echo metaphone("Walmart")."<br>";
+// echo metaphone("Wallmart")."<br>";
+// echo metaphone("Wamart")."<br>";
+// 
+
+
+
+
+ function getTitle($url) {
+ 	$data = file_get_contents($url);
+    $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $data, $matches) ? $matches[1] : null;
+    return $title;
+ }
+
+// echo getTitle('https://www.youtube.com/watch?v=fYt2lUBGvKg');
+// echo getTitle('https://www.epa.gov/greenpower/green-power-partnership-fortune-500r-partners-list#IntelCorporation');
+include("../share_cls_&_fnc.php");
+
+$urls = array(
+  'http://www.pbs.org/newshour/rundown/2016-hottest-year-record-takeaways-noaas-new-climate-report/',
+  'epa.gov/greenpower/green-power-partnership-fortune-500r-partners-list#IntelCorporation',
+  'www.baidu.com/',
+  'https://w3guy.com/php-retrieve-web-page-titles-meta-tags/',
+  "https://www.w3schools.com/PhP/php_arrays.asp"
+);
+
+foreach ($urls as $url) {
+	echo "<pre/>";
+  print "$url\n";
+  $m = new URLMeta($url);
+  if ($resp = $m->parse()) {
+    print_r($resp);
+  } else {
+    printf("FAILED\nERROR CODE:%s\nRESPONSE: %s", $m->error_code, $m->error_response);
+  }
+  print "\n\n";
+}
+
+
 ?>

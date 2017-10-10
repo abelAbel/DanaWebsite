@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include('..\env.php');
+	include('share_cls_&_fnc.php');
 	if(isset($_SESSION['admin'])) {
 		if($_SESSION['admin'] != getenv('ADD_TOKEN'))
 		{
@@ -9,9 +10,29 @@
 			// destroy the session
 			session_destroy();
 			header("Location: index.php");
+		}else if(isset($_GET['method']))
+		{
+			return $_GET['method']();
 		}
 	}
 	else header("Location: index.php");
+
+	function find_title_and_keyword ()
+	{
+		$m = new URLMeta($_GET['url']);
+		$responce = array();
+	  if ($resp = $m->parse()) {
+	  	$responce['title'] = $resp->title;
+	  	$responce['keywords'] =  implode(",", $resp->keywords);
+	  	
+	  } 
+	  // else {
+	  //    printf("FAILED\nERROR CODE:%s\nRESPONSE: %s", $m->error_code, $m->error_response);
+	  //   echo "";
+	  // }
+	  $responce['length'] = count($responce);
+	  echo json_encode($responce);
+	}
 
 ?>
 
@@ -183,10 +204,11 @@
 		<div role="main" class="ui-content">
 
 			<form id="addForm" method="POST" action="add.php">
+				 <span style="color: red">*</span> = required fields
       <input type="hidden" name="validation" value=<?php echo getenv('ADD_TOKEN');?>>
 				<!-- <div class="ui-field-contain"> -->
 				<div class="ui-field-contain">
-				    <label for="title">Title:</label>
+				    <label for="title">Title: <span style="color: red">*</span></label>
 				    <input type="text" name="title" id="title" data-clear-btn="true" required>
 				</div>
 
@@ -196,14 +218,25 @@
 				</div> -->				
 
 				<div class="ui-field-contain">
-				    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
-				     <input  type="url" name="url" id="url" data-clear-btn="true" required>
+					<!-- <fieldset data-role="controlgroup" data-mini="true" >  -->
+				    <label for="url">Url: <span style="color: red">*</span></label>
+				     <!-- <legend style="font-family:sans-serif;font-size: 16px;max-width:0%; margin-bottom: 0px">Url:</legend> -->
+				     <input  type="url" name="url" id="url"  data-clear-btn="true" required>
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="https?://.+"> -->
 				    <!-- <input type="url" name="url" id="url" data-clear-btn="true" required pattern="^(https?://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"> -->
+				    <!-- <input type="text" id="titleKeyGen" data-theme="b" value="Generate Title and Some Tags " data-icon="recycle"> -->
+					<!-- </fieldset> -->
 				</div>
 
 				<div class="ui-field-contain">
-				    <label for="tags-main-input">Who is being rated tags:</label>
+				    <label></label> <!-- (hack) Need to do this, so it will make the button move dynamicly like the other inputs -->
+				    <button id="titleKeyGen" class="ui-shadow ui-btn ui-btn-b ui-corner-all ui-icon-recycle ui-btn-icon-right">Generate Title and Some Tags</button>
+				</div>
+
+
+
+				<div class="ui-field-contain">
+				    <label for="tags-main-input">Who is being rated tags: <span style="color: red">*</span></label>
 				    <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true" value="">
 				</div>
 
@@ -214,11 +247,11 @@
 					    <option value="5">Good</option>
 					</select> -->
 				 	<fieldset data-role="controlgroup">
-						<legend style="font-family:sans-serif;font-size: 16px;max-width:0%;">Rating:</legend>
+						<legend style="font-family:sans-serif;font-size: 16px;max-width:0%; margin-bottom: 0px">Rating:</legend>
 			   			<input id="rating-star" name="slider-rating" value="0"  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md">
         			<!-- <div class="clearfix"></div> -->
         			<div id="slider-div">
-        								    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+				    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
         			</div>
 
 				    </fieldset>

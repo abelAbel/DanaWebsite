@@ -3,7 +3,7 @@ var loaded = false;
 var state = "add";
 // var addStatusText = "";
 // var theme = '';
-$(document).on('pagebeforecreate',function (a) {
+$(document).on('pagebeforecreate','#pAdd',function (a) {
   // $("#search").tagSystem({maxTags:10});       
   $("#tags").tagSystem({maxTags:10,addAutocomplete:false});       
 });
@@ -78,7 +78,7 @@ $(document).one('pagecreate',function(){
     if($("#tags").get(0).isTagAdded())
       requestAddToEKW($(this));
     else
-      addPopUp("Please input 'Who is being rated tags' field",'c');
+      addPopUp("Please input <b style='color:black'>'Who is being rated tags' </b> field",'c');
     return false;
   });
 
@@ -363,6 +363,40 @@ $(document).on('pagecreate','#pAdd',function(){
     $('#rating-star').on('rating.clear', function(event) {
       console.log("rating.clear");
       $('#slider-rating').val(0).slider("refresh");
+    });
+
+    $('#titleKeyGen').on('tap',function (e) {
+        let url = $('#url').val().trim();
+        if(url != "" && isValidUrl(url))
+        {
+          $.mobile.loading( "show");
+          let data = {'url': url, 'method': 'find_title_and_keyword' };
+          ajaxCustom('index-live.php','GET',data,"json",
+            function (datas,textStatus,jqXHR) {
+              console.log(datas['length']);
+              if(datas['length'])
+              {
+                  $('#title').val(datas['title']);
+                  $('#tags').val( datas['keywords']).trigger('input');
+              }
+              else
+              {
+                addPopUp("No Title and/or Tag found for url",'c');
+              }
+              
+              $.mobile.loading( "hide");
+            },
+            function (jqXHR, exception) {
+              $.mobile.loading( "hide");
+              addPopUp("PHP Error occured while finding Title and Tag",'c');
+            }
+          );
+        } 
+        else
+        {
+          addPopUp("Please input a valid URL",'c');
+        }
+        return false;      
     });
 
 });

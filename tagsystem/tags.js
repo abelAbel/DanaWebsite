@@ -13,7 +13,6 @@
                 divWrapper = document.createElement('div'),
                 tagsArr = [];
             var mainInput = $(this).get(0);
-            console.log(mainInput);
 
             hiddenInput.setAttribute('type', 'hidden');
             hiddenInput.setAttribute('required', '');
@@ -23,7 +22,7 @@
 
             $(this).after(divWrapper);
             $(this).after(hiddenInput);
-            var ul = "";
+            var ul ;
             if(settings.addAutocomplete == true)
             {
               ul = autoComplete();
@@ -56,17 +55,12 @@
               else if (settings.addAutocomplete == true)
               {
                 var $ul = $(ul);
-                // $ul.html(""); 
                 var $mainInput = $(this),
                 value = $mainInput.val();
-                // console.log("$(this):");
-                // console.log($(this));
               
                 console.log("in UL filterablebeforefilter");
                   if ( value.trim().length > 0 && tagsArr.length < settings.maxTags ) 
                   {
-          //             $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-          //             $ul.listview( "refresh" );
                          $mainInput.val(value); //Need this Because Chrome on adroid was doing some weird stuff 
                          // $mainInput.textinput( "refresh" );
                       console.log("Going to call Ajax");
@@ -89,7 +83,6 @@
                           $ul.listview( "refresh" );
                           $.each( response, function ( i, val ) {
                               let li = $("<li data-icon='plus' data-theme ="+((val['url'].trim() != "")?"b":"a")+"> <a href='"+val['url']+ "'>"+ val['text'] + "</a></li>");
-                              // let li = $("<li data-icon='plus' data-theme ="+((val['url'].trim() != "")?"b":"a")+"> <a href='#' data-url='"+val['url']+ "'>"+ val['text'] + "</a></li>");
                               li.children('a').on("tap",function (e) {
                                 let a = $(this);
                                 if(tagsArr.length < settings.maxTags && tagsArr.find(dupTags, val['text']) === undefined)
@@ -97,16 +90,11 @@
                                   addTag(a.text(),a.attr('href')); 
                                 }
                                 // $mainInput.val("");//.textinput( "refresh" ).siblings('a').trigger('click');
-                                // console.log($mainInput.siblings('a'));
-                                // $mainInput.val("").textinput( "refresh" );
-                                // $mainInput.val("");
                                 $ul.html("");
-                                // $ul.empty();
                                 $ul.listview( "refresh" );
-                                // $ul.trigger( "updatelayout");
                                  $mainInput.val("");
                                  $mainInput.trigger('change');
-                                 $mainInput.textinput( "refresh" );
+                                 // $mainInput.textinput( "refresh" );
                                 // return false;
                                 e.preventDefault();
                                  // e.stopPropagation();
@@ -119,7 +107,6 @@
                       });
                   } else {$ul.html( "" ); $ul.listview( "refresh" );}
               }
-              // return false;
 
             });
 
@@ -160,78 +147,8 @@
             // ul.setAttribute ("data-filter-reveal","true");
             // ul.setAttribute ("data-input","#"+mainInput.id);
             ul.id = mainInput.id + "-autoComplete";
-          //   let $ul = $(ul);
-
-          //   $(mainInput).siblings('a').on('click tap',function (e) {
-          //     alert("hello");
-          //     console.log("input siblings");
-          //   });  
-
-          //   $(mainInput).on( "input ", function ( ) {
-          //            let $mainInput = $( this ),
-          //             value = $mainInput.val();
-          //            
-          // //         $ul.html( "" );
-          //       console.log("in UL filterablebeforefilter");
-          //         if ( value.trim().length > 0 && tagsArr.length < settings.maxTags ) 
-          //         {
-          //             // $ul.html( "" );
-          //             $ul.empty();
-          // //             $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-          //             $ul.listview( "refresh" );
-          //             console.log("Going to call Ajax");
-          //             $.ajax({
-          //                 url: settings.autocomplete_url,
-          //                 // type:"GET",
-          //                 dataType: "json",
-          //                 crossDomain: true,
-          //                 data: {q: $mainInput.val()},
-          //                 success: function (arg) {
-          //                   console.log("Success");
-          //                 },
-          //                 error: function (arg) {
-          //                   console.log("Error");
-          //                 }
-          //             })
-          //             .then( function ( response ) {
-          //                 console.log(response);
-          //                 $.each( response, function ( i, val ) {
-          //                     let li = $("<li data-icon='plus' data-theme ="+((val['url'].trim() != "")?"b":"a")+"> <a href="+val['url']+ ">"+ val['text'] + "</a></li>");
-          //                     li.one("tap",'a',function (e) {
-          //                       let a = $(this);
-          //                       if(tagsArr.length < settings.maxTags && tagsArr.find(dupTags, val['text']) === undefined)
-          //                       {
-          //                         addTag(a.text(),a.attr('href'));
-          //                       }
-          //                       $mainInput.val("").textinput( "refresh" ).siblings('a').trigger('click');
-          //                       console.log($mainInput.siblings('a'));
-          //                       // $mainInput.val("").textinput( "refresh" );
-          //                       // $mainInput.val("");
-          //                       // $ul.html("");
-          //                       $ul.empty();
-          //                       $ul.listview( "refresh" );
-          //                       $ul.trigger( "updatelayout");
-          //                       e.preventDefault();
-          //                     });
-
-          //                     $ul.append(li);
-          //                 });
-          //                 $ul.listview( "refresh" );
-          //                 $ul.trigger( "updatelayout");
-          //             });
-          //         } else {$ul.html( "" ); $ul.listview( "refresh" );}
-          //     });
-
-            //   $(mainInput).on('blur', function ( ) {
-            //   // alert("Blur");
-            //   console.log("Blur");
-            //     $ul.html("");
-            //     $ul.listview( "refresh" );
-            //     $ul.trigger( "updatelayout");
-            // });
-
-              $(hiddenInput).after(ul);
-              return ul;
+            $(hiddenInput).after(ul);
+            return ul;
           }
 
           function dupTags (tag) {
@@ -267,7 +184,6 @@
            // addTag("hello");
            // addTag("Walmart","http://walmart.com");
             function addTag (text,url) {
-              // if (typeof(url)==='undefined') url = "";
               let tag = {
               text: text.toLowerCase(),
               element: document.createElement('a')
@@ -279,10 +195,6 @@
 
               $(tag.element).on('tap', function (e) {
               // tag.element.addEventListener('click', function (e) {
-                console.log("Removing: " + tagsArr.indexOf(tag));
-                console.log($(tag.element));
-                console.log(tag.element);
-                console.log("=============Removing End================");
                 removeTag(tagsArr.indexOf(tag));
                 e.preventDefault();
               });
@@ -316,6 +228,7 @@
 
             // Public functions
             this.isTagAdded = function(e){
+                console.log("tagsArr.length = " + tagsArr.length  );
                 return tagsArr.length;
             };
             this.clearAll = function(e){
