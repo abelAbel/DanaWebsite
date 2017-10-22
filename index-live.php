@@ -24,7 +24,6 @@
 	  if ($resp = $m->parse()) {
 	  	$responce['title'] = $resp->title;
 	  	$responce['keywords'] =  implode(",", $resp->keywords);
-	  	
 	  } 
 	  // else {
 	  //    printf("FAILED\nERROR CODE:%s\nRESPONSE: %s", $m->error_code, $m->error_response);
@@ -203,9 +202,10 @@
 
 		<div role="main" class="ui-content">
 
+			<!-- <form id="addForm" method="POST" data-ajax='false' action="tagsystem/search.php"> -->
 			<form id="addForm" method="POST" action="add.php">
-				 <span style="color: red">*</span> = required fields
-      <input type="hidden" name="validation" value=<?php echo getenv('ADD_TOKEN');?>>
+				<span style="color: red">*</span> = required fields
+      	<input type="hidden" name="validation" value=<?php echo getenv('ADD_TOKEN');?>>
 				<!-- <div class="ui-field-contain"> -->
 				<div class="ui-field-contain">
 				    <label for="title">Title: <span style="color: red">*</span></label>
@@ -248,10 +248,10 @@
 					</select> -->
 				 	<fieldset data-role="controlgroup">
 						<legend style="font-family:sans-serif;font-size: 16px;max-width:0%; margin-bottom: 0px">Rating:</legend>
-			   			<input id="rating-star" name="slider-rating" value="0"  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md">
+			   			<input id="rating-star"  value="0"  data-role="none" type="text" class="" data-min=0 data-max=5 data-step=0.1 data-size="md">
         			<!-- <div class="clearfix"></div> -->
         			<div id="slider-div">
-				    	<input type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
+				    	<input type="range"  name="slider-rating" id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
         			</div>
 
 				    </fieldset>
@@ -261,11 +261,12 @@
 				    <label for="textarea">Description:</label>
 					<textarea name="description" id="textarea"  ></textarea>
 				</div>
-
-				<input name ="ADD" type="submit" data-inline="true" value="Request Add" data-icon="plus">
-				<input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
-				<!-- <input type="button" data-inline="true" value="Clear All" data-icon="delete" onclick="document.getElementById('addForm').reset();">				 -->
-				<input type="reset" data-inline="true" value="Clear All" data-icon="delete" id="addClearAll"  >
+				<div data-mini="true" data-role="controlgroup" data-type="horizontal">
+					<input  type="submit" data-inline="true" value="Request Add" data-icon="plus">
+					<input type="button" data-inline="true" value="Google" data-icon="search" id="googleButton">
+					<!-- <input type="button" data-inline="true" value="Clear All" data-icon="delete" onclick="document.getElementById('addForm').reset();">				 -->
+					<input  type="reset" data-inline="true" value="Clear All" data-icon="delete" id="addClearAll"  >
+				</div>
 			</form>
 
 			<!-- <div id ="popup-area"> </div> --> <!-- for good or bad responce for add -->

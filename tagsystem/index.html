@@ -39,6 +39,7 @@
       <script type="text/javascript">
         $(document).on('pagebeforecreate',function (a) {
           var tg = $("#tags").tagSystem({maxTags:10,addAutocomplete:true});
+          $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
           $("#keywords").on("click",function (arguments) {
             // console.log("tg[0] = " + tg[0]);
             console.log(tg);
@@ -55,7 +56,7 @@
 // });
 
       </script>
-      <form id="finalAddF" method="POST" action="add.php" >
+      <form id="finalAddF" method="POST" data-ajax="false" action="search.php" >
         <!-- <div class="ui-field-contain"> -->
             <label for="tags">Tags:</label>
             <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true" value="">
@@ -81,10 +82,11 @@
               <a href="#" class="ui-btn ui-btn-inline ui-mini ui-icon-edit ui-btn-icon-left" >Wallmart</a>
             </div>     -->    
         <!-- </div>         -->
-        <div class="ui-field-contain">
+<!--         <div class="ui-field-contain">
             <label for="keywords">Keywords:</label>
             <input type="text" name="keywords" id="keywords" data-clear-btn="true" value="">
-        </div>
+        </div> -->
+            <input type="submit"  value="Submit">
       </form>
 
   	</div><!-- /content -->

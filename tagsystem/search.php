@@ -1,5 +1,5 @@
 <?php
-
+	require('..\connect-mysql.php');
 // function test_input($data) {
 //   // echo "Original: " . $data . "<br>";
 //   $data = trim($data);
@@ -61,16 +61,16 @@
 // }
 
 // echo engine();
-$finalResult = array(
-					array('text' => 'Walmart' ,'url' => 'http://walmart.com' ),
-					array('text' => 'amaZon' ,'url' => 'http://amazon.com' ),
-					array('text' => 'abel' ,'url' => '' ),
-					array('text' => 'camping' ,'url' => '' ),
-					// array('text' => 'acamping' ,'url' => '' ),
-					// array('text' => 'acalmping' ,'url' => '' ),
-					// array('text' => 'heath and hands' ,'url' => '' ),
-					array('text' => 'health and hands' ,'url' => '' )
-                    );
+// $finalResult = array(
+// 					array('text' => 'Walmart' ,'url' => 'http://walmart.com' ),
+// 					array('text' => 'amaZon' ,'url' => 'http://amazon.com' ),
+// 					array('text' => 'abel' ,'url' => '' ),
+// 					array('text' => 'camping' ,'url' => '' ),
+// 					// array('text' => 'acamping' ,'url' => '' ),
+// 					// array('text' => 'acalmping' ,'url' => '' ),
+// 					// array('text' => 'heath and hands' ,'url' => '' ),
+// 					array('text' => 'health and hands' ,'url' => '' )
+//                     );
 // $finalResult['contents1'] = "a";
 // $finalResult['contents2'] = "b";
 // $finalResult['contents3'] = "c";
@@ -78,43 +78,99 @@ $finalResult = array(
 
 // echo json_encode($finalResult);
 // return json_encode($finalResult); 
-// echo metaphone("Walmart")."<br>";
-// echo metaphone("Wallmart")."<br>";
-// echo metaphone("Wamart")."<br>";
+// echo var_dump(metaphone("Walmart")) ."<br>";
+// echo var_dump(metaphone("Wallmarts")) ."<br>";
+// echo var_dump(metaphone("Wamart")) ."<br>";
+// echo var_dump(metaphone("Walmart center")) ."<br>";
+// echo var_dump(metaphone("green power partnership")) ."<br>";
+// echo var_dump(metaphone("green power")) ."<br>";
+// echo var_dump(metaphone("National top green power users")) ."<br>";
+// echo var_dump(metaphone("top 100")) ."<br>";
+// echo var_dump(metaphone("Purchasing green power")) ."<br>";
+// echo var_dump(metaphone("a")) ."<br>";
+// echo var_dump(metaphone("A")) ."<br>";
+// echo var_dump(metaphone("B")) ."<br>";
+// echo var_dump(metaphone("K")) ."<br>";
+// echo var_dump(metaphone("w")) ."<br>";
+
 // 
 
 
 
+// include("../share_cls_&_fnc.php");
 
- function getTitle($url) {
- 	$data = file_get_contents($url);
-    $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $data, $matches) ? $matches[1] : null;
-    return $title;
- }
+// $urls = array(
+//   'http://www.pbs.org/newshour/rundown/2016-hottest-year-record-takeaways-noaas-new-climate-report/',
+//   'epa.gov/greenpower/green-power-partnership-fortune-500r-partners-list#IntelCorporation',
+//   'www.baidu.com/',
+//   'https://w3guy.com/php-retrieve-web-page-titles-meta-tags/',
+//   "https://www.w3schools.com/PhP/php_arrays.asp"
+// );
 
-// echo getTitle('https://www.youtube.com/watch?v=fYt2lUBGvKg');
-// echo getTitle('https://www.epa.gov/greenpower/green-power-partnership-fortune-500r-partners-list#IntelCorporation');
-include("../share_cls_&_fnc.php");
+// foreach ($urls as $url) {
+// 	echo "<pre/>";
+//   print "$url\n";
+//   $m = new URLMeta($url);
+//   if ($resp = $m->parse()) {
+//     print_r($resp);
+//   } else {
+//     printf("FAILED\nERROR CODE:%s\nRESPONSE: %s", $m->error_code, $m->error_response);
+//   }
+//   print "\n\n";
+// }
 
-$urls = array(
-  'http://www.pbs.org/newshour/rundown/2016-hottest-year-record-takeaways-noaas-new-climate-report/',
-  'epa.gov/greenpower/green-power-partnership-fortune-500r-partners-list#IntelCorporation',
-  'www.baidu.com/',
-  'https://w3guy.com/php-retrieve-web-page-titles-meta-tags/',
-  "https://www.w3schools.com/PhP/php_arrays.asp"
-);
+// print_r($_POST['tags']);
+// echo "<br>";
+// echo "<br>";
+// $tags = test_input($_POST['tags']);
 
-foreach ($urls as $url) {
-	echo "<pre/>";
-  print "$url\n";
-  $m = new URLMeta($url);
-  if ($resp = $m->parse()) {
-    print_r($resp);
-  } else {
-    printf("FAILED\nERROR CODE:%s\nRESPONSE: %s", $m->error_code, $m->error_response);
-  }
-  print "\n\n";
-}
+// 	function test_input($data)
+// 	{
+// 	  $data = trim($data);
+// 	  $data = stripslashes($data);
+// 	  $data = htmlspecialchars($data);
+// 	  return $data;
+// 	}
+// echo $tags;
+// echo "<br>";
+// $tagsJSON = json_decode($_POST['tags']);
+// echo " <pre/>";
+// print_r($tagsJSON);
+                // $param = array(':name' => "hello");
+                // $param = array(':name' => "hello",':url' => " url",":sound_like"=>'tag_sound_like',':verified'=>"tag_verified", ':frequency'=>'tag_frequency');
+    //             $param = array(":sound_like"=>'tag_sound_like',':verified'=>"tag_verified", ':frequency'=>'tag_frequency');
+    //             $SET_param = "";
+			 //    $SET_param .= (isset($param[':name'])) ? ',tag_name=:name':'';
+				// $SET_param .= (isset($param[':url'])) ? ',tag_url=:url':'';
+				// $SET_param .= (isset($param[':sound_like'])) ? ',tag_sound_like=:sound_like':'';
+				// $SET_param .= (isset($param[':verified'])) ? ',tag_verified=:verified':'';
+				// $SET_param.=  (isset($param[':frequency'])) ? ',tag_frequency=:frequency':'';
+				// $SET_param =  ltrim($SET_param, ',');
+				// echo "[".$SET_param. "]";
+				// echo "<br> Count = " . $cnt;
+   
 
+   	$title = "kkk 22";
+	$description = "2 Update tester";
+	$url = "https://www.google.com/#q=shrimp&*";
+	$_POST['slider-rating'] = "2.5";
+	$_verified = 0;
+	// $_POST['tags'] = '[{"text":"hello world","url":"https://hellow.com"},{"text":"howdy do you do","url":""},{"text":"walmart","url":""},{"text":"good","url":""},{"text":"great","url":""}]';
+	// $_POST['tags'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"good","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
+		$_POST['tags'] = '[{"text":"new tag","url":"http://new tag only"}]';
+	
+  	$pArr = array(':title'=>$title,':url'=>$url,
+  		          ':slider_rating'=>$_POST['slider-rating'],
+            ':description'=>$description,':url_hash'=>md5($url),
+            ':verified'=>$_verified,':id'=>'1062');
+  	// echo "<br/>" . $_POST['tags'];
+  	// echo "<pre>";
+  	// print_r(json_decode($_POST['tags'])[0]->url);
+  	// echo "<br/><pre>";
+  	// echo var_dump(json_decode($_POST['tags']));
+   
+  	// echo "<br/>" . DB::add($pArr,json_decode($_POST['tags']));
+  	// echo "<br/>" . DB::update($pArr,json_decode($_POST['tags']));
+  	echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("good")));
 
 ?>

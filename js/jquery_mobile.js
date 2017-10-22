@@ -13,55 +13,55 @@ $(document).one('pagecreate',function(){
   /* Instantiate the popup on DOMReady, and enhance its contents */
   $( "#popup-area" ).enhanceWithin().popup();
 
-    $("form.ajax").on("submit",function (event)
-    {
-       $.mobile.loading( "show");
-        var url = $(this).attr('action'),
-            type = $(this).attr('method'),
-            data = {};
-        var erroMessage = "";
-        if(url == "add.php")
-        {//Ask if they are sure they want to add
-        	state = "add";
-          erroMessage  = "Error occured while adding, try again later";
-        }
-        else
-        {//searching
-        	state = "search";
-          erroMessage = "Error occured while searching, try again later";
+    // $("form.ajax").on("submit",function (event)
+    // {
+    //    $.mobile.loading( "show");
+    //     var url = $(this).attr('action'),
+    //         type = $(this).attr('method'),
+    //         data = {};
+    //     var erroMessage = "";
+    //     if(url == "add.php")
+    //     {//Ask if they are sure they want to add
+    //     	state = "add";
+    //       erroMessage  = "Error occured while adding, try again later";
+    //     }
+    //     else
+    //     {//searching
+    //     	state = "search";
+    //       erroMessage = "Error occured while searching, try again later";
 
-        }
-         console.log("State new: " + state);
+    //     }
+    //      console.log("State new: " + state);
 
-        $(this).find('[name]').each(function (index, value) {
-            var name = $(this).attr('name'),
-                value = $(this).val();
-                data[name] = value;
+    //     $(this).find('[name]').each(function (index, value) {
+    //         var name = $(this).attr('name'),
+    //             value = $(this).val();
+    //             data[name] = value;
 
-        });
+    //     });
 
-        console.log( data);
+    //     console.log( data);
 
-        $.ajax({
-            url:url,
-            type:type,
-            data: data,
-            dataType:"json",
-            success: function (datas,textStatus,jqXHR) {
-                      ajaxResponseProccess(datas);
-                      $.mobile.loading( "hide");
-                    },
-            error: function (jqXHR, exception) {
-                      $.mobile.loading( "hide");
-                      console.log("Error");
-                      addPopUp(erroMessage,'c');
-                      // Your error handling logic here..
-                    }
+    //     $.ajax({
+    //         url:url,
+    //         type:type,
+    //         data: data,
+    //         dataType:"json",
+    //         success: function (datas,textStatus,jqXHR) {
+    //                   ajaxResponseProccess(datas);
+    //                   $.mobile.loading( "hide");
+    //                 },
+    //         error: function (jqXHR, exception) {
+    //                   $.mobile.loading( "hide");
+    //                   console.log("Error");
+    //                   addPopUp(erroMessage,'c');
+    //                   // Your error handling logic here..
+    //                 }
 
-        });
+    //     });
 
-        return false;
-    }); //end of 'form.ajax'
+    //     return false;
+    // }); //end of 'form.ajax'
 
         // Remove the popup after it has been closed to manage DOM size
     $( document ).on( "popupafterclose", ".ui-popup", function() {
@@ -87,16 +87,13 @@ $(document).one('pagecreate',function(){
 
 function requestAddToEKW (form) {
   $.mobile.loading( "show");
-  var url = form.attr('action'),
-      type = form.attr('method'),
-      data = {};
-  form.find('[name]').each(function (index, value) {
-    var name = $(this).attr('name'),
-        value = $(this).val();
-        data[name] = value;
-  });
-  data['method'] = 'requestAdd';
-      ajaxCustom(url,type,data,"json",
+  var d = getFormData(form);
+  console.log(d);
+  // console.log(d.url);
+  // console.log(d.type);
+  // console.log(d.inputsData);
+  d.inputsData['method'] = 'addRequestMain';
+      ajaxCustom(d.url, d.type,d.inputsData,"json",
         function (datas,textStatus,jqXHR) {
           addResponce(datas);
           $.mobile.loading( "hide");
@@ -112,22 +109,14 @@ function addResponce(d) {
   //adding
     console.log("d['urlErr'] -> " + d['urlErr']);
     console.log("d['email_sent'] -> " +d['email_sent']);
-      if(d['urlErr'] == true)
+      if (d == '1')
       {
-        console.log("Invalid URL");
-        $("#urlErr").text("Invalid *");
-        addPopUp("Invalid URL enterered please try again", 'c');
-      }
-      else if (d['email_sent'] == true)
-      {
-        console.log("Successfull email for add sent");
-        //$('#addForm').trigger("reset");
-        $("#urlErr").text(""); //Clear invalid message
+        console.log("Successfull email for add request sent");
         addPopUp("Add request successfully sent.....", 'd');
       }
       else
       {
-         addPopUp("!!SYSTEM ERROR PLEASE TRY AGAIN LATTER!!", 'c');
+         addPopUp(d, 'c');
       }
 } // End of addResponce()
 
@@ -362,7 +351,7 @@ $(document).on('pagecreate','#pAdd',function(){
     });
     $('#rating-star').on('rating.clear', function(event) {
       console.log("rating.clear");
-      $('#slider-rating').val(0).slider("refresh");
+      $('#slider-rating').val('0').slider("refresh");
     });
 
     $('#titleKeyGen').on('tap',function (e) {
@@ -374,6 +363,7 @@ $(document).on('pagecreate','#pAdd',function(){
           ajaxCustom('index-live.php','GET',data,"json",
             function (datas,textStatus,jqXHR) {
               console.log(datas['length']);
+              console.log(datas);
               if(datas['length'])
               {
                   $('#title').val(datas['title']);

@@ -234,9 +234,8 @@
 
   function addRequestMain()
   {
-    // $finalResult = array();
-    // $finalResult['email_sent'] = false;
-    $email_sent = false;
+    $finalResult = array();
+    $finalResult['email_sent'] = false;
 
     // $title = test_input($_POST['title']);
     // $keywords = test_input($_POST['keywords']);
@@ -244,36 +243,37 @@
     // $url = test_input($_POST['url']);
     // // $url_hash = md5($url);
     // $tags = test_input($_POST['tags']);
-    $params = dbParamsArray($_POST['title'], $_POST['keywords'], $_POST['description'], $_POST['url'], 0, $_POST['tags']);
-    if(DB::add($params))
+    $params = dbParamsArray($_POST['title'], $_POST['description'], $_POST['url'], 0);
+    if(DB::add($params,json_decode($_POST['tags'])))
     {
-      send_email($params[':title'],create_body($params[':title'], $params[':keywords'], $params[':description'], $params[':url'], $params[':tags']));
-      // $finalResult['email_sent'] = true;
-      $email_sent = true;
+      send_email($params[':title'],create_body($params[':title'], $params[':description'], $params[':url'], $params[':tags']));
+      $finalResult['email_sent'] = true;
+      // echo "1"; //True
       // echo "Succesfully sent email and added to E.K.W as unverified";
     }
     else
     {
-      echo "unable to add to E.K.W";
+      // echo "unable to add to E.K.W";
+      $finalResult['1'] "unable to add to E.K.W";
     }
-    if(!$email_sent)
-    	echo "<br>false";
-    else
-    	echo $email_sent;
+
+    // if(!$email_sent)
+    // 	echo "<br>false";
+    // else
+    // 	echo $email_sent;
 
   }
 
-  function dbParamsArray($_title, $_keywords, $_description, $_url, $_verified, $_tags)
+  function dbParamsArray($_title, $_description, $_url, $_verified)
   {
   	$title = test_input($_title);
-    $keywords = test_input($_keywords);
+    // $keywords = test_input($_keywords);
     $description = test_input($_description);
     $url = test_input($_url);
-    $tags = test_input($_tags);
-  	$pArr = array(':title'=>$title,':keywords'=>$keywords,
-            ':url'=>$url,':slider_rating'=>$_POST['slider-rating'],
+  	$pArr = array(':title'=>$title,':url'=>$url,
+  		          ':slider_rating'=>$_POST['slider-rating'],
             ':description'=>$description,':url_hash'=>md5($url),
-            ':verified'=>$_verified, ':tags'=>$tags);
+            ':verified'=>$_verified);
   	if (isset($_POST['id']))
   		$pArr[':id'] = $_POST['id'];
 
@@ -300,14 +300,13 @@
 
 	// }
 
-  function create_body($title, $keywords, $description, $url, $tags)
+  function create_body($title, $description, $url, $tags)
   {
   
    $finalAddUrl = getenv('DOMAIN').'/add.php?method=verifiedAdd&url_hash='.md5($url);
     return (
         // '<form method="POST" action="http://localhost/add.php" >
         '   Title: '.$title.'<hr>
-            Keywords: '.$keywords.'<hr>
             Url: '.$url.' <hr>
             Rating: '.$_POST['slider-rating'].'<br>
             >=0 to <= 1  - Unacceptable<br>
