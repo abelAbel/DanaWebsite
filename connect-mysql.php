@@ -127,15 +127,26 @@
 			}
 		}
 
-		public static function delete($id,$table='index',$count){
+		public static function delete($id){
 			try 
 			{
 				$dbConnect = self::getConnection();
-				// $query = "DELETE FROM `".$table."` WHERE ".(isset($id))?"id=:id":"sound_like=:sound_like";
-				// $delete = $dbConnect->prepare($query);
-				// $delete->bindParam(":id",$id);
-				// $delete->execute(array(":id":$id));
-				return $delete->rowCount();
+				$success = 0;
+				$result = self::query("SELECT * FROM `index` WHERE id='".$id."'");
+				if($result != ""  && $result->rowCount())
+				{
+					$success = self::deleteTags(explode(" ",$result->fetch(PDO::FETCH_ASSOC)['tags_sound_like']));
+					if($success){
+						$query = "DELETE FROM `index` WHERE id=:id";
+						$delete = $dbConnect->prepare($query);
+						$delete->bindParam(":id",$id);
+						$delete->execute();
+						$success = $delete->rowCount();
+					}
+					else echo "<br/> Unable to delete tags => " . $result->fetch(PDO::FETCH_ASSOC)['tags_sound_like'];
+				} 
+				
+				return $success;
 			} catch(PDOException $e){
 				echo $e->getMessage();
 				die("<br> <b> Error in delete");

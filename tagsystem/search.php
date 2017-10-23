@@ -170,7 +170,9 @@
   	// echo var_dump(json_decode($_POST['tags']));
    
   	// echo "<br/>" . DB::add($pArr,json_decode($_POST['tags']));
+  	// echo $success = DB::addTag(array(":name" =>"new tag",":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 2));
   	// echo "<br/>" . DB::update($pArr,json_decode($_POST['tags']));
-  	echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("good")));
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("good")));
+  	echo "<br/>" . DB::delete(1062);
 
 ?>
