@@ -1,7 +1,7 @@
 <?php
 	// include('..\env.php');
 	include('..\..\env.php');		
-
+// $dbConnect->beginTransaction();$dbConnect->commit();$dbConnect->rollback();
 	// try
 	// {
 	// 	$host = getenv('DB_HOSTNAME');
@@ -89,7 +89,7 @@
 			} catch(PDOException $e){return "";}
 		}
 
-		public static function deleteTags($tags_sound = array()){
+		public static function deleteTags($tags_sound = array(),$checkFrequency=true){
 			try 
 			{
 				$dbConnect = self::getConnection();
@@ -97,22 +97,47 @@
 				$query = "DELETE FROM `tags` WHERE tag_sound_like=:tag_sound_like";
 				$delete = $dbConnect->prepare($query);
 				foreach ($tags_sound as $tag_sound) {
-					$frequency = self::query("SELECT * FROM `tags` WHERE tag_sound_like='".$tag_sound."'");
-      		$frequency = ($frequency != '') ? $frequency->fetch(PDO::FETCH_ASSOC)['tag_frequency']:0;
-      		echo "<br/> frequency : " . $frequency . "<br/>";
-      		if($frequency > 1){// Update tag frequency number 
-	      		 $tag_param = array();
-      			 $tag_param[':frequency'] = $frequency - 1;
-      			 $tag_param[':sound_like'] = $tag_sound;
-      			 echo "deleteTags (update) Tag Table.... <pre>"; 
-      			 $success = self::updateTag($tag_param);
-      			 echo "<br/> delete (update) tag => ".$tag_sound."<br/>";
-      		}
-      		else if ($frequency == 1) { //delete tag
-      			echo "<br/> delete tag => ".$tag_sound."<br/>";
-						$delete->bindParam(":tag_sound_like",$tag_sound);
-						$delete->execute();
-						$success = $delete->rowCount();
+					$q = self::query("SELECT * FROM `tags` WHERE tag_sound_like='".$tag_sound."'");
+      		// $frequency = ($frequency != '') ? $frequency->fetch(PDO::FETCH_ASSOC)['tag_frequency']:0;
+      		// echo "<br/> Tag sound = ". $tag_sound."<br>";
+      		if($q != "" && $q->rowCount())
+      		{
+      		  $row = $q->fetch(PDO::FETCH_ASSOC);
+      			// echo "<br/> q-> tag_verified = ".$row['tag_verified']."<br/>";
+      			$frequency = $row['tag_frequency'];
+      			echo "<br/> frequency : " . $frequency . "<br/>";
+	      		if($checkFrequency && $frequency > 0)
+	      		{// Update tag frequency number 
+		      		 $tag_param = array();
+	      			 $tag_param[':frequency'] = $frequency - 1;
+	      			 $tag_param[':sound_like'] = $tag_sound;
+	      			 echo "<br/> q-> tag_verified = ".$row['tag_verified']."<br/>";
+	      			 if($tag_param[':frequency'] == 0 && $row['tag_verified'] == 0)
+	      			 	{
+	      			 			echo "<br/> deleteTags (frequency=0) Tag Table.... <pre>";
+	      			 			$delete->bindParam(":tag_sound_like",$tag_sound);
+										$delete->execute();
+										$success = $delete->rowCount();
+	      			 	}else{
+	      			 		echo "<br/> deleteTags (update) Tag Table.... <pre>"; 
+	      			 		$success = self::updateTag($tag_param);
+	      			 		echo "<br/> delete (update) tag => ".$tag_sound."<br/>";
+	      			 	}
+	      		}
+	      		else { //delete tag
+	      			echo "<br/> delete tag => ".$tag_sound."<br/>";
+							$delete->bindParam(":tag_sound_like",$tag_sound);
+							$delete->execute();
+							$success = $delete->rowCount();
+							if($checkFrequency == false)
+							{//Go delete tag_sound_like in index table 
+								$indexQ = self::query("SELECT * FROM `index` WHERE tags_sound_like='".$tag_sound."'");
+								$indexRows = $indexQ->fetchall(PDO::FETCH_ASSOC);
+								foreach ($indexRows as $r) {
+									# code...
+								}
+							}
+	      		}
       		}
 				}
 				// $delete = $dbConnect->prepare($query);
@@ -128,9 +153,10 @@
 		}
 
 		public static function delete($id){
+			$dbConnect = self::getConnection();
 			try 
 			{
-				$dbConnect = self::getConnection();
+				$dbConnect->beginTransaction();
 				$success = 0;
 				$result = self::query("SELECT * FROM `index` WHERE id='".$id."'");
 				if($result != ""  && $result->rowCount())
@@ -142,12 +168,18 @@
 						$delete->bindParam(":id",$id);
 						$delete->execute();
 						$success = $delete->rowCount();
+						$dbConnect->commit();
 					}
-					else echo "<br/> Unable to delete tags => " . $result->fetch(PDO::FETCH_ASSOC)['tags_sound_like'];
+					else { 
+						echo "<br/> Unable to delete tags => " . $result->fetch(PDO::FETCH_ASSOC)['tags_sound_like'];
+						$dbConnect->rollback();
+						return 0;
+					}
 				} 
 				
 				return $success;
 			} catch(PDOException $e){
+				$dbConnect->rollback();
 				echo $e->getMessage();
 				die("<br> <b> Error in delete");
 				return 0;
@@ -155,9 +187,11 @@
 		}
 
 		public static function update($param,$tags=array()){
+			$dbConnect = self::getConnection();
 			try 
 			{
-				$dbConnect = self::getConnection();
+				$dbConnect->beginTransaction();
+				$success = 0;
 				// $query = "UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags=:tags WHERE id=:id";
 				// $update = $dbConnect->prepare($query);
 				// $update->execute($param);
@@ -204,20 +238,32 @@
 				  print_r($old_tags_sound_like);				  
 				  echo "<br/>-------tags_to_delete------- <pre>";
 				  print_r($tags_to_delete);
-
 				  if(sizeof($tags_to_delete))
 				  {
 				  	echo "<br/>-------Call deleteTags------- ";
-				  	self::deleteTags($tags_to_delete);
+				  	$success = self::deleteTags($tags_to_delete);
 				  }
-
 					$query = "UPDATE `index` SET title=:title,description=:description,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags_sound_like=:tags_sound_like WHERE id=:id";
-					$update = $dbConnect->prepare($query);
+					$update = $dbConnect->prepare($query); 
 					$update->execute($param);
-					return $update->rowCount();
+					$success =  $update->rowCount();
+
+					if(!$success){
+				  	$dbConnect->rollback();
+				  	echo "Error occured when updating";
+				  	return 0;
+				  }else {
+				  	$dbConnect->commit();
+				  	return $success;
+				  } 
 				}
-				else echo "<br/> No ID exists";
+				else {
+					$dbConnect->rollback();
+					echo "<br/> No ID exists";
+					return 0;
+				}
 			} catch(PDOException $e){
+				$dbConnect->rollback();
 				echo $e->getMessage();
 				die("<br> <b> Error in update");
 				return 0;
@@ -225,9 +271,12 @@
 		}
 
 		public static function updateTag($param){
+			$dbConnect = self::getConnection();
 			try 
 			{
-				$dbConnect = self::getConnection();
+				 if (isset($param[':name'])) {
+				 		$param[':sound_like'] = metaphone($param[':name']);
+				 }
 				// $query = "UPDATE `tags` SET tag_name=:name,tag_url=:url,tag_sound_like=:sound_like,tag_verified=:verified,tag_frequency=:frequency WHERE tag_sound_like=:sound_like";
         $SET_param = "";
 		    $SET_param .= (isset($param[':name'])) ? ',tag_name=:name':'';
@@ -237,15 +286,19 @@
 				$SET_param.=  (isset($param[':frequency'])) ? ',tag_frequency=:frequency':'';
 				$SET_param =  ltrim($SET_param, ',');
 				// $query = "UPDATE `tags` SET tag_name=:name,tag_url=:url,tag_sound_like=:sound_like,tag_verified=:verified,tag_frequency=:frequency WHERE tag_sound_like=:sound_like";
+
+				 
+
 				echo "<pre>";
 				print_r($param);
 				echo var_dump($SET_param) . "<br/>";
 				$query = "UPDATE `tags` SET ".$SET_param." WHERE tag_sound_like=:sound_like";
+				echo "<br/>Query => " . $query;
 				$update = $dbConnect->prepare($query);
 				$update->execute($param);
 				return $update->rowCount();
 			} catch(PDOException $e){
-				echo $e->getMessage();
+				echo '<br>' . $e->getMessage();
 				die("<br> <b> Error in updateTag");
 				return 0;
 			}
@@ -253,9 +306,10 @@
 
     public static function add($param,$tagsArray=array()){
     	$success = 0;
+    	$dbConnect = self::getConnection();
       try 
       {
-      	$dbConnect = self::getConnection();
+      	$dbConnect->beginTransaction();
 	      // $query = "INSERT INTO `index` VALUES ('',:title,:description,:keywords,:url,:slider_rating,:url_hash,:verified,:tags)";
 	      // $add = $dbConnect->prepare($query);
 	      // $add->execute($param);
@@ -268,9 +322,9 @@
       		$tagSound = metaphone($tag->text);
       		$param[':tags_sound_like'] .= $tagSound. " ";
       		$frequency = self::query("SELECT * FROM `tags` WHERE tag_sound_like='".$tagSound."'");
-      		$frequency = ($frequency != '') ? $frequency->fetch(PDO::FETCH_ASSOC)['tag_frequency']:0;
-      		echo "frequency : " . $frequency . "<br/>";
-      		if($frequency > 0){// Update tag frequency number 
+      		if($frequency != '' && $frequency->rowCount()){// Update tag frequency number 
+      			 $frequency = $frequency->fetch(PDO::FETCH_ASSOC)['tag_frequency'];
+      			 echo "frequency : " . $frequency . "<br/>";
 	      		 $tag_param = array();
       			 $tag_param[':frequency'] = $frequency + 1;
       			 $tag_param[':sound_like'] = $tagSound;
@@ -294,10 +348,17 @@
 		      $add = $dbConnect->prepare($query);
 		      $add->execute($param);      	
 		      $success = $add->rowCount();
+		      $dbConnect->commit();
+      	}
+      	else
+      	{
+      		echo "<br> was not able to add tags";
+      		$dbConnect->rollback();
       	}
       } catch(PDOException $e)
 		  {
-		  	echo $e->getMessage();
+		  	$dbConnect->rollback();
+		  	echo "<br>" . $e->getMessage();
 				die("<br> <b> Error in add");
 				return 0;
 		  }

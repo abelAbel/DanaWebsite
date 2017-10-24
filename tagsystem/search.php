@@ -150,19 +150,21 @@
 				// echo "<br> Count = " . $cnt;
    
 
-   	$title = "kkk 22";
-	$description = "2 Update tester";
+   	$title = "kkk 23";
+	$description = "3 Update tester";
 	$url = "https://www.google.com/#q=shrimp&*";
 	$_POST['slider-rating'] = "2.5";
 	$_verified = 0;
 	// $_POST['tags'] = '[{"text":"hello world","url":"https://hellow.com"},{"text":"howdy do you do","url":""},{"text":"walmart","url":""},{"text":"good","url":""},{"text":"great","url":""}]';
 	// $_POST['tags'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"good","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
-		$_POST['tags'] = '[{"text":"new tag","url":"http://new tag only"}]';
+		// $_POST['tags'] = '[{"text":"new tag","url":"http://new tag only"}]';
+	$_POST['tags'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"new tag","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
 	
   	$pArr = array(':title'=>$title,':url'=>$url,
   		          ':slider_rating'=>$_POST['slider-rating'],
             ':description'=>$description,':url_hash'=>md5($url),
-            ':verified'=>$_verified,':id'=>'1062');
+            // ':verified'=>$_verified);
+            ':verified'=>'verified',':id'=>1072);
   	// echo "<br/>" . $_POST['tags'];
   	// echo "<pre>";
   	// print_r(json_decode($_POST['tags'])[0]->url);
@@ -170,9 +172,11 @@
   	// echo var_dump(json_decode($_POST['tags']));
    
   	// echo "<br/>" . DB::add($pArr,json_decode($_POST['tags']));
-  	// echo $success = DB::addTag(array(":name" =>"new tag",":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 2));
+  	// echo $success = DB::addTag(array(":name" =>"new tag",":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>0,":frequency" => 2));
+  	// echo $success = DB::addTag(array(":name" =>"old tag",":url" =>"http://oldtags.com",":sound_like" =>metaphone("old tag"),":verified" =>1,":frequency" => 2));
+  	// echo "<br/>" . $success = DB::updateTag(array(":url" =>"http://newtags.com 5 z",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 0));
   	// echo "<br/>" . DB::update($pArr,json_decode($_POST['tags']));
-  	// echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("good")));
-  	echo "<br/>" . DB::delete(1062);
+  	echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("old tag")));
+  	// echo "<br/>" . DB::delete(1062);
 
 ?>
