@@ -129,12 +129,17 @@
 							$delete->bindParam(":tag_sound_like",$tag_sound);
 							$delete->execute();
 							$success = $delete->rowCount();
-							if($checkFrequency == false)
+							if($success && $checkFrequency == false)
 							{//Go delete tag_sound_like in index table 
-								$indexQ = self::query("SELECT * FROM `index` WHERE tags_sound_like='".$tag_sound."'");
-								$indexRows = $indexQ->fetchall(PDO::FETCH_ASSOC);
+								$indexQ = self::query("SELECT * FROM `index` WHERE tags_sound_like LIKE '%".$tag_sound."%'");
+								$indexRows = ($indexQ != "") ? $indexQ->fetchall(PDO::FETCH_ASSOC):array();
 								foreach ($indexRows as $r) {
-									# code...
+									$array = explode(' ',$r['tags_sound_like']);
+									echo var_dump($array)."<br/>";
+									$array = array_diff($array,array($tag_sound));
+                  $array = implode(' ',$array);
+									echo var_dump($array)."<br/>";
+									$success = self::update(array(':tags_sound_like' => $array, ':id'=>$r['id'] ));
 								}
 							}
 	      		}
@@ -157,11 +162,15 @@
 			try 
 			{
 				$dbConnect->beginTransaction();
-				$success = 0;
+				$success = 1;
 				$result = self::query("SELECT * FROM `index` WHERE id='".$id."'");
 				if($result != ""  && $result->rowCount())
 				{
-					$success = self::deleteTags(explode(" ",$result->fetch(PDO::FETCH_ASSOC)['tags_sound_like']));
+					$tag_sound_like = $result->fetch(PDO::FETCH_ASSOC)['tags_sound_like'];
+					if($tag_sound_like !="")
+					{
+						$success = self::deleteTags(explode(" ",$tag_sound_like));
+					}
 					if($success){
 						$query = "DELETE FROM `index` WHERE id=:id";
 						$delete = $dbConnect->prepare($query);
@@ -190,8 +199,29 @@
 			$dbConnect = self::getConnection();
 			try 
 			{
-				$dbConnect->beginTransaction();
 				$success = 0;
+      	$SET_param = "";
+		    $SET_param .= (isset($param[':title'])) ? ',title=:title':'';
+				$SET_param .= (isset($param[':description'])) ? ',description=:description':'';
+				$SET_param .= (isset($param[':url'])) ? ',url=:url':'';
+				$SET_param .= (isset($param[':slider_rating'])) ? ',rating=:slider_rating':'';
+				$SET_param .= (isset($param[':url_hash'])) ? ',url_hash=:url_hash':'';
+				$SET_param.=  (isset($param[':verified'])) ? ',verified=:verified':'';
+				$SET_param =  ltrim($SET_param, ',');
+				echo "<br/> >>>>>>>>>>>>>". var_dump($SET_param ) . "<<<<<<<<<<<<<<<<<<<< <br/>";
+				echo "<pre>";
+				print_r($param);
+				if(sizeof($tags) == 0)
+				{//Only update index table
+					$SET_param.=  (isset($param[':tags_sound_like'])) ? ',tags_sound_like=:tags_sound_like':'';
+					$query = "UPDATE `index` SET ".$SET_param." WHERE id=:id";
+					$update = $dbConnect->prepare($query); 
+					$update->execute($param);
+					$success =  $update->rowCount();
+					return $success;
+				}
+
+				$dbConnect->beginTransaction();
 				// $query = "UPDATE `index` SET title=:title,description=:description,keywords=:keywords,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags=:tags WHERE id=:id";
 				// $update = $dbConnect->prepare($query);
 				// $update->execute($param);
@@ -227,23 +257,31 @@
 					    
 					}
 					$param[':tags_sound_like'] = trim($param[':tags_sound_like']);
+					if($param[':tags_sound_like'] != "")
+					{
+						//Determine if we need to delete any tags
+					  $new_tags_sound_like = explode(" ",$param[':tags_sound_like']);
+					  $old_tags_sound_like = explode(" ",$result->fetch(PDO::FETCH_ASSOC)['tags_sound_like']);
+					  $tags_to_delete = array_diff($old_tags_sound_like,$new_tags_sound_like);
+					  echo "<br/>-------new_tags_sound_like------- <pre>";
+					  print_r($new_tags_sound_like);
+					  echo "<br/>-------old_tags_sound_like------- <pre>";
+					  print_r($old_tags_sound_like);				  
+					  echo "<br/>-------tags_to_delete------- <pre>";
+					  print_r($tags_to_delete);
+					  if(sizeof($tags_to_delete))
+					  {
+					  	echo "<br/>-------Call deleteTags------- ";
+					  	$success = self::deleteTags($tags_to_delete);
+					  }
+					}
 
-					//Determine if we need to delete any tags
-				  $new_tags_sound_like = explode(" ",$param[':tags_sound_like']);
-				  $old_tags_sound_like = explode(" ",$result->fetch(PDO::FETCH_ASSOC)['tags_sound_like']);
-				  $tags_to_delete = array_diff($old_tags_sound_like,$new_tags_sound_like);
-				  echo "<br/>-------new_tags_sound_like------- <pre>";
-				  print_r($new_tags_sound_like);
-				  echo "<br/>-------old_tags_sound_like------- <pre>";
-				  print_r($old_tags_sound_like);				  
-				  echo "<br/>-------tags_to_delete------- <pre>";
-				  print_r($tags_to_delete);
-				  if(sizeof($tags_to_delete))
-				  {
-				  	echo "<br/>-------Call deleteTags------- ";
-				  	$success = self::deleteTags($tags_to_delete);
-				  }
-					$query = "UPDATE `index` SET title=:title,description=:description,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags_sound_like=:tags_sound_like WHERE id=:id";
+					// $query = "UPDATE `index` SET title=:title,description=:description,url=:url,rating=:slider_rating,url_hash=:url_hash,verified=:verified,tags_sound_like=:tags_sound_like WHERE id=:id";
+					$SET_param.=  (isset($param[':tags_sound_like'])) ? ',tags_sound_like=:tags_sound_like':'';
+					echo "<br/> >>>>>>>>>>>>>". var_dump($SET_param ) . "<<<<<<<<<<<<<<<<<<<< <br/>";
+					echo "<pre>";
+					print_r($param);
+					$query = "UPDATE `index` SET ".$SET_param." WHERE id=:id";
 					$update = $dbConnect->prepare($query); 
 					$update->execute($param);
 					$success =  $update->rowCount();
@@ -328,6 +366,7 @@
 	      		 $tag_param = array();
       			 $tag_param[':frequency'] = $frequency + 1;
       			 $tag_param[':sound_like'] = $tagSound;
+      			 $tag_param[':verified'] = $param[':verified'];
       			 if($tag->url !=""){
       			 	 $tag_param[':url'] = $tag->url;
       			 }
@@ -371,6 +410,9 @@
       try 
       {
       	$dbConnect = self::getConnection();
+      	if(!isset($param[':sound_like'])){
+      			$param[':sound_like'] = metaphone($param[':name']);
+      	}
       	$query = "INSERT INTO `tags` VALUES ('',:name,:url,:sound_like,:verified,:frequency)";
       	$add = $dbConnect->prepare($query);
       	$add->execute($param);
@@ -453,6 +495,12 @@
 //       		$frequency = ($frequency != '')? $frequency->fetch(PDO::FETCH_ASSOC)['tag_frequency']:0;
 //       		if($frequency > 0){ 
 //       			echo var_dump($frequency);
-//       		}else echo "Does not exist" ;    		
-
+//       		}else echo "Does not exist" ; 
+// $string = "HJK YUT KKIEO KJJPP UYAHAY POPP";
+// echo var_dump($string) . "<br/>";   		
+// $array = explode(' ',$string);
+// echo var_dump($array) . "<br/>";
+// $array = array_diff($array,array('HJK'));
+// echo var_dump($array) . "<br/>"; 
+// echo var_dump(implode(" ",$array)) . "<br/>";
 ?>

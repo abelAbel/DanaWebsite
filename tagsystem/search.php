@@ -150,33 +150,61 @@
 				// echo "<br> Count = " . $cnt;
    
 
-   	$title = "kkk 23";
-	$description = "3 Update tester";
-	$url = "https://www.google.com/#q=shrimp&*";
-	$_POST['slider-rating'] = "2.5";
-	$_verified = 0;
+ //   	$title = "kkk 23";
+	// $description = "3 Update tester";
+	// $url = "https://www.google.com/#q=shrimp&*";
+	// $_POST['slider-rating'] = "2.5";
+	// $_verified = 0;
 	// $_POST['tags'] = '[{"text":"hello world","url":"https://hellow.com"},{"text":"howdy do you do","url":""},{"text":"walmart","url":""},{"text":"good","url":""},{"text":"great","url":""}]';
 	// $_POST['tags'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"good","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
 		// $_POST['tags'] = '[{"text":"new tag","url":"http://new tag only"}]';
-	$_POST['tags'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"new tag","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
+	$_POST['tags1'] = '[{"text":"walmart","url":"http://walmart.com 2"},{"text":"new tag","url":""},{"text":"great","url":""},{"text":"King souper","url":""}]';
 	
-  	$pArr = array(':title'=>$title,':url'=>$url,
-  		          ':slider_rating'=>$_POST['slider-rating'],
-            ':description'=>$description,':url_hash'=>md5($url),
-            // ':verified'=>$_verified);
-            ':verified'=>'verified',':id'=>1072);
+  	$pArr1 = array(':title'=>"kkk 23",':url'=>"https://www.google.com/#q=shrimp&*",
+  		          ':slider_rating'=>"2.5",
+            ':description'=>"3 Update tester",':url_hash'=>md5("https://www.google.com/#q=shrimp&*"),
+            ':verified'=>0);
+            // ':verified'=>0,':id'=>1072);
+
+  	$_POST['tags2'] = '[{"text":"Soup","url":"http://soup.com 3"},{"text":"new tag","url":""},{"text":"great","url":""},{"text":"House","url":""}]';
+	
+  	$pArr2 = array(':title'=>"zoo",':url'=>"https://www.google.com/#q=shrimp&zoo*",
+  		          ':slider_rating'=>"5",
+            ':description'=>"zoo Update tester",':url_hash'=>md5("https://www.google.com/#q=shrimp&zoo*"),
+            ':verified'=>1);
+
+  	  	$_POST['tags3'] = '[{"text":"Bambou","url":""},{"text":"Soup","url":"http://soup.com"},{"text":"new tag","url":""},{"text":"great","url":"https://www.great.com"}]';
+	
+  	$pArr3 = array(':title'=>"fligth",':url'=>"https://www.flight.net",
+  		          ':slider_rating'=>"1.5",
+            ':description'=>"zoo Update tester",':url_hash'=>md5("https://www.flight.net"),
+            ':verified'=>1);
+
+  	  	$_POST['tags4'] = '[{"text":"great","url":"http://supergreat"},{"text":"walmart","url":""},{"text":"King souper","url":"http://king.com"}]';
+	
+  	$pArr4 = array(':title'=>"Last tester",':url'=>"https://www.last.com",
+  		          ':slider_rating'=>"3",
+            ':description'=>"Last tester ehh",':url_hash'=>md5("https://www.last.net"),
+            ':verified'=>1);
+            // ':verified'=>0,':id'=>1072);
   	// echo "<br/>" . $_POST['tags'];
   	// echo "<pre>";
   	// print_r(json_decode($_POST['tags'])[0]->url);
   	// echo "<br/><pre>";
   	// echo var_dump(json_decode($_POST['tags']));
    
-  	// echo "<br/>" . DB::add($pArr,json_decode($_POST['tags']));
-  	// echo $success = DB::addTag(array(":name" =>"new tag",":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>0,":frequency" => 2));
+  	// echo "<br/>" . DB::add($pArr1,json_decode($_POST['tags1']));
+  	// echo $success = DB::addTag(array(":name" =>"good place",":url" =>"http://newtags.com",":sound_like" =>metaphone("good place"),":verified" =>0,":frequency" => 2));
+  	// echo $success = DB::addTag(array(":name" =>"good place",":url" =>"http://newtags.com",":verified" =>0,":frequency" => 1));
   	// echo $success = DB::addTag(array(":name" =>"old tag",":url" =>"http://oldtags.com",":sound_like" =>metaphone("old tag"),":verified" =>1,":frequency" => 2));
-  	// echo "<br/>" . $success = DB::updateTag(array(":url" =>"http://newtags.com 5 z",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 0));
-  	// echo "<br/>" . DB::update($pArr,json_decode($_POST['tags']));
-  	echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("old tag")));
-  	// echo "<br/>" . DB::delete(1062);
+  	// echo $success = DB::addTag(array(":name" =>"great",":url" =>"",":verified" =>1,":frequency" => 5));
+  	// echo "<br/>" . $success = DB::updateTag(array(":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 0));
+  	// echo "<br/>" . $success = DB::updateTag(array(":name"=>"new tag",":verified" =>1,":frequency" => 5));
+  	$pArr2[':id'] = 1192;
+  	echo "<br/>" . DB::update($pArr2,json_decode($_POST['tags2']));
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("house")));
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("good place"),metaphone("bambou")),false);
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("walmart"),metaphone("king souper")),false);
+  	// echo "<br/>" . DB::delete(1022);
 
 ?>
