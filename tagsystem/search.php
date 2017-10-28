@@ -197,14 +197,14 @@
   	// echo $success = DB::addTag(array(":name" =>"good place",":url" =>"http://newtags.com",":sound_like" =>metaphone("good place"),":verified" =>0,":frequency" => 2));
   	// echo $success = DB::addTag(array(":name" =>"good place",":url" =>"http://newtags.com",":verified" =>0,":frequency" => 1));
   	// echo $success = DB::addTag(array(":name" =>"old tag",":url" =>"http://oldtags.com",":sound_like" =>metaphone("old tag"),":verified" =>1,":frequency" => 2));
-  	// echo $success = DB::addTag(array(":name" =>"great",":url" =>"",":verified" =>1,":frequency" => 5));
+  	// echo $success = DB::addTag(array(":name" =>"new tag",":url" =>"",":verified" =>1,":frequency" => 5));
   	// echo "<br/>" . $success = DB::updateTag(array(":url" =>"http://newtags.com",":sound_like" =>metaphone("new tag"),":verified" =>1,":frequency" => 0));
-  	// echo "<br/>" . $success = DB::updateTag(array(":name"=>"new tag",":verified" =>1,":frequency" => 5));
-  	$pArr2[':id'] = 1192;
-  	echo "<br/>" . DB::update($pArr2,json_decode($_POST['tags2']));
-  	// echo "<br/>" . DB::deleteTags(array(metaphone("house")));
+  	// echo "<br/>" . $success = DB::updateTag(array(":name"=>"great",":verified" =>0,":frequency" => 1));
+  	// $pArr2[':id'] = 1212;
+  	// echo "<br/>" . DB::update($pArr2,json_decode($_POST['tags3']));
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("walmart")));
   	// echo "<br/>" . DB::deleteTags(array(metaphone("good place"),metaphone("bambou")),false);
   	// echo "<br/>" . DB::deleteTags(array(metaphone("walmart"),metaphone("king souper")),false);
-  	// echo "<br/>" . DB::delete(1022);
+  	// echo "<br/>" . DB::delete(1212);
 
 ?>
