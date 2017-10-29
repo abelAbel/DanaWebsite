@@ -22,20 +22,8 @@ function engine()
 			return json_encode($finalResult);
 	}
 
-	// $host = '127.0.0.1'; //127.0.0.1
-	// $db = 'ebk'; //Data base name
-	// $userName ='root';
-	// $psw = ''; //password
-	// $pdo = new PDO('mysql:host='.$host.';dbname='.$db,$userName,$psw); //Php data object (Type of database/host etc..,user name,password)
 	require('connect-mysql.php');
-
-// name="textarea" name="slider-rating" name="url" name="title"
-	// if(empty(trim($_GET['query'])))
-	// {
-	// 	echo "!!It is not set <br>";
-	// }
-
-	// echo "searchInput = " . $searchInput . "<br>";
+	
 	$searchE = explode(" ",$searchInput);
 	//print_r($searchE);
 	// if(count($searchE) == 1)
@@ -48,55 +36,74 @@ function engine()
 	foreach ($searchE as $term){
 		$x++;
 		if($x == 1){
-			// $construct.="title LIKE '%$term%' OR description LIKE '%$term%' OR keywords LIKE '%$term%'";
-			$construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
-			// $construct.="title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
+			$construct.="tags_sound_like LIKE CONCAT('%',:search$x,'%')";			
 		}else{
-			$construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%')";
-			// $construct.="AND title LIKE CONCAT('%',:search$x,'%') OR description LIKE CONCAT('%',:search$x,'%') OR keywords LIKE CONCAT('%',:search$x,'%') OR url LIKE CONCAT('%',:search$x,'%')";
-
+			$construct.="OR tags_sound_like LIKE CONCAT('%',:search$x,'%')";	
 		}
-		$params[":search".$x] = $term ;
+		$params[":search".$x] = metaphone($term) ;
 	}
-	// $results = $pdo->query("SELECT * FROM `index` WHERE title LIKE '%$searchInput%'");
-		// $results = $pdo->query("SELECT * FROM `index` WHERE $construct");
 
-	// $results = $pdo->prepare("SELECT * FROM `index` WHERE $construct");
-	// $results = $pdo->prepare("SELECT * FROM `index` WHERE $construct ORDER BY rating ". $_GET['order-choice']); //ASC|DESC
-	// $results->execute($params);
+	if(sizeof($searchE) > 1)
+	{
+		$x++;
+		$construct.="OR tags_sound_like LIKE CONCAT('%',:search$x,'%')";
+		$params[":search".$x] = metaphone($searchInput);
+	}
+
+	// print_r($params);
   $results = DB::query("SELECT * FROM `index` WHERE verified=1 AND ($construct) ORDER BY rating ". $_GET['order-choice'], $params);
-	// echo "<pre>";
-	// print_r($results->fetchAll());
-	$finalResult = array();
-	//$finalResult['contents'] = "";
+    $finalResult = array('total'=> 0);
+    if(is_object($results))
+    {
+    	$finalResult['contents'] = $results->fetchAll();
+		$finalResult['total'] = $results->rowCount();
+    }
+	return json_encode($finalResult);
 
-		//if($results->rowCount() == 0){
-			//echo "0 result found <hr/>";
-		//}else{
-			//echo "Total result: ".$results->rowCount()."<hr/>";
-			// foreach ($results->fetchAll() as $result) {
-			// 	//$finalResult['contents'].=
-			// 	echo "<div style='border-bottom: 6px solid red;
-   //  					     background-color: lightgrey;
-   //  					     margin-bottom: 10px;
-   //  					     box-shadow: 5px 5px 5px #888888;'
-   //  			 >"."Title: ".$result['title']."<br>".
-   //  			 	"Rating: ".$result['rating']."<br>".
-   //  			 	"URL: <a href='".$result['url']."'>".$result['url']."<a/> <br>".
-   //  			 	"Keywords: ".$result['keywords']."<br>".
-   //  			 	"Description: ".$result['description']."<br>".
-   //  			 "</div>";
-			// }
+}
 
-		    $finalResult['contents'] = $results->fetchAll();
-			// $finalResult['average'] = 5;
-			$finalResult['total'] = $results->rowCount();
-			// echo $finalResult["contents"];
-				// echo "<pre>";
-				// print_r($finalResult);
+function tagSearch()
+{
+	$searchInput = test_input($_GET['q']);
+	if(empty($searchInput))
+	{
+			$finalResult['total'] = 0;
 			return json_encode($finalResult);
-			//No result foud
-		//}
+	}
+
+	require('connect-mysql.php');
+	$searchE = explode(" ",$searchInput);
+	$params = array();
+	$x = 0;
+	$construct = "";
+	foreach ($searchE as $term){
+		$x++;
+		if($x == 1){
+			$construct.="tag_sound_like LIKE CONCAT('%',:search$x,'%')";			
+		}else{
+			$construct.="OR tag_sound_like LIKE CONCAT('%',:search$x,'%')";	
+		}
+		$params[":search".$x] = metaphone($term) ;
+	}
+	
+	if(sizeof($searchE) > 1)
+	{
+		$x++;
+		$construct.="OR tag_sound_like LIKE CONCAT('%',:search$x,'%')";
+		$params[":search".$x] = metaphone($searchInput);
+	}
+  // echo "<pre/>";
+  // print_r($params);
+  $results = DB::query("SELECT tag_name, tag_url FROM `tags` WHERE tag_verified=1 AND ($construct) ORDER BY tag_frequency DESC", $params);
+    $finalResult = array();
+
+    if(is_object($results) && $results->rowCount())
+    {
+    	$finalResult = $results->fetchAll(PDO::FETCH_ASSOC);
+    }
+    // echo "<pre/>";
+    // print_r($finalResult);
+	return json_encode($finalResult);
 
 }
 

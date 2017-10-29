@@ -5,7 +5,7 @@ var state = "add";
 // var theme = '';
 $(document).on('pagebeforecreate','#pAdd',function (a) {
   // $("#search").tagSystem({maxTags:10});       
-  $("#tags").tagSystem({maxTags:10,addAutocomplete:false});       
+  $("#tags").tagSystem({maxTags:10,addAutocomplete:true});       
 });
 
 // $(document).ready(function(){

@@ -69,12 +69,13 @@
                           // type:"GET",
                           dataType: "json",
                           crossDomain: true,
-                          data: {q: value},
+                          data: {q: value, method:'tagSearch'},
                           success: function (arg) {
                             console.log("Success");
                           },
                           error: function (arg) {
-                            console.log("Error");
+                            console.log("Error ->" + arg);
+                            console.log(arg);
                           }
                       })
                       .then( function ( response ) {
@@ -82,10 +83,10 @@
                           $ul.html("");
                           $ul.listview( "refresh" );
                           $.each( response, function ( i, val ) {
-                              let li = $("<li data-icon='plus' data-theme ="+((val['url'].trim() != "")?"b":"a")+"> <a href='"+val['url']+ "'>"+ val['text'] + "</a></li>");
+                              let li = $("<li data-icon='plus' data-theme ="+((val['tag_url'].trim() != "")?"b":"a")+"> <a href='"+val['tag_url']+ "'>"+ val['tag_name'] + "</a></li>");
                               li.children('a').on("tap",function (e) {
                                 let a = $(this);
-                                if(tagsArr.length < settings.maxTags && tagsArr.find(dupTags, val['text']) === undefined)
+                                if(tagsArr.length < settings.maxTags && tagsArr.find(dupTags, val['tag_name']) === undefined)
                                 {
                                   addTag(a.text(),a.attr('href')); 
                                 }

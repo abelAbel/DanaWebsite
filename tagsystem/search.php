@@ -93,6 +93,9 @@
 // echo var_dump(metaphone("K")) ."<br>";
 // echo var_dump(metaphone("w")) ."<br>";
 
+$params = "Hello ";
+echo metaphone("renewable energy") . "<br/>";
+echo metaphone("renewable-/energy");
 // 
 
 

@@ -58,7 +58,7 @@
           <!-- Tag system end -->
           <script type="text/javascript">
 		        $(document).on('pagebeforecreate',function (a) {
-		          $("#tags").tagSystem({maxTags:10,addAutocomplete:false});
+		          $("#tags").tagSystem({maxTags:10,addAutocomplete:true});
 		          // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
 		          $("#tags").val("<?php echo $tags; ?>").trigger('input');
 		        });
@@ -137,22 +137,22 @@
   }
 
   if(isset($_SESSION['validationAddPage'])){
-  	echo "Session is set";
   	$_POST['validation'] = $_SESSION['validationAddPage'];
   }
-  else 
-  {
-  	unset($_SESSION['validationAddPage']);
+  // else 
+  // {
+  	
   	// remove all session variables
 		// session_unset();
 		// destroy the session
 		// session_destroy();
 		// unset($_SESSION['name']); // will delete just the name data
 		// session_destroy(); // will delete ALL data associated with that user.
-  }
+  // }
   
   if(!isset($_POST['validation']) || $_POST['validation'] != getenv('ADD_TOKEN'))
   {
+  	unset($_SESSION['validationAddPage']);
     die("E.K.W add page does not know you, Goodbye");
   }
 
