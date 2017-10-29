@@ -4,7 +4,7 @@
         // This is the easiest way to have default options.
         var settings = $.extend({
             // These are the defaults.
-            maxTags: 5, autocomplete_url:"search.php",addAutocomplete:true
+            maxTags: 5, autocomplete_url:"engine.php",addAutocomplete:true
             // listviewAjaxSuccess: function (data) {}
         }, options);
 
@@ -48,7 +48,7 @@
                       if (filteredTag['text'].length > 0  && tagsArr.find(dupTags,filteredTag['text']) === undefined)
                           addTag(filteredTag['text'],filteredTag['url']);
                   });
-                }
+                } else alert("You have reach MAX tags limit of " + settings.maxTags);
                   console.log("tagsArr.length="+ tagsArr.length +" / settings.maxTags=" + settings.maxTags );
                   mainInput.value = '';
               }

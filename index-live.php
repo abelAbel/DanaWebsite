@@ -259,7 +259,7 @@
 
 				<div class="ui-field-contain">
 				    <label for="textarea">Description:</label>
-					<textarea name="description" id="textarea"  ></textarea>
+					<textarea name="description" id="textarea"></textarea>
 				</div>
 				<div data-mini="true" data-role="controlgroup" data-type="horizontal">
 					<input  type="submit" data-inline="true" value="Request Add" data-icon="plus">

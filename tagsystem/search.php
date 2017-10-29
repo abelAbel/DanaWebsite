@@ -203,8 +203,13 @@
   	// $pArr2[':id'] = 1212;
   	// echo "<br/>" . DB::update($pArr2,json_decode($_POST['tags3']));
   	// echo "<br/>" . DB::deleteTags(array(metaphone("walmart")));
-  	// echo "<br/>" . DB::deleteTags(array(metaphone("good place"),metaphone("bambou")),false);
+  	// echo "<br/>" . DB::deleteTags(array(metaphone("new tag"),metaphone("bambou")),false);
   	// echo "<br/>" . DB::deleteTags(array(metaphone("walmart"),metaphone("king souper")),false);
   	// echo "<br/>" . DB::delete(1212);
+  	// $tagInfoString = "";
+  	// echo ">>".isset($tagInfoString);
+  	$t = 0;
+  	echo ($t!=DB::SUCCESS); 
+  	
 
 ?>

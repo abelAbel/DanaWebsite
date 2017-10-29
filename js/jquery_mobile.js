@@ -93,7 +93,7 @@ function requestAddToEKW (form) {
   // console.log(d.type);
   // console.log(d.inputsData);
   d.inputsData['method'] = 'addRequestMain';
-      ajaxCustom(d.url, d.type,d.inputsData,"json",
+      ajaxCustom(d.url, d.type,d.inputsData,"",
         function (datas,textStatus,jqXHR) {
           addResponce(datas);
           $.mobile.loading( "hide");
@@ -107,9 +107,7 @@ function requestAddToEKW (form) {
 
 function addResponce(d) {
   //adding
-    console.log("d['urlErr'] -> " + d['urlErr']);
-    console.log("d['email_sent'] -> " +d['email_sent']);
-      if (d == '1')
+      if (d == 0)
       {
         console.log("Successfull email for add request sent");
         addPopUp("Add request successfully sent.....", 'd');

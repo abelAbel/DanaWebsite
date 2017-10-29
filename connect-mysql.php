@@ -1,6 +1,6 @@
 <?php
-	// include('..\env.php');
-	include('..\..\env.php');		
+	include('..\env.php');
+	// include('..\..\env.php');		
 // $dbConnect->beginTransaction();$dbConnect->commit();$dbConnect->rollback();
 
 	class DB
@@ -131,8 +131,9 @@
       		}
 				}
 			} catch(PDOException $e){
-				echo $e->getMessage();
-				die("<br> <b> Error in deleteTags");
+				// echo $e->getMessage();
+				// die("<br> <b> Error in deleteTags");
+				return "<br>" . $e->getMessage()."<br> <b> Error in deleteTags";
 			}
 
 			return self::SUCCESS;
@@ -153,7 +154,7 @@
 						if(self::deleteTags(explode(" ",$tag_sound_like)) != self::SUCCESS)
 							$success = self::DELETE_ERROR.":1";
 					}
-					if($success == self::SUCCESS){
+					if($success === self::SUCCESS){
 						$query = "DELETE FROM `index` WHERE id=:id";
 						$delete = $dbConnect->prepare($query);
 						$delete->bindParam(":id",$id);
@@ -163,14 +164,15 @@
 					}
 				}else $success = self::DELETE_ERROR.":3"; //ID does not exist  
 
-				if($success == self::SUCCESS)
+				if($success === self::SUCCESS)
 					$dbConnect->commit();
 				else $dbConnect->rollback();
 				
 			} catch(PDOException $e){
 				$dbConnect->rollback();
-				echo "<br>" . $e->getMessage();
-				die("<br> <b> Error in delete");
+				// echo "<br>" . $e->getMessage();
+				// die("<br> <b> Error in delete");
+				return "<br>" . $e->getMessage()."<br> <b> Error in delete";
 			}
 
 			return $success;
@@ -264,14 +266,15 @@
 				}
 				else $success = self::UPDATE_ERROR.":6";// No ID exists";
 				
-				if($success == self::SUCCESS)
+				if($success === self::SUCCESS)
 					$dbConnect->commit();
 				else $dbConnect->rollback();
 
 			} catch(PDOException $e){
 				$dbConnect->rollback();
-				echo "<br>" . $e->getMessage();
-				die("<br> <b> Error in update");
+				return "<br>" . $e->getMessage()."<br> <b> Error in update";
+				// echo "<br>" . $e->getMessage();
+				// die("<br> <b> Error in update");
 			}
 
 			return $success;
@@ -297,8 +300,9 @@
 				if(!$update->rowCount())
 					return self::UPDATE_TAG_ERROR; 
 			} catch(PDOException $e){
-				echo '<br>' . $e->getMessage();
-				die("<br> <b> Error in updateTag");
+				// echo '<br>' . $e->getMessage();
+				// die("<br> <b> Error in updateTag");
+				return "<br>" . $e->getMessage()."<br> <b> Error in updateTag";
 			}
 
 			return self::SUCCESS;
@@ -339,7 +343,7 @@
       		}
       	}
 
-      	if($success == self::SUCCESS)
+      	if($success === self::SUCCESS)
       	{
       		$param[':tags_sound_like'] = trim($param[':tags_sound_like']);
 	        $query = "INSERT INTO `index` VALUES ('',:title,:description,:url,:slider_rating,:url_hash,:verified,:tags_sound_like)";
@@ -350,15 +354,16 @@
       	}
       	else $success = self::ADD_ERROR.":4";
 
-				if($success == self::SUCCESS)
+				if($success === self::SUCCESS)
 					$dbConnect->commit();
 				else $dbConnect->rollback();
 
       } catch(PDOException $e)
 		  {
 		  	$dbConnect->rollback();
-		  	echo "<br>" . $e->getMessage();
-				die("<br> <b> Error in add");
+		  	// echo "<br>" . $e->getMessage();
+				// die("<br> <b> Error in add");
+				$success = "<br>" . $e->getMessage()."<br> <b> Error in add";
 		  }
 
 		  return $success; 
@@ -379,12 +384,36 @@
 	      	return self::ADD_TAG_ERROR;
       } catch(PDOException $e)
 		  {
-		  	echo "<br>" . $e->getMessage();
-				die("<br> <b> Error in addTag");
+		  	// echo "<br>" . $e->getMessage();
+				// die("<br> <b> Error in addTag");
+				return "<br>" . $e->getMessage()."<br> <b> Error in addTag";
 		  }
 
 		  return self::SUCCESS;
     }
+
+		public static function tags_info_string($tags_sound_like)
+		{
+			$tagInfoString = "";
+			if(isset($tags_sound_like))
+			{
+				$tags_sounds = explode(' ',$tags_sound_like);
+				foreach ($tags_sounds as $tg_snd) {
+						$q = self::query("SELECT * FROM `tags` WHERE tag_sound_like='".$tg_snd."'");
+	      		if(is_object($q) && $q->rowCount())
+	      		{
+	             $row = $q->fetch(PDO::FETCH_ASSOC);
+	             $tagInfoString .= $row['tag_name'];
+	      			 if($row['tag_url'] !=""){
+	      			 	 $tagInfoString .= "|".$row['tag_url'];
+	      			 }
+	             $tagInfoString .= ",";
+	      		}
+				}
+				rtrim($tagInfoString, ',');
+			} 
+			return $tagInfoString;
+		}
 
 	}//End of DB class
 
