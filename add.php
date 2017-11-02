@@ -57,9 +57,12 @@
           <script src="tagsystem/tags.js"></script>
           <!-- Tag system end -->
           <script type="text/javascript">
-		        $(document).on('pagebeforecreate',function (a) {
+		        $(document).one('pagebeforecreate',function (a) {
 		          $("#tags").tagSystem({maxTags:10,addAutocomplete:true});
 		          // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
+		        });
+
+		        $(document).one('pagecreate',function (a) {
 		          $("#tags").val("<?php echo $tags; ?>").trigger('input');
 		        });
 
@@ -92,7 +95,7 @@
         </div>
 
         <div class="ui-field-contain">
-				    <label for="tags">Who is being rated tags <br/> (MAX = 10):</label>
+				    <label for="tags">Who is being rated tags: <br/> (MAX = 10)</label>
 				    <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true">
 				</div>
 
@@ -121,11 +124,7 @@
   		<h4>Page Footer</h4>
   	</div><!-- /footer -->
   </div><!-- /page -->
-<!--   	<div data-role="page" id="fianAddResponce" data-theme="<?php echo $theme; ?>" >
-				<div data-role="header"><h1>E.K.W Final Add</h1></div>
-				<div role="main" class="ui-content"> <h2><?php echo $responce; ?> </h2></div>
-				<div data-role="footer" data-position="fixed"><h4>Page Footer</h4></div>
-	</div> -->
+
 </body>
 </html>
 
@@ -171,7 +170,7 @@
 				$responce = "Succesfully Added and Verified";
 				$theme = 'd';
 			}
-			else $responce = "Unable to finalize verification <hr/>".$addDB;
+			else $responce = "Unable to finalize verification <hr/> Error: ".$addDB;
 			
 		}elseif ($_POST['addOrdelete'] === "delete") {
 			$deleteDB = DB::delete($_POST['id']);
@@ -180,7 +179,7 @@
 				$responce = "Succesfully deleted";
 				$theme = 'd';
 			}
-			else $responce = "Unable to delete at this time <hr/>".$deleteDB;
+			else $responce = "Unable to delete at this time <hr/> Error: ".$deleteDB;
 			
 		}
 		echo 
@@ -229,16 +228,17 @@
     // // $url_hash = md5($url);
     // $tags = test_input($_POST['tags']);
     $params = dbParamsArray($_POST['title'], $_POST['description'], $_POST['url'], 0);
-    $added = DB::add($params,json_decode($_POST['tags']));
-    if($added === DB::SUCCESS)
-    {
-      send_email($params[':title'],create_body($params[':title'], $params[':description'], $params[':url'], $_POST['tags']));
-      $finalResult['email_sent'] = true;
-      echo DB::SUCCESS;
-    }
-    else
-    {
-      echo "Error adding/submit to E.K.W - Error code = ".$added;
+    if(send_email($params[':title'],create_body($params[':title'], $params[':description'], $params[':url'], $_POST['tags'])) === DB::SUCCESS)
+    	{
+    		 $added = DB::add($params,json_decode($_POST['tags']));
+		     if($added === DB::SUCCESS)
+			    {
+			      echo DB::SUCCESS;
+			    }
+			    else
+			    {
+			      echo "Error adding/submit to E.K.W - Error code = ".$added;
+			    }
     }
 
   }
@@ -313,14 +313,14 @@
 		// $mail->Send();//send the mail (Limited to 99 messages a day)
 		if(!$mail->Send())
 		{
-		   echo "Error sending: " . $mail->ErrorInfo;
-		   exit("Error occured when trying to email!!");
+		   echo "<br/> Error sending: " . $mail->ErrorInfo;
+		   exit("<br/> Error occured when trying to email!!");
 		}
-		// else
-		// {
-		//    // echo "E-mail sent";
-		// 	return;
-		// }
+		else
+		{
+		   // echo "E-mail sent";
+			return DB::SUCCESS;
+		}
 
 	}
 

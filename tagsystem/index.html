@@ -39,7 +39,6 @@
       <script type="text/javascript">
         $(document).on('pagebeforecreate',function (a) {
           var tg = $("#tags").tagSystem({maxTags:10,addAutocomplete:true});
-          $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
           $("#keywords").on("click",function (arguments) {
             // console.log("tg[0] = " + tg[0]);
             console.log(tg);
@@ -48,6 +47,10 @@
           });
             // $("#tags2").tagSystem({maxTags:3});
           
+        });
+
+        $(document).on('pagecreate',function (argument) {
+            $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
         });
 
 
@@ -87,7 +90,46 @@
             <input type="text" name="keywords" id="keywords" data-clear-btn="true" value="">
         </div> -->
             <input type="submit"  value="Submit">
+
       </form>
+
+      <div style="
+                        background-color: lightgrey;
+                        margin-bottom: 10px;
+                        box-shadow: 5px 5px 5px #888888;">
+                        <a href="#" 
+                           style="
+                              padding-left: 5px;
+                              padding-right: 5px; 
+                              padding-top: 1px;
+                              margin-bottom: 10px;
+                              text-decoration: none;
+                              -webkit-tap-highlight-color: rgba(0,255,0,.1);
+                              border-bottom: 3px dashed red;
+                              display: block;">
+                              <h2>Walmart Must Take Responsibility for Its Canned Tuna</h2> 
+                        </a> 
+          
+                        <p style="
+                              padding-left: 5px;
+                              padding-right: 5px; "> Certainly elsewhere my do allowance at. The address farther six hearted hundred towards husband. Are securing off occasion remember daughter replying. Held that feel his see own yet. Strangers ye to he sometimes propriety in. She right plate seven has. Bed who perceive judgment did marianne. 
+
+Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery. Stairs ladies friend by in mutual an no. Mr hence chief he cause. Whole no doors on hoped. Mile tell if help they ye full name. 
+</p>
+
+                        <a href="#" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-shadow">Anchor</a>
+                        <a href="#" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-shadow">Anchor</a>
+                        <a href="#" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-shadow">Anchor</a>
+                        <a href="#" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-shadow">Anchor</a>
+      <a href="#transitionExample" data-transition="pop" class="ui-btn ui-corner-all ui-mini ui-shadow ui-btn-inline" data-rel="popup">Slide down</a>
+      <div data-role="popup" id="transitionExample" class="ui-content" data-arrow="t" data-theme="b">
+          <p><b> Frequency:</b> 5</p>
+          <a href="https://jquery.com" target="_blank">https://jquery.com</a>
+      </div>
+                      
+                        <div style="font-size: .8em; background: red;  text-shadow:none; padding: 0px"><b>Rating - 5 </b></div>
+    </div>
+
 
   	</div><!-- /content -->
 
@@ -97,3 +139,34 @@
   </div><!-- /page -->
   </body>
 </html>
+
+      <div style="background-color: lightgrey;
+                  margin-bottom: 10px;
+                  box-shadow: 5px 5px 5px #888888;">
+        <a href="#" 
+           style="
+              padding-left: 5px;
+              padding-right: 5px; 
+              padding-top: 1px;
+              margin-bottom: 10px;
+              text-decoration: none;
+              -webkit-tap-highlight-color: rgba(0,255,0,.1);
+              border-bottom: 3px dashed red;
+              display: block;">
+              <h2> </h2> 
+        </a> 
+
+        <p style="
+              padding-left: 5px;
+              padding-right: 5px; "> 
+        </p>
+
+        <a href="#transitionExample" data-transition="pop" class="ui-btn ui-corner-all ui-mini ui-shadow ui-btn-inline" data-rel="popup">Slide down</a>
+
+        <div data-role="popup" id="transitionExample" class="ui-content" data-arrow="t" data-theme="b">
+          <p><b> Frequency:</b> 5</p>
+          <a href="https://jquery.com" target="_blank">https://jquery.com</a>
+        </div>
+                      
+        <div style="font-size: .8em; background: red;  text-shadow:none; padding: 0px"><b>Rating - 5 </b></div>
+    </div>

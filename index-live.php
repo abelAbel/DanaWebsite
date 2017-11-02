@@ -131,6 +131,7 @@
 				</div>
 
 				<input type="search" name="query" id="search" placeholder="Search..." required>
+				<ul data-inset="true" data-role="listview" data-input="#search" id="search-autoComplete" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
 				<!-- <input id = "mPresult-slider"  type="range" disabled="disabled" name="slider-fill" value="" min="0" max="5" step="1" data-highlight="true" data-theme="b" data-track-theme="b"> -->
 
 								<!-- Practice with width percentage etc... -->
@@ -154,6 +155,11 @@
         			<div class="clearfix"></div>
 			   </div>
 			</form>
+
+<!--     			      <a href="#transitionExample" data-transition="pop" class="ui-btn ui-corner-all ui-mini ui-shadow ui-btn-inline" data-rel="popup">Slide down</a>
+      <div data-role="popup" id="transitionExample" class="ui-content" data-arrow="t" data-theme="a">
+          <p>I'm a simple popup.</p>
+      </div> -->
 
 <!-- 			<a href="http://www.google.com/" onclick="window.open(this.href,'_system'); return false;">Google</a> -->
 
@@ -233,10 +239,8 @@
 				    <button id="titleKeyGen" class="ui-shadow ui-btn ui-btn-b ui-corner-all ui-icon-recycle ui-btn-icon-right">Generate Title and Some Tags</button>
 				</div>
 
-
-
-				<div class="ui-field-contain">
-				    <label for="tags-main-input">Who is being rated tags: <span style="color: red">*</span></label>
+        <div class="ui-field-contain">
+				    <label for="tags">Who is being rated tags: <span style="color: red">*</span> <br/> (MAX = 10)</label>
 				    <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true" value="">
 				</div>
 
@@ -290,7 +294,8 @@
 
 
 
-				<div id ="popup-area" data-rel="popup" data-position-to="window"> </div> <!-- for good or bad responce for add -->
+				<!-- <div id ="popup-area"> </div> --> <!-- for good or bad responce for add -->
+				<!-- <div id ="popup-area" data-rel="popup" data-position-to="window"> </div>  --><!-- for good or bad responce for add -->
 
 </body>
 </html>

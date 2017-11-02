@@ -8,10 +8,15 @@ $(document).on('pagebeforecreate','#pAdd',function (a) {
   $("#tags").tagSystem({maxTags:10,addAutocomplete:true});       
 });
 
+/* Instantiate the popup on DOMReady, and enhance its contents */
+// $(function(){
+//     $( "#popup-area" ).enhanceWithin().popup(positionTo: "window",dismissible: false, transition: "slidedown");
+// });
+
 // $(document).ready(function(){
 $(document).one('pagecreate',function(){
   /* Instantiate the popup on DOMReady, and enhance its contents */
-  $( "#popup-area" ).enhanceWithin().popup();
+  // $( "#popup-area" ).enhanceWithin().popup();
 
     // $("form.ajax").on("submit",function (event)
     // {
@@ -64,9 +69,9 @@ $(document).one('pagecreate',function(){
     // }); //end of 'form.ajax'
 
         // Remove the popup after it has been closed to manage DOM size
-    $( document ).on( "popupafterclose", ".ui-popup", function() {
-        $( this ).remove();
-          $( "#popup-area" ).empty();
+//     $( document ).on( "popupafterclose", ".ui-popup", function() {
+    $( document ).on( "popupafterclose", function() {
+        $( "#addPopupDiv" ).remove();
     });
 
   $("#searchForm").on('submit', function(e) {
@@ -120,16 +125,19 @@ function addResponce(d) {
 
 function searchEKW(form) {
   $.mobile.loading( "show");
-  var url = form.attr('action'),
-      type = form.attr('method'),
-      data = {};
-  form.find('[name]').each(function (index, value) {
-    var name = $(this).attr('name'),
-        value = $(this).val();
-        data[name] = value;
-  });
-  data['method'] = 'engine';
-      ajaxCustom(url,type,data,"json",
+  // var url = form.attr('action'),
+  //     type = form.attr('method');
+  //     data = {};
+  // form.find('[name]').each(function (index, value) {
+  //   var name = $(this).attr('name'),
+  //       value = $(this).val();
+  //       data[name] = value;
+  // });
+  // data['method'] = 'engine';
+  var data = getFormData(form);
+  console.log(data);
+  data.inputsData['method'] = 'engine';
+      ajaxCustom(data.url, data.type,data.inputsData,"json",
         function (datas,textStatus,jqXHR) {
           searchResponce(datas);
           $.mobile.loading( "hide");
@@ -142,12 +150,18 @@ function searchEKW(form) {
 } // End of searchEKW()
 
 function searchResponce(d) {
+  console.log(d);
+  if(d['error'] != 0)
+  {
+    addPopUp("Search Error : "+d['error'],'c');
+    return;
+  }
   //searching
       var wAvgr = 0;
       var finalResult = "";
       // var wAverage = {'0':0,'1':0,'2':0,'3':0,'4':0,'5':0};
       // var wAverage = {'0':0,'5':0};
-      var wAverage = {};
+      var wAverage = d['wAvg'];
       var sum = 0;
 
       console.log("Successfull Search");
@@ -155,26 +169,35 @@ function searchResponce(d) {
       //$("#pResults>.ui-content").html(d['0']['title']);
       console.log(d);
       // $('#toTop').hide();
-
+        
+        //Clear the values to default
+        finalResult = "0 Result Found... <hr/>";
+        $('#p1').css({"background-color": "#f9f9f9"});
+        // $('#mPresult-slider').val("").slider("refresh").val("");
+        $('#mPresult-stars').rating('reset');
+        $('#mPresult-stars').rating('refresh', {clearCaption:''});
+        $("#rMainTop").empty();
+        $('[data-short-tg]').remove();
 
       if( d['total'] > 0)
       {
           finalResult = d['total'] + " Result Found <hr/>";
-          $.each( d['contents'], function( i, l ){
-           finalResult+=
-           '<div style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
-                        background-color: lightgrey;\
-                        margin-bottom: 10px;\
-                        box-shadow: 5px 5px 5px #888888;">'+
-                        'Title: '+ l['title'] + '<br>'+
-                        'Rating: '+ l['rating'] + '<br>'+
-                        'URL: <a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> <br>'+
-                        'Keywords: '+ l['keywords'] + '<br>'+
-                        'Description: '+ l['description'] + '<br>'+
-            '</div>';
-            // wAverage[l['rating']]+=1;
-            wAverage[l['rating']] = (isNaN(wAverage[l['rating']])) ? 1 : wAverage[l['rating']]+=1;
-          });
+          finalResult += d['html'];
+          // $.each( d['contents'], function( i, l ){
+          //  finalResult+=
+          //  '<div style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
+          //               background-color: lightgrey;\
+          //               margin-bottom: 10px;\
+          //               box-shadow: 5px 5px 5px #888888;">'+
+          //               'Title: '+ l['title'] + '<br>'+
+          //               'Rating: '+ l['rating'] + '<br>'+
+          //               // 'URL: <a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> <br>'+
+          //               // 'Keywords: '+ l['keywords'] + '<br>'+
+          //               'Description: '+ l['description'] + '<br>'+
+          //   '</div>';
+          //   // wAverage[l['rating']]+=1;
+          //   wAverage[l['rating']] = (isNaN(wAverage[l['rating']])) ? 1 : wAverage[l['rating']]+=1;
+          // });
           console.log(wAverage);
           // console.log ("0=>" + hsl_rating(0) + " / 5=>" + hsl_rating(5));
 
@@ -208,23 +231,72 @@ function searchResponce(d) {
           console.log("Math.round(wAvgr) = " + Math.round(wAvgr));
 
       }
-      else
+
+      // $("#pResults>.ui-content").html(finalResult);
+      $("#rMainTop").html(finalResult);
+      alert(d['total'] + " Result Found");
+      console.log(d['popups']);
+      var x;
+      for(x in d['popups'])
       {
-        //Clear the values to default
-        finalResult = "0 Result Found... <hr/>";
-        $('#p1').css({"background-color": "#f9f9f9"});
-        // $('#mPresult-slider').val("").slider("refresh").val("");
-        $('#mPresult-stars').rating('reset');
-        $('#mPresult-stars').rating('refresh', {clearCaption:''});
+        console.log(d['popups'][x]);
+        $(d['popups'][x]).appendTo("#rMainTop").enhanceWithin().popup();
       }
 
-
-      $("#pResults>.ui-content").html(finalResult);
-      alert(d['total'] + " Result Found");
 } // End of searchResponce()
           /*Search Page*/
 $(document).one('pagecreate','#p1',function(){
   // Search Form ajax
+    //Autocomplete
+    $('#search').on('input focus',function (argument) {
+      var $ul = $('#search-autoComplete'),
+          $mainInput = $(this),
+          value = $mainInput.val();
+    
+      console.log("in seach input filterablebeforefilter");
+        if ( value.trim().length > 0 ) 
+        {
+            console.log("Going to call Ajax");
+            $.ajax({
+                url: 'engine.php',
+                // type:"GET",
+                dataType: "json",
+                crossDomain: true,
+                data: {q: value, method:'tagSearch'},
+                success: function (arg) {
+                  console.log("Success");
+                },
+                error: function (arg) {
+                  console.log("Error ->" + arg);
+                  console.log(arg);
+                }
+            })
+            .then( function ( response ) {
+                console.log(response);
+                $ul.html("");
+                $ul.listview( "refresh" );
+                $.each( response, function ( i, val ) {
+                    let $li = $("<li data-icon='arrow-u-l' data-theme='a'> <a href='#'>"+ val['tag_name'] + "</a></li>");
+                    $li.children('a').on("click",function (e) {
+                      $('#search').val($(this).text());
+                      $ul.html("");
+                      $ul.listview( "refresh" );
+                       // $mainInput.textinput( "refresh" );
+                      // return false;
+                      // e.preventDefault();
+                       // e.stopPropagation();
+                      // alert($mainInput.val());
+                      // $mainInput.trigger('change');
+                       $("#searchForm").submit();
+                    });
+                    $ul.append($li);
+                });
+                $ul.listview( "refresh" );
+                $ul.trigger( "updatelayout");
+            });
+        } else {$ul.html( "" ); $ul.listview( "refresh" );}
+    });  
+
     //Info button
     $("#info").on("tap",function (event) {
       addPopUp(

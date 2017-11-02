@@ -52,7 +52,8 @@
                   console.log("tagsArr.length="+ tagsArr.length +" / settings.maxTags=" + settings.maxTags );
                   mainInput.value = '';
               }
-              else if (settings.addAutocomplete == true)
+              
+              if (settings.addAutocomplete == true)
               {
                 var $ul = $(ul);
                 var $mainInput = $(this),
@@ -106,7 +107,10 @@
                           $ul.listview( "refresh" );
                           $ul.trigger( "updatelayout");
                       });
-                  } else {$ul.html( "" ); $ul.listview( "refresh" );}
+                  } else {
+                      $ul.html("");
+                      $ul.listview( "refresh" );
+                  }
               }
 
             });
@@ -146,7 +150,7 @@
             ul.setAttribute ("data-role","listview");
             // ul.setAttribute ("data-filter","true");
             // ul.setAttribute ("data-filter-reveal","true");
-            // ul.setAttribute ("data-input","#"+mainInput.id);
+            ul.setAttribute ("data-input","#"+mainInput.id);
             ul.id = mainInput.id + "-autoComplete";
             $(hiddenInput).after(ul);
             return ul;

@@ -57,12 +57,16 @@ function addPopUp(addStatusText,theme)
 
   console.log(addStatusText);
 
-  $("#popup-area").html(
-      '<div data-role="popup"  data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
-          '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
-          '<p><b>'+ addStatusText +'</b></p></div>'
-      ).trigger('create');
+  // $("#popup-area").html(
+  //     '<div data-role="popup"  data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
+  //         '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
+  //         '<p><b>'+ addStatusText +'</b></p></div>'
+  //     ).trigger('create');
 
+  var popup = '<div data-role="popup"  data-position-to="window" data-dismissible="false" id="addPopupDiv" class="ui-content" data-theme="'+ theme +'" data-transition="slidedown" >'+
+          '<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>'+
+          '<p><b>'+ addStatusText +'</b></p></div>';
+  $( popup ).appendTo( $.mobile.activePage ).enhanceWithin().popup();
   // $( "#addPopupDiv" ).popup({
   //     afterclose: function( event, ui ) {//Get rid of the pop up, so we can add different theme later
   //         $( "#addPopupDiv" ).popup( "destroy" );

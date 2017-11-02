@@ -261,8 +261,8 @@
 					$query = "UPDATE `index` SET ".$SET_param." WHERE id=:id";
 					$update = $dbConnect->prepare($query); 
 					$update->execute($param);
-					if(!$update->rowCount())
-						$success = self::UPDATE_ERROR.":5";
+					// if(!$update->rowCount())
+					// 	$success = self::UPDATE_ERROR.":5";
 				}
 				else $success = self::UPDATE_ERROR.":6";// No ID exists";
 				
@@ -297,8 +297,8 @@
 				$query = "UPDATE `tags` SET ".$SET_param." WHERE tag_sound_like=:sound_like";
 				$update = $dbConnect->prepare($query);
 				$update->execute($param);
-				if(!$update->rowCount())
-					return self::UPDATE_TAG_ERROR; 
+				// if(!$update->rowCount())
+				// 	return self::UPDATE_TAG_ERROR; 
 			} catch(PDOException $e){
 				// echo '<br>' . $e->getMessage();
 				// die("<br> <b> Error in updateTag");

@@ -1,5 +1,5 @@
 <?php
-	require('..\connect-mysql.php');
+	// require('..\connect-mysql.php');
 // function test_input($data) {
 //   // echo "Original: " . $data . "<br>";
 //   $data = trim($data);
@@ -93,9 +93,12 @@
 // echo var_dump(metaphone("K")) ."<br>";
 // echo var_dump(metaphone("w")) ."<br>";
 
-$params = "Hello ";
-echo metaphone("renewable energy") . "<br/>";
-echo metaphone("renewable-/energy");
+// $params = "Hello ";
+// echo metaphone("David Connelly") . "<br/>";
+// echo metaphone("David Connolly") . "<br/>";
+// echo metaphone("David Connely") . "<br/>";
+// echo metaphone("Dayvid Connillly") . "<br/>";
+// echo metaphone("Daevid Connellly") . "<br/>";
 // 
 
 
@@ -211,8 +214,33 @@ echo metaphone("renewable-/energy");
   	// echo "<br/>" . DB::delete(1212);
   	// $tagInfoString = "";
   	// echo ">>".isset($tagInfoString);
-  	$t = 0;
-  	echo ($t!=DB::SUCCESS); 
+  	// $t = 0;
+  	// echo ($t!=DB::SUCCESS); 
   	
+	function hsl_rating ($rating){
+    $change;
+	$step = 0.16666666666666666666666666666667;
+	$hue;
+	  if($rating == 0){
+	    $change = 1;
+	  }
+	  else{
+	    $change=((6-$rating)*round($step,17));
+	  }
 
+	  $hue = (1 - $change) *120;
+	  // echo "step->".number_format((float)$step, 16, '.', '')."<br>"; 
+	  return($hue);
+	}
+ //    $colors = "";
+	// for ($i=0; $i <= 5; $i+=.1) { 
+	// 	echo "<h1 style='margin-bottom: 0px; margin-top: 0px;  background-color:hsl(".hsl_rating($i).", 100%, 50%)'>".$i." </h1>";
+	// }
+        $row['tags_sound_like'] = '';
+		$sound_like = split(' ',$row['tags_sound_like']);
+		if(count($sound_like)>1)
+		{
+			echo var_dump($sound_like);
+		}
+		else echo "sound_like =>" . $sound_like;
 ?>
