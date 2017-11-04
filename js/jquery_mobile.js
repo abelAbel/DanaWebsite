@@ -240,7 +240,8 @@ function searchResponce(d) {
       for(x in d['popups'])
       {
         console.log(d['popups'][x]);
-        $(d['popups'][x]).appendTo("#rMainTop").enhanceWithin().popup();
+        $(d['popups'][x]).appendTo("#rMainTop").popup();
+        // $(d['popups'][x]).appendTo("#rMainTop").enhanceWithin().popup();
       }
 
 } // End of searchResponce()

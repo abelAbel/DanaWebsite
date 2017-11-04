@@ -8,11 +8,13 @@
 
 	if(isset($_GET['method']))
 	{
-		return $_GET['method']();
+		echo $_GET['method']();
+		return;
 	}
 	elseif (isset($_POST['method']))
 	{
-		return $_POST['method']();
+		echo $_POST['method']();
+		return;
 	}
 
 	if(isset($_POST["username"]) && isset($_POST["password"]))
@@ -48,28 +50,82 @@
 
 	function getAll()
 	{
+		$finalResult = array('total'=> 0, 'error' => DB::SUCCESS);
+
 		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
 		{
-			$finalResult = array();
 			$res = DB::query("SELECT * FROM `index` WHERE verified=1");
-			$finalResult['contents'] = $res->fetchAll();
-			$finalResult['total'] = $res->rowCount();
-			echo json_encode($finalResult);
+		  if(is_object($res))
+		  {   
+		  	$resultsRow = $res->fetchAll(PDO::FETCH_ASSOC);
+		  	$rend = DB::renderToHtml($resultsRow,
+		  				// <button class="ui-btn ui-btn-inline" onclick="deleteItem($(this).parent());">Delete</button>
+           		'<button style = "margin-bottom:0px" class="ui-btn ui-btn-b" onclick="setUpEditPopUp($(this).parent());">Edit</button> ');
+
+		  	if($rend['error'] === DB::SUCCESS)
+		  	{
+		    	$finalResult['popups'] = $rend['popups'];
+		    	$finalResult['html'] = $rend['html'];
+				  $finalResult['total'] = $res->rowCount();
+		  	}
+		  	$finalResult['error'] = $rend['error'];
+		  }
+
+		  return json_encode($finalResult);
 		}
 		else
 			return 0;
 	}
 
+	function getInfoForForm()
+	{
+
+		 $results = DB::query("SELECT * FROM `index` WHERE id=:id",array(':id' => $_GET['id']));
+      if(is_object($results) && $results->rowCount())
+      {
+        $finalAddRow = $results->fetch(PDO::FETCH_ASSOC);
+        $finalAddRow['tags'] = DB::tags_info_string($finalAddRow['tags_sound_like']);
+      }
+      $finalAddRow['error'] = 0;
+      return json_encode($finalAddRow);
+
+	}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+  function dbParamsArray($_title, $_description, $_url, $_verified)
+  {
+  	$title = test_input($_title);
+    // $keywords = test_input($_keywords);
+    $description = test_input($_description);
+    $url = test_input($_url);
+  	$pArr = array(':title'=>$title,':url'=>$url,
+  		          ':slider_rating'=>$_POST['slider-rating'],
+            ':description'=>$description,':url_hash'=>md5($url),
+            ':verified'=>$_verified);
+  	if (isset($_POST['id']))
+  		$pArr[':id'] = $_POST['id'];
+  	return $pArr;
+  }
 	function updateContent()
 	{
 		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
 		{
-			$params = array(':id'=>$_POST['id'],':title'=>$_POST['title'],':keywords'=>$_POST['keywords'],
-						':url'=>$_POST['url'],':slider_rating'=>$_POST['rating'],
-						':description'=>$_POST['description'],':url_hash'=>md5($_POST['url']));
-			if(DB::update($params))
-				return getAll();
-			else return 0;
+			$params = dbParamsArray($_POST['title'], $_POST['description'], $_POST['url'],1);
+			$updateDB = DB::update($params,json_decode($_POST['tags']));
+			if($updateDB === DB::SUCCESS)
+				{
+					return getAll();
+				}
+			else{
+					$finalResult = array('error' => "Unable to update <hr/> Error: ".$updateDB);
+					return json_encode($finalResult);
+			} 
 		}
 		else
 			return 0;
@@ -79,9 +135,13 @@
 	{
 		if (isset($_SESSION['loged_in']) && ($_SESSION['loged_in'] == getenv('ADD_TOKEN')))
 		{
-			if(DB::delete($_GET['id']))
+			$deleteDB = DB::delete($_POST['id']);
+			if( $deleteDB === DB::SUCCESS)
 				return getAll();
-			else return 0;
+			else{
+					$finalResult = array('error' => "Unable to delete at this time <hr/> Error: ".$deleteDB );
+					return json_encode($finalResult);
+			}
 		}
 		else
 			return 0;
@@ -104,10 +164,17 @@
 	 <!-- JQuery Mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Custom -->
+	    <!-- Custom -->
+    <link rel="stylesheet" href="themes/custom_c_d.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <!-- End Custom -->
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="js/shared_functions.js"></script>
+   <!-- Tag system begin -->
+    <script src="tagsystem/tags.js"></script>
+    <!-- Tag system end -->
 <script >
 	// $(function(){
 	// 	alert("hhh");
@@ -139,49 +206,64 @@
 				$.mobile.loading( "hide");
 			}
 		);
-		}
+	  }
 	  // alert("pagecreate event fired - the page has been created, but enhancement is not complete");
 	});
 
 	function formatResults(results)
 	{
+		$('[data-short-tg]').remove();
 		formatedResult = results['total'] + " Result Found <hr/>";
-		$.each( results['contents'], function( i, l ){
-        formatedResult+=
-         '<div id='+l['id']+ ' style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
-                      background-color: lightgrey;\
-                      margin-bottom: 10px;\
-                      box-shadow: 5px 5px 5px #888888;">'+
-                      'Title: <span name="title">'+ l['title'] + '</span><br>'+
-                      'Rating: <span name="rating">'+ l['rating'] + '</span><br>'+
-                      'URL: <span name="url"><a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> </span><br>'+
-                      'Keywords: <span name="keywords">'+ l['keywords'] + '</span><br>'+
-                      'Description: <span name="description">'+ l['description'] + '</span><br>'+
-                      '<button class="ui-btn ui-btn-inline" onclick="deleteItem($(this).parent());">Delete</button>\
-                  	  <button class="ui-btn ui-btn-inline" onclick="setUpUpdatePopUp($(this).parent());">Update</button>'+
-          '</div>';
-        });
+    formatedResult+= results['html'];
+    var x;
+    for(x in results['popups'])
+    {
+      console.log(results['popups'][x]);
+      $(results['popups'][x]).appendTo("#main_result_div").popup();
+      // $(d['popups'][x]).appendTo("#rMainTop").enhanceWithin().popup();
+    }
+
+		// $.each( results['contents'], function( i, l ){
+        // formatedResult+= 
+         // '<div id='+l['id']+ ' style='+'"border-bottom: 6px solid hsl('+hsl_rating(l['rating'])+', 100%, 50%);\
+         //              background-color: lightgrey;\
+         //              margin-bottom: 10px;\
+         //              box-shadow: 5px 5px 5px #888888;">'+
+         //              'Title: <span name="title">'+ l['title'] + '</span><br>'+
+         //              'Rating: <span name="rating">'+ l['rating'] + '</span><br>'+
+         //              'URL: <span name="url"><a target="_blank" href="'+ l['url'] +'">'+l['url']+'</a> </span><br>'+
+         //              'Tags: <span name="tags">'+ l['tags'] + '</span><br>'+
+         //              'Description: <span name="description">'+ l['description'] + '</span><br>'+
+         //              '<button class="ui-btn ui-btn-inline" onclick="deleteItem($(this).parent());">Delete</button>\
+         //          	  <button class="ui-btn ui-btn-inline" onclick="setUpUpdatePopUp($(this).parent());">Update</button>'+
+         //  '</div>';
+        // });
 		return formatedResult;
 	}
 
-	function updateItem(form) {
+	function updateItem() {
 		$.mobile.loading( "show");
-		var data = {};
+		var form = $('#editForm');
+		    data = {};
 		form.find('[name]').each(function (index, value) {
             var name = $(this).attr('name'),
                 value = $(this).val();
                 data[name] = value;
-                // console.log(name+":" + value);
+                console.log(name+":" + value);
 
         });
         data['method']="updateContent";
+        console.log(data);
 
-        $( "#updatePopup" ).popup( "close" );
 
-        ajaxCustom("all_in_db.php","POST",data,"json",
+      ajaxCustom("all_in_db.php","POST",data,"json",
 			function (datas,textStatus,jqXHR) {
-				alert("sucess Update");
-				$("#main_result_div").html(formatResults(datas));
+				if(datas['error'] != 0){
+					addPopUp(datas['error'],'c');
+				}else{
+					addPopUp("sucess Update",'d');
+					$("#main_result_div").html(formatResults(datas));
+				}
 				$.mobile.loading( "hide");
 			},
 			function (jqXHR, exception) {
@@ -193,26 +275,34 @@
         return false;
 	}
 
-	function setUpUpdatePopUp(parentDiv) {
-		 parentDiv.find('span[name]').each(function (index, value) {
-                // console.log("name:"+$(this).attr('name')+" / val:"+$(this).text());
+	function setUpEditPopUp(parentDiv) {
+		//Clear all form items
+		 $("#tags").get(0).clearAll();
+		 $('#editForm').trigger('reset');
 
-                if($(this).attr('name')== "rating")
-                {
-                	$("input[name="+$(this).attr('name')+"]").val($(this).text()).slider("refresh");
-                }
-                else if($(this).attr('name')== "description")
-                {
-                	$("textarea[name="+$(this).attr('name')+"]").val($(this).text());
-                }
-                else $("input[name="+$(this).attr('name')+"]").val($(this).text());
-        });
+		  $.mobile.loading( "show");
+			ajaxCustom("all_in_db.php","GET",{method:"getInfoForForm",id:parentDiv.attr('db-id')},"json",
+			function (datas,textStatus,jqXHR) {
+				console.log(datas);
+				if(datas['error'] == 0){
+          $("form input[name=title]").val(datas['title']);
+          $("form input[name=url]").val(datas['url']);
+          $("form input[name=slider-rating]").val(datas['rating']).slider("refresh");
+          $("form textarea[name=description]").html(datas['description']);
+					$("#tags").val(datas['tags']).trigger('input');
+					$("form input[name=id]").val(datas['id']);
+					$( "#updatePopup" ).popup( "open" );
+				}
+				else addPopUp("Error Occured - " + datas['error'],'c');
 
-		 $("form input[name=id]").val(parentDiv[0].id);
-		 // console.log($("form input[name=id]").val());
-
-
-		$( "#updatePopup" ).popup( "open" );
+				$.mobile.loading( "hide");
+			},
+			function (jqXHR, exception) {
+				addPopUp("Error Occured while prepering the form",'c');
+				$.mobile.loading( "hide");
+			}
+		);
+	  
 		return false;
 	}
 
@@ -220,11 +310,15 @@
 		$.mobile.loading( "show");
 		// console.log(parentDiv);
 		// alert(parentDiv[0].id);
-		ajaxCustom("all_in_db.php","GET",{method:"deleteContent",id:parentDiv[0].id},"json",
+		ajaxCustom("all_in_db.php","POST",{method:"deleteContent",id:$('form input[name=id]').val()},"json",
 			function (datas,textStatus,jqXHR) {
 				// console.log(datas);
-				alert("successfull Delete");
-				$("#main_result_div").html(formatResults(datas));
+				if(datas['error'] != 0){
+					addPopUp(datas['error'],'c');
+				}else{
+						addPopUp("successfull Delete",'d');
+						$("#main_result_div").html(formatResults(datas));
+				}
 				$.mobile.loading( "hide");
 			},
 			function (jqXHR, exception) {
@@ -234,6 +328,28 @@
 		);
 		return false;
 	}
+  $(document).one('pagebeforecreate',function (a) {
+  	$("#tags").tagSystem({maxTags:10,addAutocomplete:true});
+  // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
+	});
+
+	$(document).on("pageinit", function () {
+    $('.edit').on('click', function (e) { // e is the event
+		        setTimeout(function () {
+		            $("#popupDialog").popup("open")
+		        }, 100);
+		    });
+
+    $('#comfimed').on('tap',function (argument) {
+    	 if($("#updateOrdelete").val() == 'delete'){
+    	 		deleteItem();
+    	 }
+    	 else if($("#updateOrdelete").val() == 'update'){
+    	 		updateItem();
+    	 }
+    });
+
+	});
 
 </script>
 
@@ -255,39 +371,48 @@
 
 			</div> <!-- End of #main_result_div-->
 
+			<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+					<h3 class="ui-title">Are you sure you want to do this?</h3>
+					<p><span style="color: red">This action cannot be undone.</span></p>
+					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+					<a href="#" data-rel="back" id='comfimed' class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"  data-transition="flow">Comfirm</a>
+			</div>
     		<div id="updatePopup" data-role="popup" data-dismissible="false">
     			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
-	 			<form method="POST" action="all_in_db.php" style="padding:10px 20px;" onsubmit="updateItem($(this));">
+	 			<form method="POST" id="editForm" action="all_in_db.php" style="padding:5px 20px;" onsubmit="updateItem($(this));">
+	 				    <div class="ui-field-contain">
+            <label for="title">Title:</label>
+            <input type="text" name="title" data-clear-btn="true" required >
+        </div>
 
-					<!-- <div class="ui-field-contain"> -->
-					<div class="ui-field-contain">
-					    <label for="title">Title:</label>
-					    <input type="text" name="title" id="title" data-clear-btn="true" required>
-					</div>
+        <div class="ui-field-contain">
+            <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
+             <input  name="url" id="url" data-clear-btn="true" required >
+        </div>
 
-					<div class="ui-field-contain">
-					    <label for="keywords">Keywords:</label>
-					    <input type="text" name="keywords" id="keywords" data-clear-btn="true">
-					</div>
+        <div class="ui-field-contain">
+				    <label for="tags">Who is being rated tags: <br/> (MAX = 10)</label>
+				    <input type="text" name="tags-main-input" data-name="tags" id="tags" data-clear-btn="true">
+				</div>
 
-					<div class="ui-field-contain">
-					    <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
-					     <input  name="url" id="url" data-clear-btn="true" required>
-					</div>
+        <div class="ui-field-contain" data-theme="b">
+           <label for="slider-rating">Rating:</label>
+              <input name="slider-rating" type="range"  id="slider-rating" value=0 min="0" max="5" step=".1" data-highlight="true" >
+        </div>
 
-					<div class="ui-field-contain">
-						 <label for="rating">Rating:</label>
-	        			<input name="rating" type="range"  id="slider-rating" value="0" min="0" max="5" step=".1" data-highlight="true" data-theme="b" data-track-theme="b">
-					</div>
-					<div class="ui-field-contain">
-					    <label for="description">Description:</label>
-						<textarea  name="description" id="textarea"  ></textarea>
-					</div>
+        <div class="ui-field-contain">
+          <label for="description-a">Description:</label>
+          <textarea name="description" id="description-a"></textarea>
+        </div>
 
-					<input type="hidden" name="id" value="">
 
-					<input type="submit" data-inline="true" value="Update" data-icon="plus">
-					<input type="button" data-inline="true" value="Google" data-icon="search" onclick="window.open('http://www.google.com', '_system');">
+        <input type="hidden" name="id">
+        <input id="updateOrdelete" type="hidden" name="updateOrdelete">
+       	<div data-role="controlgroup" data-type="horizontal" >
+        	<a href="#"  data-role="button" class='edit' data-rel="back" data-icon="plus" onclick="$('#updateOrdelete').val('update');">Update</a>
+        	<a href="#"  data-role="button" class='edit' data-rel="back" data-icon="delete" onclick="$('#updateOrdelete').val('delete');">Delete</a>
+        	<input type="button" data-inline="true" value="Google" data-icon="search" onclick="window.open('http://www.google.com', '_system');">
+				</div>
 				</form>
 			</div> <!-- End of #updatePopup -->
 		<?php else: ?>

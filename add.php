@@ -86,7 +86,7 @@
         <!-- <div class="ui-field-contain"> -->
         <div class="ui-field-contain">
             <label for="title">Title:</label>
-            <input type="text" name="title" d="title" data-clear-btn="true" required value=<?php echo '"'.$title.'"';?>>
+            <input type="text" name="title" data-clear-btn="true" required value=<?php echo '"'.$title.'"';?>>
         </div>
 
         <div class="ui-field-contain">
@@ -294,9 +294,11 @@
 	function send_email($title, $body)
 	{
 		require_once('PHPMailer-master/PHPMailerAutoload.php');
+		date_default_timezone_set('Etc/UTC');
 		// include('..\env.php');
 		$mail = new PHPMailer();
 		$mail->isSMTP();
+		$mail->SMTPDebug = 2;
 		$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
 		$mail->SMTPSecure = 'ssl'; //With gmail we need to use SSL else gmail wont send any messages
 		$mail->Host = 'smtp.gmail.com';

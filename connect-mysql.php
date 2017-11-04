@@ -414,6 +414,93 @@
 			} 
 			return $tagInfoString;
 		}
+    
+		function hsl_rating ($rating){
+	    $change;
+		$step = 0.16666666666666666666666666666667;
+		$hue;
+		  if($rating == 0){
+		    $change = 1;
+		  }
+		  else{
+		    $change=((6-$rating)*round($step,17));
+		  }
+
+		  $hue = (1 - $change) *120;
+		  // echo "step->".number_format((float)$step, 16, '.', '')."<br>"; 
+		  return($hue);
+		}
+    public static function renderToHtml($rows,$addToEachEnd="")
+		{
+			$workArr = array('error' =>self::SUCCESS);
+			$html = "";
+			$tagIdCount = 0;
+			$wAverage = array();
+			$popups = array();
+			foreach ($rows as $row) {
+				$h = self::hsl_rating($row['rating']);
+				$html .=
+		      '<div db-id='.$row['id'].' style="background-color: lightgrey;
+		                  margin-bottom: 10px;
+		                  box-shadow: 5px 5px 5px #888888; 
+		                  border-radius: 10px 10px 0px 0px;">
+		        <a href='.$row['url'].' 
+		          style="padding-left: 5px;
+		              padding-right: 5px; 
+		              padding-top: 1px;
+		              margin-bottom: 10px;
+		              text-decoration: none;
+		              -webkit-tap-highlight-color: rgba(0,255,0,.1);
+		              border-bottom: 3px dashed hsl('.$h.', 100%, 50%);
+		              display: block;" target="_blank">
+		              <h4>'.$row['title'].'</h4> 
+		        </a> 
+
+		        <p style="padding-left: 5px; padding-right: 5px;">'.$row['description'].'</p>';
+				if(!empty($row['tags_sound_like'])){
+					$sound_like = split(' ',$row['tags_sound_like']);
+					if(sizeof($sound_like))
+					{
+						foreach ($sound_like as $sound) {
+							if(!isset($workArr[$sound]))
+							{
+
+								$q = self::query("SELECT tag_name, tag_url, tag_frequency FROM `tags` WHERE tag_sound_like='".$sound."'");
+		    				if(is_object($q) && $q->rowCount())
+		    				{
+		    					$curTag = $q->fetch(PDO::FETCH_ASSOC);
+		              $workArr[$sound] = $curTag;
+		    				} 
+		    				else
+		    				{
+		    					$workArr['error'] = $q;
+		    					return $returnArr;
+		    				}
+							}
+							$theme = (($workArr[$sound]['tag_url'] != "")?"b":"a");
+							$html .= '
+		    				<a href="#popup-tg'.$tagIdCount.'" data-transition="pop" class="ui-btn ui-btn-'.$theme.' ui-corner-all ui-mini ui-shadow ui-btn-inline" data-rel="popup">'.$workArr[$sound]['tag_name'].'</a>';
+		    				array_push($popups,
+				        '<div data-role="popup" data-short-tg='.$tagIdCount.' id=popup-tg'.$tagIdCount.' class="ui-content" data-arrow="t" data-theme="d">
+				          <p><b> Frequency: </b>'.$workArr[$sound]['tag_frequency'].'</p>'.(($theme === "b")?('
+				          <a href="'.$workArr[$sound]['tag_url'].'" target="_blank">'.$workArr[$sound]['tag_name'].' Link</a>'):'').'
+				        </div>');
+				        $tagIdCount +=1;
+						}
+					}
+				}
+        $html.=$addToEachEnd;
+				$html .= '
+				<div style="font-size: .8em; background: hsl('.$h.', 100%, 50%); text-shadow:none; padding: 0px"><b>Rating - '.$row['rating'].' </b></div>
+		    </div>';
+
+		    $wAverage[$row['rating']] = (!isset($wAverage[$row['rating']])) ? 1 : $wAverage[$row['rating']]+=1;
+			}
+		  $workArr['wAvg'] = $wAverage;
+		  $workArr['popups'] = $popups;
+			$workArr['html'] = $html;
+			return $workArr;
+		}
 
 	}//End of DB class
 

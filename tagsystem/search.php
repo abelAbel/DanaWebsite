@@ -236,9 +236,9 @@
 	// for ($i=0; $i <= 5; $i+=.1) { 
 	// 	echo "<h1 style='margin-bottom: 0px; margin-top: 0px;  background-color:hsl(".hsl_rating($i).", 100%, 50%)'>".$i." </h1>";
 	// }
-        $row['tags_sound_like'] = '';
+        $row['tags_sound_like'] = 'sdff';
 		$sound_like = split(' ',$row['tags_sound_like']);
-		if(count($sound_like)>1)
+		if(count($sound_like))
 		{
 			echo var_dump($sound_like);
 		}
