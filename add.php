@@ -57,12 +57,12 @@
           <script src="tagsystem/tags.js"></script>
           <!-- Tag system end -->
           <script type="text/javascript">
-		        $(document).one('pagebeforecreate',function (a) {
+		        $(document).one('pagebeforecreate','#finalAddPage',function (a) {
 		          $("#tags").tagSystem({maxTags:10,addAutocomplete:true});
 		          // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
 		        });
 
-		        $(document).one('pagecreate',function (a) {
+		        $(document).one('pagecreate','#finalAddPage',function (a) {
 		          $("#tags").val("<?php echo $tags; ?>").trigger('input');
 		        });
 

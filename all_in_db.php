@@ -328,7 +328,7 @@ function test_input($data) {
 		);
 		return false;
 	}
-  $(document).one('pagebeforecreate',function (a) {
+  $(document).on('pagebeforecreate',function (a) {
   	$("#tags").tagSystem({maxTags:10,addAutocomplete:true});
   // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
 	});
