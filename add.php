@@ -294,11 +294,11 @@
 	function send_email($title, $body)
 	{
 		require_once('PHPMailer-master/PHPMailerAutoload.php');
-		date_default_timezone_set('Etc/UTC');
+		// date_default_timezone_set('Etc/UTC');
 		// include('..\env.php');
 		$mail = new PHPMailer();
 		$mail->isSMTP();
-		$mail->SMTPDebug = 2;
+		// $mail->SMTPDebug = 2;
 		$mail->SMTPAuth = true;//Tell Php mailler that we need to Authenticate with Gmail to let them know so we can send an email
 		$mail->SMTPSecure = 'ssl'; //With gmail we need to use SSL else gmail wont send any messages
 		$mail->Host = 'smtp.gmail.com';
