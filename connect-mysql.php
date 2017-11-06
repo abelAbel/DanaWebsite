@@ -11,13 +11,20 @@
 		// 	$this->pdo = $this->connect();
 		// } 
 		const SUCCESS = 0;  
-		const QUERY_ERROR = 1;  
-		const ADD_ERROR = 2;
-		const UPDATE_ERROR = 3;
-		const DELETE_ERROR = 4;
-		const ADD_TAG_ERROR = 5;
-		const UPDATE_TAG_ERROR = 6;
-		const DELETE_TAG_ERROR = 7;
+		// const QUERY_ERROR = 1;  
+		// const ADD_ERROR = 2;
+		// const UPDATE_ERROR = 3;
+		// const DELETE_ERROR = 4;
+		// const ADD_TAG_ERROR = 5;
+		// const UPDATE_TAG_ERROR = 6;
+		// const DELETE_TAG_ERROR = 7;
+		const QUERY_ERROR = "QUERY_ERROR";  
+		const ADD_ERROR = "ADD_ERROR";
+		const UPDATE_ERROR = "UPDATE_ERROR";
+		const DELETE_ERROR = "DELETE_ERROR";
+		const ADD_TAG_ERROR = "ADD_TAG_ERROR";
+		const UPDATE_TAG_ERROR = "UPDATE_TAG_ERROR";
+		const DELETE_TAG_ERROR = "DELETE_TAG_ERROR";
 
 		protected static $pdo = null;
 
@@ -104,19 +111,19 @@
 	      			 			$delete->bindParam(":tag_sound_like",$tag_sound);
 										$delete->execute();
 										if(!$delete->rowCount())
-											return self::DELETE_TAG_ERROR.":1";
+											return self::DELETE_TAG_ERROR.":Unale to delete tag with frequency 1 and not verified";
 	      			 	}else{
 	      			 		if(self::updateTag($tag_param) != self::SUCCESS)
-	      			 			 return self::DELETE_TAG_ERROR.":2";
+	      			 			 return self::DELETE_TAG_ERROR.":Unable to update tags";
 	      			 	}
 	      		}
 	      		else { //delete tag
 							$delete->bindParam(":tag_sound_like",$tag_sound);
 							$delete->execute();
 							if(!$delete->rowCount())
-								return self::DELETE_TAG_ERROR.":3";
+								return self::DELETE_TAG_ERROR.":Unable to delete tags";
 							if($checkFrequency == false)
-							{//Go delete tag_sound_like in index table 
+							{//Go delete tags_sound_like in index table 
 								$indexQ = self::query("SELECT * FROM `index` WHERE tags_sound_like LIKE '%".$tag_sound."%'");
 								$indexRows = (is_object($indexQ)) ? $indexQ->fetchall(PDO::FETCH_ASSOC):array();
 								foreach ($indexRows as $r) {
@@ -124,7 +131,7 @@
 									$array = array_diff($array,array($tag_sound));
                   $array = implode(' ',$array);
 									if(self::update(array(':tags_sound_like' => $array, ':id'=>$r['id'] )) != self::SUCCESS)
-										return self::DELETE_TAG_ERROR.":4";
+										return self::DELETE_TAG_ERROR.":Unable to delete tags from index table tags_sound_like column";
 								}
 							}
 	      		}
@@ -152,7 +159,7 @@
 					if($tag_sound_like !="")
 					{
 						if(self::deleteTags(explode(" ",$tag_sound_like)) != self::SUCCESS)
-							$success = self::DELETE_ERROR.":1";
+							$success = self::DELETE_ERROR.":Unable to delete tags for item to delete in index table";
 					}
 					if($success === self::SUCCESS){
 						$query = "DELETE FROM `index` WHERE id=:id";
@@ -160,9 +167,9 @@
 						$delete->bindParam(":id",$id);
 						$delete->execute();
 						if (!$delete->rowCount())
-							$success = self::DELETE_ERROR.":2";
+							$success = self::DELETE_ERROR.":Unable to delete item";
 					}
-				}else $success = self::DELETE_ERROR.":3"; //ID does not exist  
+				}else $success = self::DELETE_ERROR.":ID provided does not exist in index table"; //ID does not exist  
 
 				if($success === self::SUCCESS)
 					$dbConnect->commit();
@@ -202,7 +209,7 @@
 					if(!$update->rowCount())
 					{
 						$dbConnect->rollback();
-						return self::UPDATE_ERROR.":1";
+						return self::UPDATE_ERROR.":Nothing to update";
 					}
 					$dbConnect->commit();
 					return $success;
@@ -228,7 +235,7 @@
  							
 	      			 if(self::updateTag($tag_param) != self::SUCCESS)
 	      			 	{
-	      			 		$success = self::UPDATE_ERROR.":2";
+	      			 		$success = self::UPDATE_ERROR.":Unable to update tags";
 	      			 		break;
 	      			 	}
 	      		}
@@ -236,7 +243,7 @@
  
 	            if (self::addTag(array(":name" =>$tag->text,":url" =>$tag->url,":sound_like" =>$tagSound,":verified" =>$param[':verified'],":frequency" => 1)) != self::SUCCESS)
 	            	{
-	            		$success = self::UPDATE_ERROR.":3";
+	            		$success = self::UPDATE_ERROR.":Unable to add new tags";
 	            		break;
 	            	}
 	      		}
@@ -253,7 +260,7 @@
 					  if(sizeof($tags_to_delete))
 					  {
 					  	if(self::deleteTags($tags_to_delete) != self::SUCCESS)
-					  		$success = self::UPDATE_ERROR.":4";
+					  		$success = self::UPDATE_ERROR.":Unable to delete tags that have been removed";
 					  }
 					  $SET_param.= ',tags_sound_like=:tags_sound_like';
 					}
@@ -264,7 +271,7 @@
 					// if(!$update->rowCount())
 					// 	$success = self::UPDATE_ERROR.":5";
 				}
-				else $success = self::UPDATE_ERROR.":6";// No ID exists";
+				else $success = self::UPDATE_ERROR.":ID provided does not exist";// No ID exists";
 				
 				if($success === self::SUCCESS)
 					$dbConnect->commit();
@@ -330,14 +337,14 @@
       			 }
       			 if( self::updateTag($tag_param) != self::SUCCESS)
       			 	{
-      			 		$success = self::ADD_ERROR.":1";
+      			 		$success = self::ADD_ERROR.":Unable to update tags";
       			 		break;
       			 	}
       		}
       		else{ //Add tag
             if(self::addTag(array(":name" =>$tag->text,":url" =>$tag->url,":sound_like" =>$tagSound,":verified" =>$param[':verified'],":frequency" => 1)) != self::SUCCESS)
             	{
-            		$success = self::ADD_ERROR.":2";
+            		$success = self::ADD_ERROR.":Unable to add new tags";
             		break;
             	}
       		}
@@ -350,9 +357,8 @@
 		      $add = $dbConnect->prepare($query);
 		      $add->execute($param);      	
 		      if(!$add->rowCount())
-		      	$success = self::ADD_ERROR.":3";
+		      	$success = self::ADD_ERROR.":Unable to insert into index table";
       	}
-      	else $success = self::ADD_ERROR.":4";
 
 				if($success === self::SUCCESS)
 					$dbConnect->commit();

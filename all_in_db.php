@@ -332,15 +332,18 @@ function test_input($data) {
   	$("#tags").tagSystem({maxTags:10,addAutocomplete:true});
   // $("#tags").val("hello|https://hellow.com,howdy,walmart,good things,great art").trigger('input');
 	});
+    $( document ).on( "popupafterclose", function() {
+        $( "#addPopupDiv" ).remove();
+    });
 
-	$(document).on("pageinit", function () {
+	$(document).on("pagecreate", function () {
     $('.edit').on('click', function (e) { // e is the event
 		        setTimeout(function () {
 		            $("#popupDialog").popup("open")
 		        }, 100);
 		    });
 
-    $('#comfimed').on('tap',function (argument) {
+    $('#comfirmed').on('tap',function (argument) {
     	 if($("#updateOrdelete").val() == 'delete'){
     	 		deleteItem();
     	 }
@@ -375,7 +378,7 @@ function test_input($data) {
 					<h3 class="ui-title">Are you sure you want to do this?</h3>
 					<p><span style="color: red">This action cannot be undone.</span></p>
 					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-					<a href="#" data-rel="back" id='comfimed' class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"  data-transition="flow">Comfirm</a>
+					<a href="#" data-rel="back" id='comfirmed' class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"  data-transition="flow">Comfirm</a>
 			</div>
     		<div id="updatePopup" data-role="popup" data-dismissible="false">
     			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
@@ -386,7 +389,7 @@ function test_input($data) {
         </div>
 
         <div class="ui-field-contain">
-            <label for="url">Url: <span id="urlErr" style="color: red">  </span> </label>
+            <label for="url">Url: <span id="urlErr" style="color: red"> </span> </label>
              <input  name="url" id="url" data-clear-btn="true" required >
         </div>
 
